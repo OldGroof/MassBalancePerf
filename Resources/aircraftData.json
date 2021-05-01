@@ -1,0 +1,100 @@
+[
+  {
+    "reg": "G-LCTA",
+    "mass": 1688,
+    "arm": 89.78,
+    "moment": 151546,
+    "type": "Piper Archer III"
+  },
+  {
+    "reg": "G-LCTB",
+    "mass": 1673,
+    "arm": 89.65,
+    "moment": 149984,
+    "type": "Piper Archer III"
+  },
+  {
+    "reg": "G-LCTC",
+    "mass": 1687,
+    "arm": 89.67,
+    "moment": 151280,
+    "type": "Piper Archer III"
+  },
+  {
+    "reg": "G-LCTD",
+    "mass": 1685,
+    "arm": 89.53,
+    "moment": 150851,
+    "type": "Piper Archer III"
+  },
+  {
+    "reg": "G-LCTE",
+    "mass": 1683,
+    "arm": 89.54,
+    "moment": 150700,
+    "type": "Piper Archer III"
+  },
+  {
+    "reg": "G-LCTF",
+    "mass": 1678,
+    "arm": 89.19,
+    "moment": 149660,
+    "type": "Piper Archer III"
+  },
+  {
+    "reg": "G-LCTG",
+    "mass": 1674,
+    "arm": 89.33,
+    "moment": 149531,
+    "type": "Piper Archer III"
+  },
+  {
+    "reg": "G-LCTH",
+    "mass": 1668,
+    "arm": 89.21,
+    "moment": 148805,
+    "type": "Piper Archer III"
+  },
+  {
+    "reg": "G-LCTI",
+    "mass": 1591,
+    "arm": 88.87,
+    "moment": 141400,
+    "type": "Piper Archer III"
+  },
+  {
+    "reg": "G-LCTJ",
+    "mass": 1655,
+    "arm": 89.03,
+    "moment": 147347,
+    "type": "Piper Archer III"
+  },
+  {
+    "reg": "G-LCTK",
+    "mass": 1659,
+    "arm": 88.98,
+    "moment": 147622,
+    "type": "Piper Archer III"
+  },
+  {
+    "reg": "G-LCTL",
+    "mass": 1663,
+    "arm": 88.82,
+    "moment": 147713,
+    "type": "Piper Archer III"
+  },
+  {
+    "reg": "G-LCTM",
+    "mass": 1682,
+    "arm": 89.32,
+    "moment": 150237,
+    "type": "Piper Archer III"
+  },
+  {
+    "reg": "G-LCTN",
+    "mass": 1682,
+    "arm": 89.37,
+    "moment": 150327,
+    "type": "Piper Archer III"
+  }
+]

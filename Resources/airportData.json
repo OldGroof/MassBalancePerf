@@ -1,0 +1,76 @@
+[
+    {
+        "icao": "EGTC",
+        "name": "Cranfield",
+        "elevation": 360,
+        "runways": [
+            {
+                "name": "03",
+                "bearing": 31,
+                "slope": 0.0,
+                "tora": 1799,
+                "toda": 1799,
+                "asda": 1799,
+                "lda": 1593,
+                "intx": [
+                    {
+                        "name": "D1",
+                        "adjust": 419,
+                    }
+                ]
+            },
+            {
+                "name": "21",
+                "bearing": 211,
+                "slope": 0.0,
+                "tora": 1672,
+                "toda": 1799,
+                "asda": 1672,
+                "lda": 1672,
+                "intx": [
+                    {
+                        "name": "B1",
+                        "adjust": 366,
+                    },
+                    {
+                        "name": "C1",
+                        "adjust": 719,
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "icao": "EGTK",
+        "name": "Oxford",
+        "elevation": 263,
+        "runways": [
+            {
+                "name": "01",
+                "bearing": 11,
+                "slope": 0.0,
+                "tora": 1442,
+                "toda": 1592,
+                "asda": 1442,
+                "lda": 1319,
+                "intx": [
+                ]
+            },
+            {
+                "name": "19",
+                "bearing": 191,
+                "slope": 0.0,
+                "tora": 1383,
+                "toda": 1558,
+                "asda": 1383,
+                "lda": 1319,
+                "intx": [
+                    {
+                        "name": "C1",
+                        "adjust": 381,
+                    }
+                ]
+            }
+        ]
+    }
+]
