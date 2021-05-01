@@ -41,16 +41,25 @@ h2 {
 .text-center {
   text-align: center;
 }
-.lead {
-  font-size: 21px;
-  font-weight: 200;
-  margin-bottom: 20px;
-}
 
-table, td, th {
-  border: 1px solid black;
+
+.table-header {
+  font-size: 17px;
+  text-align: center;
+  font-weight: bold;
+  margin: 0px 0px 0px 0px;
 }
-table {
-  width: 100%;
-  border-collapse: collapse;
+.table-subheader {
+  font-size: 12px;
+  text-align: center;
+  margin: 0px 0px 0px 0px;
+}
+.table {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  padding: 5;
+}
+.table-box {
+  border: 1px solid black;
+  height: 40px;
 }
