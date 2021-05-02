@@ -44,7 +44,12 @@ h2 {
 .text-center {
   text-align: center;
 }
-
+.text-table {
+  width: inherit;
+  height: inherit;
+  font-size: medium;
+  text-align: center;
+}
 
 .table-header {
   font-size: 17px;
@@ -63,8 +68,17 @@ h2 {
   padding: 5;
 }
 .table-box {
+  align-items: center;
   border: 1px solid black;
   height: 40px;
+}
+.table-input {
+  font-size: medium;
+  height: 100%;
+  width: 98%;
+  border: none;
+  background: transparent;
+  text-align: center;
 }
 
 .dropdown {
