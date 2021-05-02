@@ -15,7 +15,7 @@
                 "intx": [
                     {
                         "name": "D1",
-                        "adjust": 419,
+                        "adjust": 419
                     }
                 ]
             },
@@ -30,11 +30,11 @@
                 "intx": [
                     {
                         "name": "B1",
-                        "adjust": 366,
+                        "adjust": 366
                     },
                     {
                         "name": "C1",
-                        "adjust": 719,
+                        "adjust": 719
                     }
                 ]
             }
@@ -67,7 +67,7 @@
                 "intx": [
                     {
                         "name": "C1",
-                        "adjust": 381,
+                        "adjust": 381
                     }
                 ]
             }
