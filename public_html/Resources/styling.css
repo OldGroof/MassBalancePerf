@@ -3,6 +3,7 @@
   padding: 10px;
   border-radius: 7px;
   margin: 2px;
+  min-width: 570px;
 }
 .row {
   display: flex;
