@@ -13,6 +13,3 @@ window.onclick = function(e) {
       }
     }
 }
-const filePath = "./Resources/aircraftData.json"
-var data = require(filePath);
-console.log(aircraft.length);
