@@ -8,10 +8,6 @@
 .row {
   display: flex;
 }
-.row1 {
-  display: flex;
-  width: 100%
-}
 
 body, h1, p {
   font-family: "Helvetica Neue", "Segoe UI", Segoe, Helvetica, Arial, "Lucida Grande", sans-serif;
