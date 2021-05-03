@@ -19,7 +19,7 @@ function setData(reg) {
     return
   }
 
-  document.getElementById('dropDown').innerHTML = reg
+  document.getElementById('txtDropdown').innerHTML = reg
   document.getElementById('txtBEMArm').innerHTML = bemarm
   document.getElementById('txtBEM').innerHTML = Intl.NumberFormat().format(bem)
   document.getElementById('txtBEMMom').innerHTML = Intl.NumberFormat().format(bemmom)
