@@ -3,7 +3,6 @@ function myFunction() {
 }
   
 function setData(reg) {
-  console.log(reg)
   if (reg == "G-LCTO") {
     bem = 1681
     bemarm = 89.34
