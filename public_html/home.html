@@ -17,7 +17,7 @@
       <div class="row">
         <h2>Mass and Balance Table</h2>
         <div class="dropdown">
-          <button onclick="myFunction()" class="dropbtn" id="dropDown">Select Aircraft</button>
+          <button onclick="myFunction()" class="dropbtn">Select Aircraft</button>
           <div class="dropdown-content" id="myDropdown">
             <a onclick="setData('G-LCTO')">G-LCTO</a>
             <a onclick="setData('G-LCTP')">G-LCTP</a>
@@ -60,7 +60,7 @@
             <p class="table-header">80.5</p>
           </div>  
           <div class="table-box">
-            <input type="text" id="inpFrnt" class="table-input" disabled 
+            <input type="text" id="inpFrnt" class="table-input" disabled inputmode="numeric"
             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
             />
           </div>
@@ -74,7 +74,7 @@
             <p class="table-header">118.1</p>
           </div>  
           <div class="table-box">
-            <input type="text" id="inpRear" class="table-input" disabled 
+            <input type="text" id="inpRear" class="table-input" disabled inputmode="numeric"
             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
             />
           </div>
@@ -89,7 +89,7 @@
             <p class="table-header">142.8</p>
           </div>  
           <div class="table-box">
-            <input type="text" id="inpBgge" class="table-input" disabled 
+            <input type="text" id="inpBgge" class="table-input" disabled inputmode="numeric"
             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
             />
           </div>
@@ -116,7 +116,7 @@
             <p class="table-header">95.0</p>
           </div>  
           <div class="table-box">
-            <input type="text" id="inpFuel" class="table-input" disabled 
+            <input type="text" id="inpFuel" class="table-input" disabled inputmode="numeric" min= "1" max="288"
             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
             />
           </div>
@@ -156,7 +156,7 @@
             <p class="table-header">95.0</p>
           </div>  
           <div class="table-box">
-            <input type="text" id="inpBurn" class="table-input" disabled 
+            <input type="text" id="inpBurn" class="table-input" disabled inputmode="numeric" min= "1" max="288"
             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
             />
           </div>
