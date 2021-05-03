@@ -35,7 +35,7 @@ h1 {
 
 h2 {
   font-size: 25px;
-  margin: 0 0 5px 0;
+  margin: 5px 0 5px 0;
   text-align: left;
 }
 
@@ -74,12 +74,14 @@ h2 {
   height: 40px;
 }
 .table-input {
-  font-size: medium;
   height: 100%;
   width: 98%;
   border: none;
   background: transparent;
   text-align: center;
+}
+.table-input:focus {
+  outline: none;
 }
 
 .dropdown {
