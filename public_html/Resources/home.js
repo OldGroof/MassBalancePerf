@@ -1,7 +1,7 @@
 function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show")
 }
-  
+
 function setData(reg) {
   if (reg == "G-LCTO") {
     bem = 1681
