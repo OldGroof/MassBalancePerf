@@ -188,10 +188,86 @@
   </div>
   <div class="row">
     <div class="column">
-      <h2>Take off Performance</h2>
+      <h2>Take off</h2>
+      <div class="row" style="margin-top: 15px;"> 
+        <label class="container" style=" float: right; margin-left: auto;">Flaps 25°
+          <input type="checkbox" id="flapstoggle" disabled>
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
+        <p class="input-label">Elevation</p>
+        <input type="text" id="inpElevDep" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Elevation"
+        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+        />
+      </div>
+      <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
+        <p class="input-label">Air Pressure</p>
+        <input type="text" id="inpPressDep" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Pressure"
+        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+        />
+      </div>
+      <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
+        <p class="input-label">Pressure Altitude</p>
+        <p class="input-label" style="float: right; margin-left: auto; font-weight: 300;" id="txtPressAltDep">0</p>
+      </div>
+      <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
+        <p class="input-label">Temperature</p>
+        <input type="text" id="inpTempDep" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Temperature"
+        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+        />
+      </div>
+      <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
+        <p class="input-label">Wind</p>
+        <input type="text" id="inpWindDep" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Wind Comp."
+        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1'); "
+        />
+      </div>
+      <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
+        <p class="input-label">Up Slope</p>
+        <input type="text" id="inpSlopeDep" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Slope"
+        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+        />
+      </div>
+      <p class="input-label">Runway Condition</p>
+      <div class="ios-segmented-control" id="rwyCondDep">
+        <span class="selection"></span>
+        <div class="option">
+          <input type="radio" id="paved" name="sample" value="paved" checked>
+          <label for="paved"><span>Paved</span></label>
+        </div>
+        <div class="option">
+          <input type="radio" id="grsDy" name="sample" value="grassDry">
+          <label for="grsDy"><span>Grass Dry</span></label>
+        </div>
+        <div class="option">
+          <input type="radio" id="grsWt" name="sample" value="grassWet">
+          <label for="grsWt"><span>Grass Wet</span></label>
+        </div>
+      </div>
+      <div class="result-container" id="TOResults">
+        <p class="input-label">Performance</p>
+        <div class="row" style="padding-top: 5px; padding-bottom: 5px; border:none; border-bottom:1px solid #a8a8a8;">
+          <p class="result-label">Take off Distance Required</p>
+          <p id="txtTODR" class="result-label" style="float: right; margin-left: auto; color: grey;"></p>
+        </div>
+        <div class="row" style="padding-top: 5px; padding-bottom: 5px; border:none; border-bottom:1px solid #a8a8a8;">
+          <p class="result-label">Take off Distance Required x 1.25</p>
+          <p id="txtTODR125" class="result-label" style="float: right; margin-left: auto; color: grey;"></p>
+        </div>
+        <div class="row" style="padding-top: 5px; padding-bottom: 5px; border:none; border-bottom:1px solid #a8a8a8;">
+          <p class="result-label">Take off Distance Required x 1.15</p>
+          <p id="txtTODR115" class="result-label" style="float: right; margin-left: auto; color: grey;"></p>
+        </div>
+        <div class="row" style="padding-top: 5px; padding-bottom: 5px; border:none; border-bottom:1px solid #a8a8a8;">
+          <p class="result-label">Take off Distance Required x 1.30</p>
+          <p id="txtTODR130" class="result-label" style="float: right; margin-left: auto; color: grey;"></p>
+        </div>
+      </div>
     </div>
     <div class="column">
       <h2>Landing Performance</h2>
+
     </div>
   </div>
 <script src="Resources/home.js"></script>
