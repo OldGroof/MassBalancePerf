@@ -44,6 +44,9 @@ h1 {
   font-size: 48px;
   font-weight: 300;
   text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 h2 {
