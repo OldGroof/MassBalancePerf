@@ -1,3 +1,27 @@
+.header {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  color: white;
+}
+
+.header a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 18px 17px;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.header a:hover {
+  background: #ddd;
+  color: black;
+}
+
 .column {
   flex: 50%;
   padding: 10px;
@@ -12,10 +36,11 @@
 body, h1, p {
   font-family: "Helvetica Neue", "Segoe UI", Segoe, Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: normal;
-  margin: 5px;
+  margin: 0;
 }
 
 h1 {
+  margin-left: 5px;
   font-size: 48px;
   font-weight: 300;
   text-align: left;
@@ -202,6 +227,7 @@ input {
   border-bottom:1px solid #757575;
   text-align: right;
 }
+
 .ios-segmented-control {
   --background: rgba(239,239,240,1);
   background: var(--background);
@@ -333,9 +359,10 @@ input {
   display: none;
   border-radius: 8px;
   margin-top: 15px ;
-  padding: 5px;
-  background-color: rgb(228, 228, 228);
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  margin-bottom: 15px ;
+  padding: 10px;
+  background-color: rgb(239,239,240,1);
+  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.12), 0 3px 1px 0 rgba(0,0,0,0.04);
   margin-left: auto;
 }
 

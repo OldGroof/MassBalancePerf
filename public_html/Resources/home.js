@@ -35,6 +35,9 @@ function setData(reg) {
   document.getElementById("inpTempDep").disabled = false
   document.getElementById("inpWindDep").disabled = false
   document.getElementById("inpSlopeDep").disabled = false
+  document.getElementById("paved").disabled = false
+  document.getElementById("grsDy").disabled = false
+  document.getElementById("grsWt").disabled = false
   maths()
 }
 

@@ -8,11 +8,16 @@
 <link rel="stylesheet" href="Resources/styling.css">
 </head>
 <body>
+<div class="header">
+  <div class="row">
+    <h1>Mass & Balance and Performance</h1>
+    <a style="float: right; margin-left: auto;" href="http://www.nats-uk.ead-it.com/fwf-natsuk/restricted/user/ino/brief_overview.faces" target="_blank">NOTAMS</a>
+    <a href="http://www.nats-uk.ead-it.com/public/index.php%3Foption=com_content&task=blogcategory&id=165&Itemid=3.html" target="_blank">eAIP</a>
+    <a href="https://www.metoffice.gov.uk/premium/generalaviation/#/aerodromes" target="_blank">Met Office</a>
+  </div>
+</div>
 
-<h1>Mass & Balance and Performance</h1>
-<p class="text-left">Use this website as a tool to aid in mass and balance calculations and aircraft performance. This is only designed to be a gross error check tool so the data produced may not be accurate</p>
-
-<div class="row">
+<div class="row" style="margin-top: 64px;">
     <div class="column" >
       <div class="row">
         <h2>Mass and Balance Table</h2>
@@ -233,15 +238,15 @@
       <div class="ios-segmented-control" id="rwyCondDep">
         <span class="selection"></span>
         <div class="option">
-          <input type="radio" id="paved" name="sample" value="paved" checked>
+          <input type="radio" id="paved" name="sample" value="paved" checked disabled>
           <label for="paved"><span>Paved</span></label>
         </div>
         <div class="option">
-          <input type="radio" id="grsDy" name="sample" value="grassDry">
+          <input type="radio" id="grsDy" name="sample" value="grassDry" disabled>
           <label for="grsDy"><span>Grass Dry</span></label>
         </div>
         <div class="option">
-          <input type="radio" id="grsWt" name="sample" value="grassWet">
+          <input type="radio" id="grsWt" name="sample" value="grassWet" disabled>
           <label for="grsWt"><span>Grass Wet</span></label>
         </div>
       </div>
@@ -266,8 +271,7 @@
       </div>
     </div>
     <div class="column">
-      <h2>Landing Performance</h2>
-
+      <h2>Landing</h2>
     </div>
   </div>
 <script src="Resources/home.js"></script>
