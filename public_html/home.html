@@ -17,7 +17,7 @@
   </div>
 </div>
 
-<div class="row" style="margin-top: 64px;">
+<div class="row" style="margin-top: 60px;">
     <div class="column" >
       <div class="row">
         <h2>Mass and Balance Table</h2>
@@ -53,7 +53,7 @@
             <p class="text-table" id="txtBEMArm"></p>
           </div>  
           <div class="table-box">
-            <p class="text-table" id="txtBEM">Select Aircraft</p>
+            <p class="text-table" id="txtBEM"></p>
           </div>
           <div class="table-box">
             <p class="text-table" id="txtBEMMom"></p>
@@ -234,21 +234,13 @@
         oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
         />
       </div>
-      <p class="input-label">Runway Condition</p>
-      <div class="ios-segmented-control" id="rwyCondDep">
-        <span class="selection"></span>
-        <div class="option">
-          <input type="radio" id="paved" name="sample" value="paved" checked disabled>
-          <label for="paved"><span>Paved</span></label>
-        </div>
-        <div class="option">
-          <input type="radio" id="grsDy" name="sample" value="grassDry" disabled>
-          <label for="grsDy"><span>Grass Dry</span></label>
-        </div>
-        <div class="option">
-          <input type="radio" id="grsWt" name="sample" value="grassWet" disabled>
-          <label for="grsWt"><span>Grass Wet</span></label>
-        </div>
+      <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
+        <p class="input-label">Runway Condition</p>
+        <select id="rwyCondDep" style="float: right; margin-left: auto;" disabled>
+          <option value="0">Paved</option>
+          <option value="1">Dry Grass</option>
+          <option value="2">Wet Grass</option>
+        </select>
       </div>
       <div class="result-container" id="TOResults">
         <p class="input-label">Performance</p>
@@ -272,7 +264,60 @@
     </div>
     <div class="column">
       <h2>Landing</h2>
-      
+      <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
+        <p class="input-label">Elevation</p>
+        <input type="text" id="inpElevArr" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Elevation"
+        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+        />
+      </div>
+      <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
+        <p class="input-label">Air Pressure</p>
+        <input type="text" id="inpPressArr" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Pressure"
+        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+        />
+      </div>
+      <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
+        <p class="input-label">Pressure Altitude</p>
+        <p class="input-label" style="float: right; margin-left: auto; font-weight: 300;" id="txtPressAltArr">0</p>
+      </div>
+      <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
+        <p class="input-label">Temperature</p>
+        <input type="text" id="inpTempArr" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Temperature"
+        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+        />
+      </div>
+      <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
+        <p class="input-label">Wind</p>
+        <input type="text" id="inpWindArr" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Wind Comp."
+        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1'); "
+        />
+      </div>
+      <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
+        <p class="input-label">Down Slope</p>
+        <input type="text" id="inpSlopeArr" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Slope"
+        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+        />
+      </div>
+      <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
+        <p class="input-label">Runway Condition</p>
+        <select id="rwyCondArr" style="float: right; margin-left: auto;" disabled>
+          <option value="0">Dry Paved</option>
+          <option value="1">Wet Paved</option>
+          <option value="2">Dry Grass</option>
+          <option value="3">Wet Grass</option>
+        </select>
+      </div>
+      <div class="result-container" id="LDGResults">
+        <p class="input-label">Performance</p>
+        <div class="row" style="padding-top: 5px; padding-bottom: 5px; border:none; border-bottom:1px solid #a8a8a8;">
+          <p class="result-label">Landing Distance Required</p>
+          <p id="txtLDR" class="result-label" style="float: right; margin-left: auto; color: grey;"></p>
+        </div>
+        <div class="row" style="padding-top: 5px; padding-bottom: 5px; border:none; border-bottom:1px solid #a8a8a8;">
+          <p class="result-label">Landing Distance Required x 1.43</p>
+          <p id="txtLDR143" class="result-label" style="float: right; margin-left: auto; color: grey;"></p>
+        </div>
+      </div>
     </div>
   </div>
 <script src="Resources/home.js"></script>

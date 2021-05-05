@@ -35,9 +35,14 @@ function setData(reg) {
   document.getElementById("inpTempDep").disabled = false
   document.getElementById("inpWindDep").disabled = false
   document.getElementById("inpSlopeDep").disabled = false
-  document.getElementById("paved").disabled = false
-  document.getElementById("grsDy").disabled = false
-  document.getElementById("grsWt").disabled = false
+  document.getElementById("rwyCondDep").disabled = false
+
+  document.getElementById("inpElevArr").disabled = false
+  document.getElementById("inpPressArr").disabled = false
+  document.getElementById("inpTempArr").disabled = false
+  document.getElementById("inpWindArr").disabled = false
+  document.getElementById("inpSlopeArr").disabled = false
+  document.getElementById("rwyCondArr").disabled = false
   maths()
 }
 
@@ -125,42 +130,7 @@ function maths() {
   document.getElementById("txtLMMom").innerHTML = Intl.NumberFormat().format(Math.floor(lmMom + 0.5))
 
   perfTO()
-}
-
-// Constants
-
-const SEGMENTED_CONTROL_BASE_SELECTOR = ".ios-segmented-control";
-const SEGMENTED_CONTROL_INDIVIDUAL_SEGMENT_SELECTOR = ".ios-segmented-control .option input";
-const SEGMENTED_CONTROL_BACKGROUND_PILL_SELECTOR = ".ios-segmented-control .selection";
-
-
-// Main
-
-document.addEventListener("DOMContentLoaded", setup);
-
-// Body functions
-
-function setup() {
-  forEachElement(SEGMENTED_CONTROL_BASE_SELECTOR, elem => {
-    elem.addEventListener("change", updatePillPosition);
-  })
-  window.addEventListener("resize", updatePillPosition); // Prevent pill from detaching from element when window resized. Becuase this is rare I haven't bothered with throttling the event
-}
-
-function updatePillPosition() {
-  forEachElement(SEGMENTED_CONTROL_INDIVIDUAL_SEGMENT_SELECTOR, (elem, index) => {
-    if (elem.checked) moveBackgroundPillToElement(elem, index);
-  })
-}
-
-function moveBackgroundPillToElement(elem, index) {
-  document.querySelector(SEGMENTED_CONTROL_BACKGROUND_PILL_SELECTOR).style.transform = "translateX(" + (elem.offsetWidth * index) + "px)";
-}
-
-// Helper functions
-
-function forEachElement(className, fn) {
-  Array.from(document.querySelectorAll(className)).forEach(fn);
+  perfLDG()
 }
 
 document.getElementById("inpElevDep").addEventListener("keyup", perfTO)
@@ -171,6 +141,13 @@ document.getElementById("inpSlopeDep").addEventListener("keyup", perfTO)
 document.getElementById("flapstoggle").addEventListener("click", perfTO)
 document.getElementById("rwyCondDep").addEventListener("click", perfTO)
 
+document.getElementById("inpElevArr").addEventListener("keyup", perfLDG)
+document.getElementById("inpPressArr").addEventListener("keyup", perfLDG)
+document.getElementById("inpTempArr").addEventListener("keyup", perfLDG)
+document.getElementById("inpWindArr").addEventListener("keyup", perfLDG)
+document.getElementById("inpSlopeArr").addEventListener("keyup", perfLDG)
+document.getElementById("rwyCondArr").addEventListener("click", perfLDG)
+
 function perfTO() {
   var mass = tom || 2550
   var flaps = document.getElementById("flapstoggle").checked
@@ -179,11 +156,11 @@ function perfTO() {
   var temp = Number(document.getElementById("inpTempDep").value) || 15
   var wind = Number(document.getElementById("inpWindDep").value) || 0
   var slope = Number(document.getElementById("inpSlopeDep").value) || 0.0
-  if (document.getElementById("paved").checked == true) {
+  if (document.getElementById("rwyCondDep").value == 0) {
     var rwyCond = 0
-  } else if (document.getElementById("grsDy").checked == true) {
+  } else if (document.getElementById("rwyCondDep").value == 1) {
     var rwyCond = 1
-  } else if (document.getElementById("grsWt").checked == true) {
+  } else if (document.getElementById("rwyCondDep").value == 2) {
     var rwyCond = 2
   }
 
@@ -232,4 +209,52 @@ function perfTO() {
   document.getElementById("txtTODR125").innerHTML = Intl.NumberFormat().format(Math.floor((todr * 1.25) + 0.5)) + " ft"
   document.getElementById("txtTODR115").innerHTML = Intl.NumberFormat().format(Math.floor((todr * 1.15) + 0.5)) + " ft"
   document.getElementById("txtTODR130").innerHTML = Intl.NumberFormat().format(Math.floor((todr * 1.30) + 0.5)) + " ft"
+}
+
+function perfLDG() {
+  var mass = lm || 2550
+  var elev = Number(document.getElementById("inpElevArr").value) || 0
+  var press = Number(document.getElementById("inpPressArr").value) || 1013
+  var temp = Number(document.getElementById("inpTempArr").value) || 15
+  var wind = Number(document.getElementById("inpWindArr").value) || 0
+  var slope = Number(document.getElementById("inpSlopeArr").value) || 0.0
+  if (document.getElementById("rwyCondArr").value == 0) {
+    var rwyCond = 0
+  } else if (document.getElementById("rwyCondArr").value == 1) {
+    var rwyCond = 1
+  } else if (document.getElementById("rwyCondArr").value == 2) {
+    var rwyCond = 2
+  } else if (document.getElementById("rwyCondArr").value == 3) {
+    var rwyCond = 3
+  }
+
+  var pressAlt = ((1013 - press) * 30) + elev
+  document.getElementById("txtPressAltArr").innerHTML = pressAlt
+
+  if (pressAlt < 0) {
+    var altVar = 0
+  } else {
+    var altVar = 0.024 * pressAlt
+  }
+
+  var tempVar = 3.2 * temp
+  var windVar = 17.78 * wind
+  var lmVar = 0.29 * (2550 - mass)
+  var slopeVar = slope / 2
+
+  var ld = Math.floor((1360 + altVar + tempVar - lmVar - windVar) + 0.5)
+
+  if (rwyCond == 0) {
+    var ldr = Math.floor((ld + ((0.1 * ld) * slopeVar)) + 0.5)
+  } else if (rwyCond == 1) {
+    var ldr = Math.floor(((ld + ((0.1 * ld) * slopeVar)) * 1.15) + 0.5)
+  } else if (rwyCond == 2) {
+    var ldr = Math.floor(((ld + ((0.1 * ld) * slopeVar)) * 1.15) + 0.5)
+  } else if (rwyCond == 3) {
+    var ldr = Math.floor(((ld + ((0.1 * ld) * slopeVar)) * 1.35) + 0.5)
+  }
+
+  document.getElementById("LDGResults").style.display = "block"
+  document.getElementById("txtLDR").innerHTML = Intl.NumberFormat().format(ldr) + " ft"
+  document.getElementById("txtLDR143").innerHTML = Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " ft"
 }
