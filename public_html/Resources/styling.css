@@ -163,9 +163,9 @@ h2 {
   display: block;
   position: relative;
   padding-left: 35px;
-  margin-bottom: 12px;
   cursor: pointer;
   font-size: 18px;
+  height: 33px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -231,6 +231,7 @@ h2 {
   text-align: left;
   font-weight: 500;
 }
+
 input {
   font-size:18px;
   display:block;
