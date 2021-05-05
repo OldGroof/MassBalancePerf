@@ -19,8 +19,7 @@
 }
 
 .header a:hover {
-  background: #ddd;
-  color: black;
+  background: #a80006;
 }
 
 .column {
@@ -38,6 +37,12 @@ body, h1, p {
   font-family: "Helvetica Neue", "Segoe UI", Segoe, Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: normal;
   margin: 0;
+
+}
+
+body {
+  background: #1f1f1f;
+  color: #eee;
 }
 
 h1 {
@@ -89,7 +94,7 @@ h2 {
 }
 .table-box {
   align-items: center;
-  border: 1px solid black;
+  border: 1px solid #eee;
   height: 40px;
 }
 .table-input {
@@ -98,6 +103,7 @@ h2 {
   border: none;
   background: transparent;
   text-align: center;
+  color: #eee;
 }
 .table-input:focus, .input:focus {
   outline: none;
@@ -117,10 +123,11 @@ h2 {
   display: inline-block;
   margin: 0;
   margin-left: auto;
+  color: #eee;
 }
 
 .dropdown:hover .dropbtn, .dropbtn:focus {
-  background: #eee;
+  background: rgb(56, 56, 56);
 }
 
 .dropdown-content {
@@ -232,6 +239,8 @@ input {
   border:none;
   border-bottom:1px solid #757575;
   text-align: right;
+  background: none;
+  color: #eee;
 }
 select {
   font-size:18px;
@@ -240,6 +249,8 @@ select {
   height: 30px;
   border:none;
   border-bottom:1px solid #757575;
+  background: none;
+  color: #eee;
 }
 
 .result-container {

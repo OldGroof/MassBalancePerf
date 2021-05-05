@@ -193,7 +193,7 @@
   </div>
   <div class="row">
     <div class="column">
-      <h2>Take off</h2>
+      <h2 style="border-bottom: 3px solid #a80006; padding-bottom: 3px;">Take off</h2>
       <div class="row" style="margin-top: 15px;"> 
         <label class="container" style=" float: right; margin-left: auto;">Flaps 25°
           <input type="checkbox" id="flapstoggle" disabled>
@@ -237,9 +237,9 @@
       <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
         <p class="input-label">Runway Condition</p>
         <select id="rwyCondDep" style="float: right; margin-left: auto;" disabled>
-          <option value="0">Paved</option>
-          <option value="1">Dry Grass</option>
-          <option value="2">Wet Grass</option>
+          <option style="color:black" value="0">Paved</option>
+          <option style="color:black" value="1">Dry Grass</option>
+          <option style="color:black" value="2">Wet Grass</option>
         </select>
       </div>
       <div class="result-container" id="TOResults">
@@ -263,7 +263,7 @@
       </div>
     </div>
     <div class="column">
-      <h2>Landing</h2>
+      <h2 style="border-bottom: 3px solid #a80006; padding-bottom: 3px;">Landing</h2>
       <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
         <p class="input-label">Elevation</p>
         <input type="text" id="inpElevArr" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Elevation"
@@ -301,10 +301,10 @@
       <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
         <p class="input-label">Runway Condition</p>
         <select id="rwyCondArr" style="float: right; margin-left: auto;" disabled>
-          <option value="0">Dry Paved</option>
-          <option value="1">Wet Paved</option>
-          <option value="2">Dry Grass</option>
-          <option value="3">Wet Grass</option>
+          <option style="color:black" value="0">Dry Paved</option>
+          <option style="color:black" value="1">Wet Paved</option>
+          <option style="color:black" value="2">Dry Grass</option>
+          <option style="color:black" value="3">Wet Grass</option>
         </select>
       </div>
       <div class="result-container" id="LDGResults">
@@ -320,6 +320,9 @@
       </div>
     </div>
   </div>
+  <p style="margin-top: 100px; text-align: center; color: rgb(46, 46, 46); font-weight: 600;">This tool was created as a gross error checker. Data on here may not be accurate or up to date.</p>
+  <p style="text-align: center; color: rgb(46, 46, 46); font-weight: 600;">Use this at your own risk.</p>
+  <p style="margin-bottom: 30px; text-align: center; color: rgb(46, 46, 46); font-weight: 600;">- Jacob.</p>
 <script src="Resources/home.js"></script>
 </body>
 </html>
