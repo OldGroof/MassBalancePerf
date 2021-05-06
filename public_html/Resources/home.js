@@ -267,8 +267,8 @@ xmlhttp.onreadystatechange = function() {
     var sel = document.getElementById('myDropdown');
 for(var i = 0; i < aircraft.length; i++) {
     var opt = document.createElement('a');
-    opt.innerHTML = list[i]['reg'];
-    opt.value = list[i]['reg'];
+    opt.innerHTML = aircraft[i]['reg'];
+    opt.value = aircraft[i]['reg'];
     sel.appendChild(opt);
 }
   }
