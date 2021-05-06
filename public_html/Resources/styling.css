@@ -283,6 +283,13 @@ select option:hover {
   .column {
     flex: 100%;
   }
+  #notams, #eaip, #met {
+    display: none;
+  }
+  #home {
+    float: right;
+    margin-left: auto;
+  }
 }
 
 .bar {
