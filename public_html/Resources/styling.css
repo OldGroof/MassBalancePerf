@@ -345,3 +345,7 @@ select {
   background: none;
   color: #eee;
 }
+
+.table-select option {
+  color: black;
+}
