@@ -4,7 +4,7 @@ xmlhttp.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
     aircraft = JSON.parse(this.responseText);
     console.log(aircraft[0].reg)
-    var sel = document.getElementById('aircraftSelect');
+    var sel = document.getElementById('ponteDeSorAircraftSelect');
     for(var i = 0; i < aircraft.length; i++) {
       var opt = document.createElement('option');
       opt.innerHTML = aircraft[i]['reg'];
