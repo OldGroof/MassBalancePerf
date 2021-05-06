@@ -1,24 +1,4 @@
-function setData(reg) {
-  if (reg == "G-LCTO") {
-    bem = 1681
-    bemarm = 89.34
-    bemmom = 150178
-  } else if (reg == "G-LCTP") {
-    bem = 1689
-    bemarm = 89.51
-    bemmom = 151188
-  } else if (reg == "G-LCTR") {
-    bem = 1690
-    bemarm = 88.99
-    bemmom = 150387
-  } else {
-    return
-  }
-
-  document.getElementById('txtDropdown').innerHTML = reg
-  document.getElementById('txtBEMArm').innerHTML = bemarm
-  document.getElementById('txtBEM').innerHTML = Intl.NumberFormat().format(bem)
-  document.getElementById('txtBEMMom').innerHTML = Intl.NumberFormat().format(bemmom)
+function unlock() {
   document.getElementById('inpFrnt').disabled = false
   document.getElementById('inpRear').disabled = false
   document.getElementById('inpBgge').disabled = false
@@ -39,7 +19,6 @@ function setData(reg) {
   document.getElementById("inpWindArr").disabled = false
   document.getElementById("inpSlopeArr").disabled = false
   document.getElementById("rwyCondArr").disabled = false
-  maths()
 }
 
 var aircraft;
@@ -60,6 +39,7 @@ xmlhttp.onreadystatechange = function() {
 xmlhttp.open("GET", "Resources/aircraftData.json", true);
 xmlhttp.send();
 
+document.getElementById("aircraftSelect").addEventListener("click", unlock)
 document.getElementById("aircraftSelect").addEventListener("click", maths)
 document.getElementById("inpFrnt").addEventListener("keyup", maths)
 document.getElementById("inpRear").addEventListener("keyup", maths)
@@ -72,6 +52,10 @@ function maths() {
   var bemmom = aircraft[document.getElementById("aircraftSelect").value].moment
   var bemarm = aircraft[document.getElementById("aircraftSelect").value].arm
 
+  document.getElementById('txtBEMArm').innerHTML = bemarm
+  document.getElementById('txtBEM').innerHTML = Intl.NumberFormat().format(bem)
+  document.getElementById('txtBEMMom').innerHTML = Intl.NumberFormat().format(bemmom)
+  
   console.log(bem)
   console.log(bemmom)
   console.log(bemarm)
