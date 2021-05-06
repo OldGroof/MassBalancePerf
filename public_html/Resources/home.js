@@ -268,7 +268,7 @@ xmlhttp.onreadystatechange = function() {
 for(var i = 0; i < aircraft.length; i++) {
     var opt = document.createElement('a');
     opt.innerHTML = aircraft[i]['reg'];
-    opt.addEventListener("click", setData("'" + aircraft[i]['reg'] + "'"))
+    opt.onclick = function() { setData("'" + aircraft[i]['reg'] + "'") }
     sel.appendChild(opt);
 }
   }
