@@ -59,7 +59,7 @@ var aircraft;
 var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
-    var aircraft = JSON.parse(this.responseText);
+    aircraft = JSON.parse(this.responseText);
     console.log(aircraft[0].reg)
     var sel = document.getElementById('aircraftSelect');
     for(var i = 0; i < aircraft.length; i++) {
