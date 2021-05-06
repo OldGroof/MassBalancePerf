@@ -48,14 +48,16 @@ document.getElementById("inpFuel").addEventListener("keyup", maths)
 document.getElementById("inpBurn").addEventListener("keyup", maths)
 
 function maths() {
-  var bem = aircraft[document.getElementById("aircraftSelect").value].mass
-  var bemmom = aircraft[document.getElementById("aircraftSelect").value].moment
-  var bemarm = aircraft[document.getElementById("aircraftSelect").value].arm
+  if (document.getElementById("aircraftSelect").value != "") {
+    var bem = aircraft[document.getElementById("aircraftSelect").value].mass
+    var bemmom = aircraft[document.getElementById("aircraftSelect").value].moment
+    var bemarm = aircraft[document.getElementById("aircraftSelect").value].arm
+  }
 
   document.getElementById('txtBEMArm').innerHTML = bemarm
   document.getElementById('txtBEM').innerHTML = Intl.NumberFormat().format(bem)
   document.getElementById('txtBEMMom').innerHTML = Intl.NumberFormat().format(bemmom)
-  
+
   console.log(bem)
   console.log(bemmom)
   console.log(bemarm)
