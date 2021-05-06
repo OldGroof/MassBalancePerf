@@ -69,6 +69,12 @@ document.getElementById("inpBurn").addEventListener("keyup", maths)
 
 function maths() {
   var bem = aircraft[document.getElementById("aircraftSelect").value].mass
+  var bemmom = aircraft[document.getElementById("aircraftSelect").value].moment
+  var bemarm = aircraft[document.getElementById("aircraftSelect").value].arm
+
+  console.log(bem)
+  console.log(bemmom)
+  console.log(bemarm)
 
   var frntMass = Number(document.getElementById("inpFrnt").value)
   var rearMass = Number(document.getElementById("inpRear").value)
