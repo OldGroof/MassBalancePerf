@@ -258,3 +258,14 @@ function perfLDG() {
   document.getElementById("txtLDR").innerHTML = Intl.NumberFormat().format(ldr) + " ft"
   document.getElementById("txtLDR143").innerHTML = Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " ft"
 }
+
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    var myObj = JSON.parse(this.responseText);
+    console.log(myObj[0].icao)
+  }
+};
+xmlhttp.open("GET", "Resources/airportData.json", true);
+xmlhttp.send();
+
