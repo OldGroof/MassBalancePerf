@@ -39,8 +39,8 @@ xmlhttp.onreadystatechange = function() {
 xmlhttp.open("GET", "Resources/aircraftData.json", true);
 xmlhttp.send();
 
-document.getElementById("aircraftSelect").addEventListener("click", unlock)
-document.getElementById("aircraftSelect").addEventListener("click", maths)
+document.getElementById("aircraftSelect").addEventListener("change", unlock)
+document.getElementById("aircraftSelect").addEventListener("change", maths)
 document.getElementById("inpFrnt").addEventListener("keyup", maths)
 document.getElementById("inpRear").addEventListener("keyup", maths)
 document.getElementById("inpBgge").addEventListener("keyup", maths)
