@@ -106,7 +106,7 @@ h2 {
   color: #eee;
   padding: 0;
 }
-.table-input:focus, .input:focus {
+.table-input:focus, .input:focus, select:focus, .table-select:focus {
   outline: none;
 }
 
