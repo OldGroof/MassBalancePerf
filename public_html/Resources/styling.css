@@ -227,6 +227,8 @@ select {
   border-bottom:1px solid #757575;
   background: none;
   color: #eee;
+  padding: 0;
+  border-radius: 0;
 }
 
 select option {
