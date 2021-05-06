@@ -266,7 +266,7 @@ xmlhttp.onreadystatechange = function() {
     console.log(aircraft[0].reg)
     var sel = document.getElementById('myDropdown');
 for(var i = 0; i < aircraft.length; i++) {
-    var opt = document.createElement('a');
+    var opt = document.createElement('option');
     opt.innerHTML = aircraft[i]['reg'];
     opt.value = aircraft[i]['reg'];
     sel.appendChild(opt);
