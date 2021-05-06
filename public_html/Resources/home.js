@@ -55,6 +55,24 @@ window.onclick = function(e) {
     }
 }
 
+var aircraft;
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    var aircraft = JSON.parse(this.responseText);
+    console.log(aircraft[0].reg)
+    var sel = document.getElementById('aircraftSelect');
+    for(var i = 0; i < aircraft.length; i++) {
+      var opt = document.createElement('option');
+      opt.innerHTML = aircraft[i]['reg'];
+      opt.value = [i];
+      sel.appendChild(opt);
+    }
+  }
+};
+xmlhttp.open("GET", "Resources/aircraftData.json", true);
+xmlhttp.send();
+
 document.getElementById("aircraftSelect").addEventListener("click", maths)
 document.getElementById("inpFrnt").addEventListener("keyup", maths)
 document.getElementById("inpRear").addEventListener("keyup", maths)
@@ -261,20 +279,3 @@ function perfLDG() {
   document.getElementById("txtLDR").innerHTML = Intl.NumberFormat().format(ldr) + " ft"
   document.getElementById("txtLDR143").innerHTML = Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " ft"
 }
-
-var xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function() {
-  if (this.readyState == 4 && this.status == 200) {
-    var aircraft = JSON.parse(this.responseText);
-    console.log(aircraft[0].reg)
-    var sel = document.getElementById('aircraftSelect');
-    for(var i = 0; i < aircraft.length; i++) {
-      var opt = document.createElement('option');
-      opt.innerHTML = aircraft[i]['reg'];
-      opt.value = [i];
-      sel.appendChild(opt);
-    }
-  }
-};
-xmlhttp.open("GET", "Resources/aircraftData.json", true);
-xmlhttp.send();
