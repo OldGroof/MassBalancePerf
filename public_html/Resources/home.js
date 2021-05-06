@@ -13,7 +13,7 @@ xmlhttp.onreadystatechange = function() {
     }
   }
 };
-xmlhttp.open("GET", "Resources/ponteDeSorAircraftData.json", true);
+xmlhttp.open("GET", "Resources/cranfieldAircraftData.json", true);
 xmlhttp.send();
 
 function unlock() {
