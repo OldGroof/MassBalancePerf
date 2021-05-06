@@ -329,10 +329,10 @@ select {
 }
 
 .index-button:hover {
-  background: #a80006;
+  background: rgb(56, 56, 56);
   font-size: 22px;
 }
 
 .flight-button:hover {
-  background: #a80006;
+  background: rgb(56, 56, 56);
 }
