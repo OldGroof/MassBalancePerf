@@ -264,15 +264,15 @@ xmlhttp.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
     var aircraft = JSON.parse(this.responseText);
     console.log(aircraft[0].reg)
-  }
-};
-xmlhttp.open("GET", "Resources/aircraftData.json", true);
-xmlhttp.send();
-
-var sel = document.getElementById('myDropdown');
+    var sel = document.getElementById('myDropdown');
 for(var i = 0; i < aircraft.length; i++) {
     var opt = document.createElement('a');
     opt.innerHTML = list[i]['reg'];
     opt.value = list[i]['reg'];
     sel.appendChild(opt);
 }
+  }
+};
+xmlhttp.open("GET", "Resources/aircraftData.json", true);
+xmlhttp.send();
+
