@@ -104,58 +104,10 @@ h2 {
   background: transparent;
   text-align: center;
   color: #eee;
+  padding: 0;
 }
 .table-input:focus, .input:focus {
   outline: none;
-}
-
-.dropdown {
-  overflow: hidden;
-  margin: auto;
-  width: inherit;
-  height: inherit;
-}
-.dropdown .dropbtn {
-  border: none;
-  background-color: inherit;
-  font-size: 16px;
-  cursor: pointer;
-  display: inline-block;
-  color: #eee;
-  margin: auto;
-  width: 100%;
-  height: 100%;
-  font-weight: bold;
-}
-
-.dropdown:hover .dropbtn, .dropbtn:focus {
-  background: rgb(56, 56, 56);
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #2e2e2e;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  float: none;
-  color: #eee;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-.dropdown-content a:hover {
-  background-color: rgb(31, 31, 31);
-}
-
-.show {
-  display: block;
 }
 
 /* The container */
