@@ -1,3 +1,21 @@
+var aircraft;
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    aircraft = JSON.parse(this.responseText);
+    console.log(aircraft[0].reg)
+    var sel = document.getElementById('aircraftSelect');
+    for(var i = 0; i < aircraft.length; i++) {
+      var opt = document.createElement('option');
+      opt.innerHTML = aircraft[i]['reg'];
+      opt.value = [i];
+      sel.appendChild(opt);
+    }
+  }
+};
+xmlhttp.open("GET", "Resources/aircraftData.json", true);
+xmlhttp.send();
+
 function unlock() {
   document.getElementById('inpFrnt').disabled = false
   document.getElementById('inpRear').disabled = false
@@ -21,24 +39,6 @@ function unlock() {
   document.getElementById("rwyCondArr").disabled = false
 }
 
-var aircraft;
-var xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function() {
-  if (this.readyState == 4 && this.status == 200) {
-    aircraft = JSON.parse(this.responseText);
-    console.log(aircraft[0].reg)
-    var sel = document.getElementById('aircraftSelect');
-    for(var i = 0; i < aircraft.length; i++) {
-      var opt = document.createElement('option');
-      opt.innerHTML = aircraft[i]['reg'];
-      opt.value = [i];
-      sel.appendChild(opt);
-    }
-  }
-};
-xmlhttp.open("GET", "Resources/aircraftData.json", true);
-xmlhttp.send();
-
 document.getElementById("aircraftSelect").addEventListener("change", unlock)
 document.getElementById("aircraftSelect").addEventListener("change", maths)
 document.getElementById("inpFrnt").addEventListener("keyup", maths)
@@ -57,10 +57,6 @@ function maths() {
   document.getElementById('txtBEMArm').innerHTML = bemarm
   document.getElementById('txtBEM').innerHTML = Intl.NumberFormat().format(bem)
   document.getElementById('txtBEMMom').innerHTML = Intl.NumberFormat().format(bemmom)
-
-  console.log(bem)
-  console.log(bemmom)
-  console.log(bemarm)
 
   var frntMass = Number(document.getElementById("inpFrnt").value)
   var rearMass = Number(document.getElementById("inpRear").value)

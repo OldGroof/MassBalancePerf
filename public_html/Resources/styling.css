@@ -347,5 +347,10 @@ select {
 }
 
 .table-select option {
-  color: black;
+  background: #2e2e2e;
+  color: #eee;
+}
+
+.table-select option:hover {
+  background: rgb(56, 56, 56);
 }
