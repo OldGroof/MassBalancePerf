@@ -302,7 +302,6 @@ select option:hover {
 .index-button {
   display: block;
   width: 50%;
-  height: 80px;
   cursor: pointer;
   color: #f2f2f2;
   text-align: center;
@@ -329,7 +328,6 @@ select option:hover {
 
 .index-button:hover {
   background: rgb(56, 56, 56);
-  font-size: 22px;
 }
 
 .flight-button:hover {
