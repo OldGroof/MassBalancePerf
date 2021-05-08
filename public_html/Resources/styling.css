@@ -289,6 +289,12 @@ select option:hover {
     float: right;
     margin-left: auto;
   }
+  .table-header {
+    font-size: 14px;
+  }
+  .table-subheader {
+    font-size: 9px;
+  }
 }
 
 .bar {
