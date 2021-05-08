@@ -135,14 +135,14 @@ document.getElementById("inpTempDep").addEventListener("keyup", perfTO)
 document.getElementById("inpWindDep").addEventListener("keyup", perfTO)
 document.getElementById("inpSlopeDep").addEventListener("keyup", perfTO)
 document.getElementById("flapstoggle").addEventListener("click", perfTO)
-document.getElementById("rwyCondDep").addEventListener("click", perfTO)
+document.getElementById("rwyCondDep").addEventListener("change", perfTO)
 
 document.getElementById("inpElevArr").addEventListener("keyup", perfLDG)
 document.getElementById("inpPressArr").addEventListener("keyup", perfLDG)
 document.getElementById("inpTempArr").addEventListener("keyup", perfLDG)
 document.getElementById("inpWindArr").addEventListener("keyup", perfLDG)
 document.getElementById("inpSlopeArr").addEventListener("keyup", perfLDG)
-document.getElementById("rwyCondArr").addEventListener("click", perfLDG)
+document.getElementById("rwyCondArr").addEventListener("change", perfLDG)
 
 function perfTO() {
   var mass = tom || 2550
