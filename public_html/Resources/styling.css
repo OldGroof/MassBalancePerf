@@ -297,7 +297,9 @@ select option:hover {
   .table-subheader {
     font-size: 9px;
   }
-
+  .table-select {
+    font-size: 12px;
+  }
 }
 
 .bar {
