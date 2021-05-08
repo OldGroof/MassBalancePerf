@@ -152,13 +152,7 @@ function perfTO() {
   var temp = Number(document.getElementById("inpTempDep").value) || 15
   var wind = Number(document.getElementById("inpWindDep").value) || 0
   var slope = Number(document.getElementById("inpSlopeDep").value) || 0.0
-  if (document.getElementById("rwyCondDep").value == 0) {
-    var rwyCond = 0
-  } else if (document.getElementById("rwyCondDep").value == 1) {
-    var rwyCond = 1
-  } else if (document.getElementById("rwyCondDep").value == 2) {
-    var rwyCond = 2
-  }
+  var rwyCond = document.getElementById("rwyCondDep").value
 
   var pressAlt = ((1013 - press) * 30) + elev
   document.getElementById("txtPressAltDep").innerHTML = pressAlt
@@ -214,15 +208,7 @@ function perfLDG() {
   var temp = Number(document.getElementById("inpTempArr").value) || 15
   var wind = Number(document.getElementById("inpWindArr").value) || 0
   var slope = Number(document.getElementById("inpSlopeArr").value) || 0.0
-  if (document.getElementById("rwyCondArr").value == 0) {
-    var rwyCond = 0
-  } else if (document.getElementById("rwyCondArr").value == 1) {
-    var rwyCond = 1
-  } else if (document.getElementById("rwyCondArr").value == 2) {
-    var rwyCond = 2
-  } else if (document.getElementById("rwyCondArr").value == 3) {
-    var rwyCond = 3
-  }
+  var rwyCond = document.getElementById("rwyCondArr").value
 
   var pressAlt = ((1013 - press) * 30) + elev
   document.getElementById("txtPressAltArr").innerHTML = pressAlt
