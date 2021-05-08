@@ -78,13 +78,13 @@ h2 {
 }
 
 .table-header {
-  font-size: 17px;
+  font-size: 1vw;
   text-align: center;
   font-weight: bold;
   margin: 0px 0px 0px 0px;
 }
 .table-subheader {
-  font-size: 12px;
+  font-size: 0.65vw;
   text-align: center;
   margin: 0px 0px 0px 0px;
 }
@@ -290,12 +290,12 @@ select option:hover {
     margin-left: auto;
   }
 }
-@media screen and (max-width: 560px) {
+@media screen and (max-width: 990px) {
   .table-header {
-    font-size: 12px;
+    font-size: 1.5vw;
   }
   .table-subheader {
-    font-size: 9px;
+    font-size: 1.1vw;
   }
   .table-select {
     font-size: 12px;
