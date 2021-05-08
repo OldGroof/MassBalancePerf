@@ -290,7 +290,7 @@ select option:hover {
     margin-left: auto;
   }
 }
-@media screen and (max-width: 560px) {
+@media screen and (max-width: 600px) {
   .table-header {
     font-size: 14px;
   }
