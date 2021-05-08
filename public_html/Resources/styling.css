@@ -292,7 +292,7 @@ select option:hover {
 }
 @media screen and (max-width: 600px) {
   .table-header {
-    font-size: 14px;
+    font-size: 13px;
   }
   .table-subheader {
     font-size: 9px;
