@@ -1,6 +1,6 @@
 window.onload = getMetar()
 window.onload = getEGTCTaf()
-window.onload = getEGSCTaf()
+window.onload = getEGGWTaf()
 window.onload = getEGTKTaf()
 window.onload = getEGBJTaf()
 
@@ -8,15 +8,15 @@ function getMetar() {
     var egtcMetar = new XMLHttpRequest()
     egtcMetar.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            result = JSON.parse(this.responseText);
+            result = JSON.parse(this.responseText)
 
-            document.getElementById('txtEGBJMetar').innerHTML = "METAR " + result.data[0]
-            document.getElementById('txtEGSCMetar').innerHTML = "METAR " + result.data[1]
-            document.getElementById('txtEGTCMetar').innerHTML = "METAR " + result.data[2]
-            document.getElementById('txtEGTKMetar').innerHTML = "METAR " + result.data[3]
+            document.getElementById('txtEGBJMetar').innerHTML = "METAR " + result.data.sort()[0]
+            document.getElementById('txtEGGWMetar').innerHTML = "METAR " + result.data.sort()[1]
+            document.getElementById('txtEGTCMetar').innerHTML = "METAR " + result.data.sort()[2]
+            document.getElementById('txtEGTKMetar').innerHTML = "METAR " + result.data.sort()[3]
         }
     };
-    egtcMetar.open("GET", "https://api.checkwx.com/metar/EGTC,EGSC,EGBJ,EGTK", true)
+    egtcMetar.open("GET", "https://api.checkwx.com/metar/EGTC,EGGW,EGBJ,EGTK", true)
     egtcMetar.setRequestHeader('X-API-Key', '6f5de2372b0543bc9959c51695')
     egtcMetar.send()
 }
@@ -33,15 +33,15 @@ function getEGTCTaf() {
     egtcTaf.setRequestHeader('Authorization', 'vTzmtdwxOfCF21hIR6YeeL9WF-JVSKTZHBBgv5boIBc')
     egtcTaf.send()
 }
-function getEGSCTaf() {
+function getEGGWTaf() {
     var xlmhttp = new XMLHttpRequest()
     xlmhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             result = JSON.parse(this.responseText);
-            document.getElementById('txtEGSCTaf').innerHTML = "TAF " + result.raw
+            document.getElementById('txtEGGWTaf').innerHTML = "TAF " + result.raw
         }
     };
-    xlmhttp.open("GET", "https://avwx.rest/api/taf/EGSC", true)
+    xlmhttp.open("GET", "https://avwx.rest/api/taf/EGGW", true)
     xlmhttp.setRequestHeader('Authorization', 'vTzmtdwxOfCF21hIR6YeeL9WF-JVSKTZHBBgv5boIBc')
     xlmhttp.send()
 }
