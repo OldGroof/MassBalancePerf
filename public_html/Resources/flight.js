@@ -129,9 +129,9 @@ function maths() {
   document.getElementById("txtLM").innerHTML = Intl.NumberFormat().format(lm)
   document.getElementById("txtLMMom").innerHTML = Intl.NumberFormat().format(Math.floor(lmMom + 0.5))
 
-  document.getElementById("zfmGraph").style.top = 30 + (0.573 * (2550 - zfm)) + "px";
-  document.getElementById("lmGraph").style.top = 30 + (0.573 * (2550 - lm)) + "px";
-  document.getElementById("tomGraph").style.top = 30 + (0.573 * (2550 - tom)) + "px";
+  document.getElementById("zfmGraph").style.top = 30 + (0.57259 * (2550 - zfm)) + "px";
+  document.getElementById("lmGraph").style.top = 30 + (0.57259 * (2550 - lm)) + "px";
+  document.getElementById("tomGraph").style.top = 30 + (0.57259 * (2550 - tom)) + "px";
 
   perfTO()
   perfLDG()
