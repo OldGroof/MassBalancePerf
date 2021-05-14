@@ -125,6 +125,8 @@ function maths() {
   document.getElementById("txtLM").innerHTML = Intl.NumberFormat().format(lm)
   document.getElementById("txtLMMom").innerHTML = Intl.NumberFormat().format(Math.floor(lmMom + 0.5))
 
+  document.getElementById("zfmGraph").style.top = 30 + (0.573 * (2550 - zfm))
+
   perfTO()
   perfLDG()
 }
