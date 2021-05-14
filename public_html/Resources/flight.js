@@ -39,6 +39,8 @@ function unlock() {
   document.getElementById("rwyCondArr").disabled = false
 
   document.getElementById("zfmGraph").hidden = false
+  document.getElementById("lmGraph").hidden = false
+  document.getElementById("tomGraph").hidden = false
 }
 
 document.getElementById("aircraftSelect").addEventListener("change", unlock)
