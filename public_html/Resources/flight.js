@@ -37,6 +37,8 @@ function unlock() {
   document.getElementById("inpWindArr").disabled = false
   document.getElementById("inpSlopeArr").disabled = false
   document.getElementById("rwyCondArr").disabled = false
+
+  document.getElementById("zfmGraph").hidden = false
 }
 
 document.getElementById("aircraftSelect").addEventListener("change", unlock)
@@ -125,7 +127,7 @@ function maths() {
   document.getElementById("txtLM").innerHTML = Intl.NumberFormat().format(lm)
   document.getElementById("txtLMMom").innerHTML = Intl.NumberFormat().format(Math.floor(lmMom + 0.5))
 
-  document.getElementById("zfmGraph").style.top = 30 + (0.573 * (2550 - zfm))
+  document.getElementById("zfmGraph").style.top = 30 + (0.573 * (2550 - zfm)) + "px";
 
   perfTO()
   perfLDG()
