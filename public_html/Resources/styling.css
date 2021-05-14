@@ -282,13 +282,6 @@ select option:hover {
   .column {
     flex: 100%;
   }
-  #notams, #eaip, #met {
-    display: none;
-  }
-  #home {
-    float: right;
-    margin-left: auto;
-  }
 }
 @media screen and (max-width: 560px) {
   .table-header {
@@ -299,6 +292,15 @@ select option:hover {
   }
   .table-select {
     font-size: 12px;
+  }
+}
+@media screen and (max-width: 710px) {
+  #notams, #eaip, #met {
+    display: none;
+  }
+  #home {
+    float: right;
+    margin-left: auto;
   }
 }
 
