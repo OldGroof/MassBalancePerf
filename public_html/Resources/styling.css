@@ -269,7 +269,7 @@ select option:hover {
 }
 
 /* Responsive layout - makes a one column-layout instead of a two-column layout */
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 1055px) {
   .index-row {
     flex-wrap: wrap;
   }
