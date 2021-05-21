@@ -2,12 +2,12 @@ var unit = "imp"
 var aircraft
 var vertRng = document.getElementById("graph").style.height
 
-var zfm = 0
-var zfmArm = 0
-var tom = 0
-var tomArm = 0
-var lm = 0
-var lmArm = 0
+var zfm = 1200
+var zfmArm = 87.5
+var tom = 1200
+var tomArm = 87.5
+var lm = 1200
+var lmArm = 87.5
 
 var xmlhttp = new XMLHttpRequest()
 xmlhttp.onreadystatechange = function() {
@@ -153,7 +153,7 @@ function maths() {
   document.getElementById("txtLM").innerHTML = Intl.NumberFormat().format(lm)
   document.getElementById("txtLMMom").innerHTML = Intl.NumberFormat().format(Math.floor(lmMom + 0.5))
 
-  graphUpdate
+  graphUpdate()
 
   perfTO()
   perfLDG()
