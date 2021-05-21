@@ -1,4 +1,5 @@
-var unit = "imp"
+var unitTO = "imp"
+var unitLDG = "imp"
 var aircraft
 var vertRng = document.getElementById("graph").style.height
 
@@ -46,6 +47,7 @@ function unlock() {
   document.getElementById('inpFuel').disabled = false
   document.getElementById('inpBurn').disabled = false
 
+  document.getElementById("unitTO").disabled = false
   document.getElementById("flapstoggle").disabled = false
   document.getElementById("inpElevDep").disabled = false
   document.getElementById("inpPressDep").disabled = false
@@ -54,6 +56,7 @@ function unlock() {
   document.getElementById("inpSlopeDep").disabled = false
   document.getElementById("rwyCondDep").disabled = false
 
+  document.getElementById("unitLDG").disabled = false
   document.getElementById("inpElevArr").disabled = false
   document.getElementById("inpPressArr").disabled = false
   document.getElementById("inpTempArr").disabled = false
@@ -158,6 +161,7 @@ function maths() {
   perfLDG()
 }
 
+document.getElementById("unitTO").addEventListener("change", perfTO)
 document.getElementById("inpElevDep").addEventListener("keyup", perfTO)
 document.getElementById("inpPressDep").addEventListener("keyup", perfTO)
 document.getElementById("inpTempDep").addEventListener("keyup", perfTO)
@@ -166,6 +170,7 @@ document.getElementById("inpSlopeDep").addEventListener("keyup", perfTO)
 document.getElementById("flapstoggle").addEventListener("click", perfTO)
 document.getElementById("rwyCondDep").addEventListener("change", perfTO)
 
+document.getElementById("unitLDG").addEventListener("change", perfLDG)
 document.getElementById("inpElevArr").addEventListener("keyup", perfLDG)
 document.getElementById("inpPressArr").addEventListener("keyup", perfLDG)
 document.getElementById("inpTempArr").addEventListener("keyup", perfLDG)
@@ -174,6 +179,12 @@ document.getElementById("inpSlopeArr").addEventListener("keyup", perfLDG)
 document.getElementById("rwyCondArr").addEventListener("change", perfLDG)
 
 function perfTO() {
+  if (document.getElementById("unitTO").checked == true) {
+    unitTO = "met"
+  } else {
+    unitTO = "imp"
+  }
+
   var mass = tom || 2550
   var flaps = document.getElementById("flapstoggle").checked
   var elev = Number(document.getElementById("inpElevDep").value) || 0
@@ -223,14 +234,30 @@ function perfTO() {
     var todr = Math.floor((tod + ((0.1 * tod) * slopeVar)) + 0.5)
   }
 
+  if (unitTO == "met") {
+    todr = Math.floor((todr / 3.285) + 0.5)
+  }
+
   document.getElementById("TOResults").style.display = "block"
-  document.getElementById("txtTODR").innerHTML = Intl.NumberFormat().format(todr) + " ft"
-  document.getElementById("txtTODR125").innerHTML = Intl.NumberFormat().format(Math.floor((todr * 1.25) + 0.5)) + " ft"
-  document.getElementById("txtTODR115").innerHTML = Intl.NumberFormat().format(Math.floor((todr * 1.15) + 0.5)) + " ft"
-  document.getElementById("txtTODR130").innerHTML = Intl.NumberFormat().format(Math.floor((todr * 1.30) + 0.5)) + " ft"
+  if (unitTO == "met") {
+    document.getElementById("txtTODR").innerHTML = Intl.NumberFormat().format(todr) + " m"
+    document.getElementById("txtTODR125").innerHTML = Intl.NumberFormat().format(Math.floor((todr * 1.25) + 0.5)) + " m"
+    document.getElementById("txtTODR115").innerHTML = Intl.NumberFormat().format(Math.floor((todr * 1.15) + 0.5)) + " m"
+    document.getElementById("txtTODR130").innerHTML = Intl.NumberFormat().format(Math.floor((todr * 1.30) + 0.5)) + " m"
+  } else {
+    document.getElementById("txtTODR").innerHTML = Intl.NumberFormat().format(todr) + " ft"
+    document.getElementById("txtTODR125").innerHTML = Intl.NumberFormat().format(Math.floor((todr * 1.25) + 0.5)) + " ft"
+    document.getElementById("txtTODR115").innerHTML = Intl.NumberFormat().format(Math.floor((todr * 1.15) + 0.5)) + " ft"
+    document.getElementById("txtTODR130").innerHTML = Intl.NumberFormat().format(Math.floor((todr * 1.30) + 0.5)) + " ft"
+  }
 }
 
 function perfLDG() {
+  if (document.getElementById("unitLDG").checked == true) {
+    unitLDG = "met"
+  } else {
+    unitLDG = "imp"
+  }
   var mass = lm || 2550
   var elev = Number(document.getElementById("inpElevArr").value) || 0
   var press = Number(document.getElementById("inpPressArr").value) || 1013
@@ -265,7 +292,16 @@ function perfLDG() {
     var ldr = Math.floor(((ld + ((0.1 * ld) * slopeVar)) * 1.35) + 0.5)
   }
 
+  if (unitLDG == "met") {
+    ldr = Math.floor((ldr / 3.285) + 0.5)
+  } 
+
   document.getElementById("LDGResults").style.display = "block"
-  document.getElementById("txtLDR").innerHTML = Intl.NumberFormat().format(ldr) + " ft"
-  document.getElementById("txtLDR143").innerHTML = Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " ft"
+  if (unitLDG == "met") {
+    document.getElementById("txtLDR").innerHTML = Intl.NumberFormat().format(ldr) + " m"
+    document.getElementById("txtLDR143").innerHTML = Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " m"
+  } else {
+    document.getElementById("txtLDR").innerHTML = Intl.NumberFormat().format(ldr) + " ft"
+    document.getElementById("txtLDR143").innerHTML = Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " ft"
+  }
 }
