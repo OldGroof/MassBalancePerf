@@ -98,19 +98,19 @@ function maths() {
 
   zfm = bem + frntMass + rearMass + bggeMass
   var zfmMom = bemmom + frntMom + rearMom + bggeMom
-  var zfmArm = (Math.round((zfmMom / zfm) * 10) / 10).toFixed(1)
+  zfmArm = (Math.round((zfmMom / zfm) * 10) / 10).toFixed(1)
 
   var fuelMom = fuelMass * 95
 
   tom = zfm + fuelMass - 8
   var tomMom = zfmMom + fuelMom - 760
-  var tomArm = (Math.round((tomMom / tom) * 10) / 10).toFixed(1)
+  tomArm = (Math.round((tomMom / tom) * 10) / 10).toFixed(1)
 
   var burnMom = burnMass * -95
 
   lm = tom - burnMass
   var lmMom = tomMom + burnMom
-  var lmArm = (Math.round((lmMom / lm) * 10) / 10).toFixed(1)
+  lmArm = (Math.round((lmMom / lm) * 10) / 10).toFixed(1)
 
   if (frntMom != 0) {
     document.getElementById("txtFrntMom").innerHTML = Intl.NumberFormat().format(Math.round(frntMom))
