@@ -32,11 +32,11 @@ function graphUpdate() {
   vertRng = document.getElementById("graph").height
 
   document.getElementById("zfmGraph").style.top = ((0.958 - (((zfm - 1200) / 1350) * 0.9545)) * vertRng) + "px"
-  document.getElementById("zfmGraph").style.left = 41.2 + ((7.55 - 0.00285 * (2550-zfm)) * (zfmArm - 87.5)) + "%"
+  document.getElementById("zfmGraph").style.left = (41.0385 + ((7.4 - (0.0026096 * (2550 - zfm))) * (zfmArm - 87.5) )) + "%"
   document.getElementById("lmGraph").style.top = ((0.958 - (((lm - 1200) / 1350) * 0.9545)) * vertRng) + "px"
-  document.getElementById("lmGraph").style.left = 41.2 + ((7.55 - 0.00285 * (2550-lm)) * (lmArm - 87.5)) + "%"
+  document.getElementById("lmGraph").style.left = (41.0385 + ((7.4 - (0.0026096 * (2550 - lm))) * (lmArm - 87.5) )) + "%"
   document.getElementById("tomGraph").style.top = ((0.958 - (((tom - 1200) / 1350) * 0.9545)) * vertRng) + "px"
-  document.getElementById("tomGraph").style.left = 41.2 + ((7.55 - 0.00285 * (2550-tom)) * (tomArm - 87.5)) + "%"
+  document.getElementById("tomGraph").style.left = (41.0385 + ((7.4 - (0.0026096 * (2550 - tom))) * (tomArm - 87.5) )) + "%"
 }
 
 function unlock() {
