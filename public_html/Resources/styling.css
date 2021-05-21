@@ -269,7 +269,7 @@ select option:hover {
 }
 
 /* Responsive layout - makes a one column-layout instead of a two-column layout */
-@media screen and (max-width: 1055px) {
+@media screen and (max-width: 990px) {
   .index-row {
     flex-wrap: wrap;
   }
@@ -283,6 +283,19 @@ select option:hover {
     flex: 100%;
   }
 }
+
+@media screen and (max-width: 1050px) {
+  .table-header {
+    font-size: 14px;
+  }
+  .table-subheader {
+    font-size: 10px;
+  }
+  .table-select {
+    font-size: 14px;
+  }
+}
+
 @media screen and (max-width: 560px) {
   .table-header {
     font-size: 12px;
