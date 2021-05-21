@@ -26,8 +26,8 @@ xmlhttp.onreadystatechange = function() {
 xmlhttp.open("GET", "Resources/cranfieldAircraftData.json", true)
 xmlhttp.send()
 
-window.onload = graphUpdate
-window.onresize = graphUpdate
+window.onload = graphUpdate()
+window.onresize = graphUpdate()
 
 function graphUpdate() {
   vertRng = document.getElementById("graph").height
