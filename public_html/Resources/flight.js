@@ -13,7 +13,6 @@ var xmlhttp = new XMLHttpRequest()
 xmlhttp.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
     aircraft = JSON.parse(this.responseText)
-    console.log(aircraft[0].reg)
     var sel = document.getElementById('aircraftSelect')
     for(var i = 0; i < aircraft.length; i++) {
       var opt = document.createElement('option')
@@ -26,8 +25,8 @@ xmlhttp.onreadystatechange = function() {
 xmlhttp.open("GET", "Resources/cranfieldAircraftData.json", true)
 xmlhttp.send()
 
-window.onload = graphUpdate()
-window.onresize = graphUpdate()
+window.onload = graphUpdate
+window.onresize = graphUpdate
 
 function graphUpdate() {
   vertRng = document.getElementById("graph").height
