@@ -1,20 +1,33 @@
-var aircraft;
-var xmlhttp = new XMLHttpRequest();
+var unit = "imp"
+var aircraft
+
+var vertRng = document.getElementById("graph").style.height
+
+var xmlhttp = new XMLHttpRequest()
 xmlhttp.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
-    aircraft = JSON.parse(this.responseText);
+    aircraft = JSON.parse(this.responseText)
     console.log(aircraft[0].reg)
-    var sel = document.getElementById('aircraftSelect');
+    var sel = document.getElementById('aircraftSelect')
     for(var i = 0; i < aircraft.length; i++) {
-      var opt = document.createElement('option');
-      opt.innerHTML = aircraft[i]['reg'];
-      opt.value = [i];
-      sel.appendChild(opt);
+      var opt = document.createElement('option')
+      opt.innerHTML = aircraft[i]['reg']
+      opt.value = [i]
+      sel.appendChild(opt)
     }
   }
-};
-xmlhttp.open("GET", "Resources/cranfieldAircraftData.json", true);
-xmlhttp.send();
+}
+xmlhttp.open("GET", "Resources/cranfieldAircraftData.json", true)
+xmlhttp.send()
+
+window.onload = graphUpdate
+window.onresize = graphUpdate
+
+function graphUpdate() {
+  vertRng = document.getElementById("graph").height
+  // document.getElementById("zfmGraph").style.top = ((0.958 - (((1400 - 1200) / 1350) * 0.9545)) * vertRng) + "px"
+  // document.getElementById("zfmGraph").style.left = 41.2 + ((7.55 - 0.00285 * (2550-1400)) * (91 - 87.5)) + "%"
+}
 
 function unlock() {
   document.getElementById('inpFrnt').disabled = false
@@ -38,9 +51,9 @@ function unlock() {
   document.getElementById("inpSlopeArr").disabled = false
   document.getElementById("rwyCondArr").disabled = false
 
-  document.getElementById("zfmGraph").hidden = true
-  document.getElementById("lmGraph").hidden = true
-  document.getElementById("tomGraph").hidden = true
+  document.getElementById("zfmGraph").hidden = false
+  document.getElementById("lmGraph").hidden = false
+  document.getElementById("tomGraph").hidden = false
 }
 
 document.getElementById("aircraftSelect").addEventListener("change", unlock)
@@ -129,11 +142,11 @@ function maths() {
   document.getElementById("txtLM").innerHTML = Intl.NumberFormat().format(lm)
   document.getElementById("txtLMMom").innerHTML = Intl.NumberFormat().format(Math.floor(lmMom + 0.5))
 
-  document.getElementById("zfmGraph").style.top = 2 + (0.57333 * (2550-zfm)) + "px"
+  document.getElementById("zfmGraph").style.top = ((0.958 - (((zfm - 1200) / 1350) * 0.9545)) * vertRng) + "px"
   document.getElementById("zfmGraph").style.left = 41.2 + ((7.55 - 0.00285 * (2550-zfm)) * (zfmArm - 87.5)) + "%"
-  document.getElementById("lmGraph").style.top = 2 + (0.57333 * (2550-lm)) + "px"
+  document.getElementById("lmGraph").style.top = ((0.958 - (((lm - 1200) / 1350) * 0.9545)) * vertRng) + "px"
   document.getElementById("lmGraph").style.left = 41.2 + ((7.55 - 0.00285 * (2550-lm)) * (lmArm - 87.5)) + "%"
-  document.getElementById("tomGraph").style.top = 2 + (0.57333 * (2550-tom)) + "px"
+  document.getElementById("tomGraph").style.top = ((0.958 - (((tom - 1200) / 1350) * 0.9545)) * vertRng) + "px"
   document.getElementById("tomGraph").style.left = 41.2 + ((7.55 - 0.00285 * (2550-tom)) * (tomArm - 87.5)) + "%"
 
   perfTO()
