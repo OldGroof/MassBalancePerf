@@ -141,17 +141,14 @@ function maths() {
   }
 
   document.getElementById("txtZFMArm").innerHTML = zfmArm
-  document.getElementById("zfmCG").innerHTML = "Zero Fuel C of G: " + zfmArm
   document.getElementById("txtZFM").innerHTML = Intl.NumberFormat().format(zfm)
   document.getElementById("txtZFMMom").innerHTML = Intl.NumberFormat().format(Math.floor(zfmMom + 0.5))
 
   document.getElementById("txtTOMArm").innerHTML = tomArm
-  document.getElementById("tomCG").innerHTML = "Take Off C of G: " + tomArm
   document.getElementById("txtTOM").innerHTML = Intl.NumberFormat().format(tom)
   document.getElementById("txtTOMMom").innerHTML = Intl.NumberFormat().format(Math.floor(tomMom + 0.5))
 
   document.getElementById("txtLMArm").innerHTML = lmArm
-  document.getElementById("lmCG").innerHTML = "Landing C of G: " + lmArm
   document.getElementById("txtLM").innerHTML = Intl.NumberFormat().format(lm)
   document.getElementById("txtLMMom").innerHTML = Intl.NumberFormat().format(Math.floor(lmMom + 0.5))
 
