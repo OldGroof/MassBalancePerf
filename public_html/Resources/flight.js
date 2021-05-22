@@ -72,7 +72,7 @@ function intxUpdate() {
     sel.options[i] = null;
   }
 
-  intx = airport[document.getElementById("runwaySelect").value].intx
+  intx = airport[document.getElementById("rwySelect").value].intx
   for(var i = 0; i < intx.length; i++) {
     var opt = document.createElement('option')
     opt.innerHTML = intx[i]['name']
