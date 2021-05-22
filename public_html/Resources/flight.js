@@ -97,6 +97,7 @@ function intxUpdate() {
 }
 
 function getDepMetar(icao) {
+  console.log(icao)
   var egtcMetar = new XMLHttpRequest()
   egtcMetar.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
@@ -237,7 +238,7 @@ function maths() {
 
 document.getElementById("unitTO").addEventListener("change", perfTO)
 document.getElementById("airpSelect").addEventListener("change", perfTO)
-document.getElementById("airpSelect").addEventListener("change", getDepMetar(airport[document.getElementById("airpSelect")["icao"]].icao))
+document.getElementById("airpSelect").addEventListener("change", getDepMetar(airport[document.getElementById("airpSelect").value]["icao"]))
 document.getElementById("airpSelect").addEventListener("change", depRunwayUpdate)
 document.getElementById("rwySelect").addEventListener("change", perfTO)
 document.getElementById("rwySelect").addEventListener("change", intxUpdate)
