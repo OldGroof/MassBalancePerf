@@ -397,8 +397,10 @@ function perfTO() {
 
   if (runway[document.getElementById("rwySelect").value]["tora"] == runway[document.getElementById("rwySelect").value]["toda"] == runway[document.getElementById("rwySelect").value]["asda"]) {
     document.getElementById("toBalanced").style.display = "block"
+    document.getElementById("toUnbalanced").style.display = "none"
   } else {
     document.getElementById("toUnbalanced").style.display = "block"
+    document.getElementById("toBalanced").style.display = "none"
   }
 
   document.getElementById("txtDepPressAlt").style.display = "block"
