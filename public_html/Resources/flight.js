@@ -393,15 +393,20 @@ function perfLDG() {
     unitLDG = "imp"
   }
   var mass = lm || 2550
-  var elev = Number(document.getElementById("inpElevArr").value) || 0
-  var press = Number(document.getElementById("inpPressArr").value) || 1013
-  var temp = Number(document.getElementById("inpTempArr").value) || 15
-  var wind = Number(document.getElementById("inpWindArr").value) || 0
-  var slope = Number(document.getElementById("inpSlopeArr").value) || 0.0
+  var elev = Number(airport[document.getElementById("airpSelectArr").value]["elevation"]) || 0
+  var bearing = Number(runway[document.getElementById("rwySelectArr").value]["bearing"]) || 0
+  var slope = Number(runway[document.getElementById("rwySelectArr").value]["slope"]) || 0.0
   var rwyCond = document.getElementById("rwyCondArr").value
 
+  var press = Number(Math.floor(arrMetar.data[0].barometer.hpa)) || 1013
+  var temp = Number(arrMetar.data[0].temperature.celsius) || 15
+
+  var windDir = Number(arrMetar.data[0].wind.degrees) || 0
+  var windSpd = Number(arrMetar.data[0].wind.speed_kts) || 0
+
+  var angle = windDir - bearing
+  var wind = Math.floor(((windSpd * Math.cos(angle * (Math.PI / 180))) / 2) + 0.5)
   var pressAlt = ((1013 - press) * 30) + elev
-  document.getElementById("txtPressAltArr").innerHTML = pressAlt
 
   if (pressAlt < 0) {
     var altVar = 0
@@ -431,6 +436,9 @@ function perfLDG() {
   } 
 
   document.getElementById("LDGResults").style.display = "block"
+  document.getElementById("txtArrPressAlt").style.display = "block"
+  document.getElementById("txtArrPressAlt").innerHTML = "Pressure Altitude: " + pressAlt + " ft"
+
   if (unitLDG == "met") {
     document.getElementById("txtLDR").innerHTML = Intl.NumberFormat().format(ldr) + " m"
     document.getElementById("txtLDR143").innerHTML = Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " m"
