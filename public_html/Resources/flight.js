@@ -40,7 +40,6 @@ airportGet.onreadystatechange = function() {
       sel.appendChild(opt)
     }
   }
-  console.log(airport[0].runways[0].name)
 }
 airportGet.open("GET", "Resources/airportData.json", true)
 airportGet.send()
@@ -52,7 +51,7 @@ function depRunwayUpdate() {
   var sel = document.getElementById('rwySelect')
 
   for (i = sel.options.length-1; i >= 0; i--) {
-    select.options[i] = null;
+    sel.options[i] = null;
   }
 
   for(var i = 0; i < airport[document.getElementById("airpSelect").value].runways.length; i++) {
