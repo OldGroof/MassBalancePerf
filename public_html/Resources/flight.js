@@ -169,6 +169,21 @@ function getArrMetar() {
   metar.send()
 }
 
+function getArrTaf() {
+  icao = airport[document.getElementById("airpSelectArr").value]["icao"]
+  var taf = new XMLHttpRequest()
+  taf.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          result = JSON.parse(this.responseText)
+
+          document.getElementById('txtTafArr').innerHTML = "TAF " + result.raw
+      }
+  };
+  taf.open("GET", "https://avwx.rest/api/taf/" + icao, true)
+  taf.setRequestHeader('Authorization', 'vTzmtdwxOfCF21hIR6YeeL9WF-JVSKTZHBBgv5boIBc')
+  taf.send()
+}
+
 function graphUpdate() {
   vertRng = document.getElementById("graph").height
 
@@ -303,6 +318,7 @@ document.getElementById("rwyCondDep").addEventListener("change", perfTO)
 
 document.getElementById("unitLDG").addEventListener("change", perfLDG)
 document.getElementById("airpSelectArr").addEventListener("change", getArrMetar)
+document.getElementById("airpSelectArr").addEventListener("change", getArrTaf)
 document.getElementById("airpSelectArr").addEventListener("change", arrRunwayUpdate)
 document.getElementById("rwySelectArr").addEventListener("change", perfLDG)
 document.getElementById("rwyCondArr").addEventListener("change", perfLDG)
