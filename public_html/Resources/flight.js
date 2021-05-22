@@ -393,6 +393,7 @@ function perfTO() {
 
   document.getElementById("TOResults").style.display = "block"
   document.getElementById("txtDepPressAlt").style.display = "block"
+  document.getElementById("txtDepWindComp").style.display = "block"
   document.getElementById("txtDepPressAlt").innerHTML = "Pressure Altitude: " + pressAlt + " ft"
   document.getElementById("txtDepWindComp").innerHTML = "Headwind: " + headwind + " Crosswind: " + crosswind
 
@@ -462,6 +463,7 @@ function perfLDG() {
 
   document.getElementById("LDGResults").style.display = "block"
   document.getElementById("txtArrPressAlt").style.display = "block"
+  document.getElementById("txtArrWindComp").style.display = "block"
   document.getElementById("txtArrPressAlt").innerHTML = "Pressure Altitude: " + pressAlt + " ft"
   document.getElementById("txtArrWindComp").innerHTML = "Headwind: " + headwind + " Crosswind: " + crosswind
 
