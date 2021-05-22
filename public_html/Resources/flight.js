@@ -51,12 +51,18 @@ window.onresize = graphUpdate
 function depRunwayUpdate() {
   var sel = document.getElementById('rwySelect')
 
+  for (i = sel.options.length-1; i >= 0; i--) {
+    select.options[i] = null;
+  }
+
   for(var i = 0; i < airport[document.getElementById("airpSelect").value].runways.length; i++) {
     var opt = document.createElement('option')
     opt.innerHTML = airport[document.getElementById("airpSelect").value].runways[i]['name']
     opt.value = [i]
     sel.appendChild(opt)
   }
+
+  document.getElementById("rwySelect").disabled = false
 }
 
 function graphUpdate() {
@@ -80,8 +86,6 @@ function unlock() {
   document.getElementById("unitTO").disabled = false
   document.getElementById("flapstoggle").disabled = false
   document.getElementById("airpSelect").disabled = false
-  document.getElementById("rwySelect").disabled = false
-  document.getElementById("intxSelect").disabled = false
   document.getElementById("rwyCondDep").disabled = false
 
   document.getElementById("unitLDG").disabled = false
