@@ -1,6 +1,7 @@
 var unitTO = "imp"
 var unitLDG = "imp"
 var aircraft
+var airport
 var vertRng = document.getElementById("graph").style.height
 
 var zfm = 1200
@@ -25,6 +26,22 @@ xmlhttp.onreadystatechange = function() {
 }
 xmlhttp.open("GET", "Resources/cranfieldAircraftData.json", true)
 xmlhttp.send()
+
+var airportGet = new XMLHttpRequest()
+airportGet.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    airport = JSON.parse(this.responseText)
+    var sel = document.getElementById('airpSelect')
+    for(var i = 0; i < airport.length; i++) {
+      var opt = document.createElement('option')
+      opt.innerHTML = airport[i]['icao'] + " " + airport[i]['name']
+      opt.value = [i]
+      sel.appendChild(opt)
+    }
+  }
+}
+airportGet.open("GET", "Resources/airportData.json", true)
+airportGet.send()
 
 window.onload = graphUpdate
 window.onresize = graphUpdate

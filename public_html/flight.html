@@ -224,42 +224,26 @@
         </label>
       </div>
       <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
-        <p class="input-label">Elevation</p>
-        <input type="text" id="inpElevDep" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Elevation"
-        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-        />
+        <p class="input-label">Airport</p>
+        <select id="airpSelect" style="float: right; margin-left: auto; width: 250px;" disabled>
+          <option value="0" disabled selected>Select Airport</option>
+        </select>
       </div>
       <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
-        <p class="input-label">Air Pressure</p>
-        <input type="text" id="inpPressDep" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Pressure"
-        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-        />
-      </div>
-      <div class="row" style="padding-top: 5px; padding-bottom: 5px; height: 33px;">
-        <p class="input-label">Pressure Altitude</p>
-        <p class="input-label" style="float: right; margin-left: auto; font-weight: 300;" id="txtPressAltDep">0</p>
+        <p class="input-label" style="float: right; margin-left: auto; padding-right: 10px;">Runway</p>
+        <select id="rwySelect" disabled>
+          <option value="0" disabled selected>RWY</option>
+        </select>
       </div>
       <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
-        <p class="input-label">Temperature</p>
-        <input type="text" id="inpTempDep" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Temperature"
-        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-        />
+        <p class="input-label" style="float: right; margin-left: auto; padding-right: 10px;">Intersection</p>
+        <select id="intxSelect" disabled>
+          <option value="0" disabled selected>INTX</option>
+        </select>
       </div>
       <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
-        <p class="input-label">Wind</p>
-        <input type="text" id="inpWindDep" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Wind Comp."
-        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1'); "
-        />
-      </div>
-      <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
-        <p class="input-label">Up Slope</p>
-        <input type="text" id="inpSlopeDep" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Slope"
-        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-        />
-      </div>
-      <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
-        <p class="input-label">Runway Condition</p>
-        <select id="rwyCondDep" style="float: right; margin-left: auto;" disabled>
+        <p class="input-label" style="float: right; margin-left: auto; padding-right: 10px;">Runway Condition</p>
+        <select id="rwyCondDep" disabled>
           <option value="0">Paved</option>
           <option value="1">Dry Grass</option>
           <option value="2">Wet Grass</option>
