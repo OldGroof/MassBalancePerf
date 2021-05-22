@@ -98,7 +98,6 @@ function intxUpdate() {
 
 function getDepMetar() {
   var icao = airport[document.getElementById("airpSelect").value]["icao"]
-  console.log(icao)
   var egtcMetar = new XMLHttpRequest()
   egtcMetar.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
@@ -271,12 +270,13 @@ function perfTO() {
   var rwyCond = document.getElementById("rwyCondDep").value
 
   var press = Math.floor(depMetar.data[0].barometer.hpa) || 1013 // Needs updating
-  var temp = 15 // Needs updating
-  var wind = 0 // Needs updating
+  var temp = depMetar.data[0].temperature.celcius || 15 // Needs updating
 
-  console.log(elev, bearing, slope)
-  console.log(press)
+  var windDir = depMetar.data[0].wind.degrees || 0
+  var windSpd = depMetar.data[0].wind.speed_kts || 0
 
+  var angle = windDir - bearing
+  var wind = Math.floor(((windSpd * Math.cos(angle * (Math.PI / 180))) / 2) + 0.5) // Needs updating
   var pressAlt = ((1013 - press) * 30) + elev
   // document.getElementById("txtPressAltDep").innerHTML = pressAlt
 
@@ -289,6 +289,10 @@ function perfTO() {
       var altVar = 0.2 * pressAlt
     }
   }
+
+  console.log(elev, bearing, slope)
+  console.log(press, temp, wind)
+  console.log(pressAlt)
 
   if (flaps == true) {
     var tempVar = 16.9 * temp
