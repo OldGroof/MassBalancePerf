@@ -38,7 +38,7 @@ airportGet.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
     airport = JSON.parse(this.responseText)
     var selDep = document.getElementById('airpSelect')
-    var selArr = document.getElementById('airpSelect')
+    var selArr = document.getElementById('airpSelectArr')
     for(var i = 0; i < airport.length; i++) {
       var opt = document.createElement('option')
       opt.innerHTML = airport[i]['icao'] + " " + airport[i]['name']
