@@ -93,19 +93,19 @@ function intxUpdate() {
 
 function getDepMetar() {
   var icao = airport[document.getElementById("airpSelect").value]["icao"]
-  var egtcMetar = new XMLHttpRequest()
-  egtcMetar.onreadystatechange = function() {
+  var metar = new XMLHttpRequest()
+  metar.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
           result = JSON.parse(this.responseText)
           depMetar = result
-
+          
           document.getElementById("txtMetarDep").innerHTML = "METAR " + depMetar.data[0].raw_text
           document.getElementById("metarBox").style.display = "block"
       }
   };
-  egtcMetar.open("GET", "https://api.checkwx.com/metar/" + icao + "/decoded", true)
-  egtcMetar.setRequestHeader('X-API-Key', '6f5de2372b0543bc9959c51695')
-  egtcMetar.send()
+  metar.open("GET", "https://api.checkwx.com/metar/" + icao + "/decoded", true)
+  metar.setRequestHeader('X-API-Key', '6f5de2372b0543bc9959c51695')
+  metar.send()
 }
 
 function graphUpdate() {
@@ -228,7 +228,7 @@ function maths() {
   document.getElementById("txtLMMom").innerHTML = Intl.NumberFormat().format(Math.floor(lmMom + 0.5))
 
   graphUpdate()
-  
+
   if (document.getElementById("airpSelect").value != 0) {
     perfTO()
   }
@@ -289,8 +289,6 @@ function perfTO() {
       var altVar = 0.2 * pressAlt
     }
   }
-
-  console.log(bearing)
 
   if (flaps == true) {
     var tempVar = 16.9 * temp
