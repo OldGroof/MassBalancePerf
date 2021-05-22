@@ -73,15 +73,20 @@ function intxUpdate() {
   }
 
   intx = runway[document.getElementById("rwySelect").value].intx
-  for(var i = 0; i < intx.length; i++) {
-    var opt = document.createElement('option')
-    opt.innerHTML = intx[i]['name']
-    opt.value = [i]
-    sel.appendChild(opt)
-  }
 
-  document.getElementById("intxSelect").disabled = false
-  document.getElementById("intxSelect").value = 0
+  if (intx.length != 0) {
+    for(var i = 0; i < intx.length; i++) {
+      var opt = document.createElement('option')
+      opt.innerHTML = intx[i]['name']
+      opt.value = [i]
+      sel.appendChild(opt)
+    }
+  
+    document.getElementById("intxSelect").disabled = false
+    document.getElementById("intxSelect").value = 0
+  } else {
+    document.getElementById("intxSelect").display = none
+  }
 }
 
 function graphUpdate() {
