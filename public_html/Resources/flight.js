@@ -448,6 +448,8 @@ function perfLDG() {
   var slope = Number(runway[document.getElementById("rwySelectArr").value]["slope"]) || 0.0
   var rwyCond = document.getElementById("rwyCondArr").value
 
+  var lda = Number(runway[document.getElementById("rwySelectArr").value]["lda"])
+
   var press = Number(Math.floor(arrMetar.data[0].barometer.hpa)) || 1013
   var temp = Number(arrMetar.data[0].temperature.celsius) || 15
 
@@ -495,9 +497,9 @@ function perfLDG() {
 
   if (unitLDG == "met") {
     document.getElementById("txtLDR").innerHTML = "<strong>" + Intl.NumberFormat().format(ldr) + " m</strong>"
-    document.getElementById("txtLDR143").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " m </strong>≤ LDA " + (runway[document.getElementById("rwySelectArr").value]["lda"]) + " m"
+    document.getElementById("txtLDR143").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " m </strong>≤ LDA " + Intl.NumberFormat().format(lda) + " m"
   } else {
     document.getElementById("txtLDR").innerHTML = "<strong>" + Intl.NumberFormat().format(ldr) + " ft</strong>"
-    document.getElementById("txtLDR143").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " ft </strong>≤ LDA " + Math.floor((runway[document.getElementById("rwySelectArr").value]["lda"] * 3.285) + 0.5) + " ft"
+    document.getElementById("txtLDR143").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " ft </strong>≤ LDA " + Intl.NumberFormat().format(Math.floor()(lda * 3.285) + 0.5)) + " ft"
   }
 }
