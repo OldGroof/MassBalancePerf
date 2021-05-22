@@ -105,6 +105,7 @@ function getDepMetar() {
           depMetar = result
 
           document.getElementById("txtMetarDep").innerHTML = "METAR " + depMetar.data[0].raw_text
+          document.getElementById("metarBox").style.display = "block"
       }
   };
   egtcMetar.open("GET", "https://api.checkwx.com/metar/" + icao + "/decoded", true)
@@ -327,7 +328,6 @@ function perfTO() {
   }
 
   document.getElementById("TOResults").style.display = "block"
-  document.getElementById("txtMetarDep").style.display = "block"
 
   if (unitTO == "met") {
     document.getElementById("txtTODR").innerHTML = Intl.NumberFormat().format(todr) + " m"
