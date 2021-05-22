@@ -228,8 +228,11 @@ function maths() {
   document.getElementById("txtLMMom").innerHTML = Intl.NumberFormat().format(Math.floor(lmMom + 0.5))
 
   graphUpdate()
-
-  perfTO()
+  
+  if (document.getElementById("airpSelect").value != 0) {
+    perfTO()
+  }
+  
   perfLDG()
 }
 
@@ -286,6 +289,8 @@ function perfTO() {
       var altVar = 0.2 * pressAlt
     }
   }
+
+  console.log(bearing)
 
   if (flaps == true) {
     var tempVar = 16.9 * temp
