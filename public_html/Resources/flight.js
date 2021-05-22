@@ -145,7 +145,11 @@ function getDepMetar() {
           result = JSON.parse(this.responseText)
           depMetar = result
 
-          document.getElementById("txtMetarDep").innerHTML = "METAR " + depMetar.data[0].raw_text
+          if (depMetar != null) {
+            document.getElementById("txtMetarDep").innerHTML = "METAR " + depMetar.data[0].raw_text
+          } else {
+            document.getElementById("txtMetarDep").innerHTML = "METAR Unavail"
+          }
           document.getElementById("metarBox").style.display = "block"
       }
   };
@@ -162,7 +166,11 @@ function getArrMetar() {
           result = JSON.parse(this.responseText)
           arrMetar = result
 
-          document.getElementById("txtMetarArr").innerHTML = "METAR " + arrMetar.data[0].raw_text
+          if (arrMetar != null) {
+            document.getElementById("txtMetarArr").innerHTML = "METAR " + arrMetar.data[0].raw_text
+          } else {
+            document.getElementById("txtMetarArr").innerHTML = "METAR Unavail"
+          }
           document.getElementById("metarBoxArr").style.display = "block"
       }
   };
@@ -178,7 +186,11 @@ function getArrTaf() {
       if (this.readyState == 4 && this.status == 200) {
           result = JSON.parse(this.responseText)
 
-          document.getElementById('txtTafArr').innerHTML = "TAF " + result.raw
+          if (result.raw != null) {
+            document.getElementById('txtTafArr').innerHTML = "TAF " + result.raw
+          } else {
+            document.getElementById('txtTafArr').innerHTML = "TAF Unavail"
+          }
       }
   };
   taf.open("GET", "https://avwx.rest/api/taf/" + icao, true)
@@ -349,11 +361,19 @@ function perfTO() {
   }
   var rwyCond = document.getElementById("rwyCondDep").value
 
-  var press = Number(Math.floor(depMetar.data[0].barometer.hpa)) || 1013
-  var temp = Number(depMetar.data[0].temperature.celsius) || 15
+  if (depMetar != null) {
+    var press = Number(Math.floor(depMetar.data[0].barometer.hpa))
+    var temp = Number(depMetar.data[0].temperature.celsius)
+  
+    var windDir = Number(depMetar.data[0].wind.degrees)
+    var windSpd = Number(depMetar.data[0].wind.speed_kts)
+  } else {
+    var press = 1013
+    var temp = 15
 
-  var windDir = Number(depMetar.data[0].wind.degrees) || 0
-  var windSpd = Number(depMetar.data[0].wind.speed_kts) || 0
+    var windDir = 0
+    var windSpd = 0
+  }
 
   var angle = windDir - bearing
   var crosswind = Math.floor((windSpd * Math.sin(angle * (Math.PI / 180))) + 0.5)
