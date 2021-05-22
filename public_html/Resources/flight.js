@@ -395,7 +395,7 @@ function perfTO() {
 
   document.getElementById("TOResults").style.display = "block"
 
-  if (runway[document.getElementById("rwySelect").value]["tora"] == runway[document.getElementById("rwySelect").value]["toda"] == runway[document.getElementById("rwySelect").value]["asda"]) {
+  if (runway[document.getElementById("rwySelect").value]["tora"] == runway[document.getElementById("rwySelect").value]["toda"]) {
     console.log("Balanced")
     document.getElementById("toBalanced").style.display = "block"
     document.getElementById("toUnbalanced").style.display = "none"
