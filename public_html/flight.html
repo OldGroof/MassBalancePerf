@@ -284,38 +284,16 @@
     <div class="column">
       <h2 style="border-bottom: 3px solid #a80006; padding-bottom: 3px;">Landing</h2>
       <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
-        <p class="input-label">Elevation</p>
-        <input type="text" id="inpElevArr" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Elevation"
-        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-        />
+        <p class="input-label">Airport</p>
+        <select id="airpSelectArr" style="float: right; margin-left: auto; width: 250px;" disabled>
+          <option value="0" disabled selected>Select Airport</option>
+        </select>
       </div>
       <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
-        <p class="input-label">Air Pressure</p>
-        <input type="text" id="inpPressArr" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Pressure"
-        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-        />
-      </div>
-      <div class="row" style="padding-top: 5px; padding-bottom: 5px; height: 33px;">
-        <p class="input-label">Pressure Altitude</p>
-        <p class="input-label" style="float: right; margin-left: auto; font-weight: 300;" id="txtPressAltArr">0</p>
-      </div>
-      <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
-        <p class="input-label">Temperature</p>
-        <input type="text" id="inpTempArr" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Temperature"
-        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-        />
-      </div>
-      <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
-        <p class="input-label">Wind</p>
-        <input type="text" id="inpWindArr" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Wind Comp."
-        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1'); "
-        />
-      </div>
-      <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
-        <p class="input-label">Down Slope</p>
-        <input type="text" id="inpSlopeArr" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Slope"
-        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-        />
+        <p class="input-label">Runway</p>
+        <select id="rwySelectArr" style="float: right; margin-left: auto;" disabled>
+          <option value="0" disabled selected>RWY</option>
+        </select>
       </div>
       <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
         <p class="input-label">Runway Condition</p>

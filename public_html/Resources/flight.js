@@ -40,7 +40,8 @@ airportGet.onreadystatechange = function() {
       var opt = document.createElement('option')
       opt.innerHTML = airport[i]['icao'] + " " + airport[i]['name']
       opt.value = [i]
-      sel.appendChild(opt)
+      document.getElementById('airpSelect').appendChild(opt)
+      document.getElementById('airpSelectArr').appendChild(opt)
     }
   }
 }
@@ -132,11 +133,7 @@ function unlock() {
   document.getElementById("rwyCondDep").disabled = false
 
   document.getElementById("unitLDG").disabled = false
-  document.getElementById("inpElevArr").disabled = false
-  document.getElementById("inpPressArr").disabled = false
-  document.getElementById("inpTempArr").disabled = false
-  document.getElementById("inpWindArr").disabled = false
-  document.getElementById("inpSlopeArr").disabled = false
+  document.getElementById("airpSelectArr").disabled = false
   document.getElementById("rwyCondArr").disabled = false
 
   document.getElementById("zfmGraph").hidden = false
@@ -242,7 +239,6 @@ document.getElementById("airpSelect").addEventListener("change", depRunwayUpdate
 document.getElementById("rwySelect").addEventListener("change", perfTO)
 document.getElementById("rwySelect").addEventListener("change", intxUpdate)
 document.getElementById("intxSelect").addEventListener("change", perfTO)
-
 document.getElementById("flapstoggle").addEventListener("click", perfTO)
 document.getElementById("rwyCondDep").addEventListener("change", perfTO)
 
