@@ -56,13 +56,13 @@ function depRunwayUpdate() {
 
   for(var i = 0; i < airport[document.getElementById("airpSelect").value].runways.length; i++) {
     var opt = document.createElement('option')
-    opt.innerHTML = airport[document.getElementById("airpSelect").value].runways[i]['name']
+    opt.innerHTML = "RWY" + airport[document.getElementById("airpSelect").value].runways[i]['name']
     opt.value = [i]
     sel.appendChild(opt)
   }
 
   document.getElementById("rwySelect").disabled = false
-  document.getElementById("rwySelect").value = 0
+  document.getElementById("rwySelect").selectedIndex = 0
 }
 
 function graphUpdate() {
