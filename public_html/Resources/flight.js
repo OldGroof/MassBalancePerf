@@ -195,7 +195,9 @@ document.getElementById("unitTO").addEventListener("change", perfTO)
 document.getElementById("airpSelect").addEventListener("change", perfTO)
 document.getElementById("airpSelect").addEventListener("change", depRunwayUpdate)
 document.getElementById("rwySelect").addEventListener("change", perfTO)
+
 document.getElementById("intxSelect").addEventListener("change", perfTO)
+
 document.getElementById("flapstoggle").addEventListener("click", perfTO)
 document.getElementById("rwyCondDep").addEventListener("change", perfTO)
 
@@ -217,11 +219,14 @@ function perfTO() {
   var mass = tom || 2550
   var flaps = document.getElementById("flapstoggle").checked
   var elev = Number(airport[document.getElementById("airpSelect").value]["elevation"]) || 0
-  var press = Number(document.getElementById("inpPressDep").value) || 1013
-  var temp = Number(document.getElementById("inpTempDep").value) || 15
-  var wind = Number(document.getElementById("inpWindDep").value) || 0
-  var slope = Number(document.getElementById("inpSlopeDep").value) || 0.0
+  var press = 1013 // Needs upddating
+  var temp = 15 // Needs upddating
+  var wind = 0 // Needs upddating
+  var bearing = Number(runway[document.getElementById("rwySelect").value]["bearing"]) || 0
+  var slope = Number(runway[document.getElementById("rwySelect").value]["slope"]) || 0.0
   var rwyCond = document.getElementById("rwyCondDep").value
+
+  console.log(elev, bearing, slope)
 
   var pressAlt = ((1013 - press) * 30) + elev
   document.getElementById("txtPressAltDep").innerHTML = pressAlt
