@@ -88,6 +88,24 @@ function depRunwayUpdate() {
   document.getElementById("rwySelect").value = 0
 }
 
+function arrRunwayUpdate() {
+  var sel = document.getElementById('rwySelectArr')
+  for (i = sel.options.length-1; i >= 1; i--) {
+    sel.options[i] = null;
+  }
+
+  runway = airport[document.getElementById("airpSelectArr").value].runways
+  for(var i = 0; i < runway.length; i++) {
+    var opt = document.createElement('option')
+    opt.innerHTML = "RWY " + runway[i]['name']
+    opt.value = [i]
+    sel.appendChild(opt)
+  }
+
+  document.getElementById("rwySelectArr").disabled = false
+  document.getElementById("rwySelectArr").value = 0
+}
+
 function intxUpdate() {
   var sel = document.getElementById('intxSelect')
   for (i = sel.options.length-1; i >= 1; i--) {
@@ -281,6 +299,7 @@ document.getElementById("rwyCondDep").addEventListener("change", perfTO)
 
 document.getElementById("unitLDG").addEventListener("change", perfLDG)
 document.getElementById("airpSelectArr").addEventListener("change", getArrMetar)
+document.getElementById("airpSelectArr").addEventListener("change", arrRunwayUpdate)
 document.getElementById("rwyCondArr").addEventListener("change", perfLDG)
 
 function perfTO() {
@@ -298,16 +317,15 @@ function perfTO() {
   var slope = Number(runway[document.getElementById("rwySelect").value]["slope"]) || 0.0
   var rwyCond = document.getElementById("rwyCondDep").value
 
-  var press = Number(Math.floor(depMetar.data[0].barometer.hpa)) || 1013 // Needs updating
-  var temp = Number(depMetar.data[0].temperature.celsius) || 15 // Needs updating
+  var press = Number(Math.floor(depMetar.data[0].barometer.hpa)) || 1013
+  var temp = Number(depMetar.data[0].temperature.celsius) || 15
 
   var windDir = Number(depMetar.data[0].wind.degrees) || 0
   var windSpd = Number(depMetar.data[0].wind.speed_kts) || 0
 
   var angle = windDir - bearing
-  var wind = Math.floor(((windSpd * Math.cos(angle * (Math.PI / 180))) / 2) + 0.5) // Needs updating
+  var wind = Math.floor(((windSpd * Math.cos(angle * (Math.PI / 180))) / 2) + 0.5)
   var pressAlt = ((1013 - press) * 30) + elev
-  // document.getElementById("txtPressAltDep").innerHTML = pressAlt
 
   if (pressAlt < 0) {
     var altVar = 0
