@@ -345,7 +345,9 @@ function perfTO() {
   var windSpd = Number(depMetar.data[0].wind.speed_kts) || 0
 
   var angle = windDir - bearing
-  var wind = Math.floor(((windSpd * Math.cos(angle * (Math.PI / 180))) / 2) + 0.5)
+  var crosswind = Math.floor((windSpd * Math.sin(angle * (Math.PI / 180))) + 0.5)
+  var headwind = Math.floor((windSpd * Math.cos(angle * (Math.PI / 180))) + 0.5)
+  var wind = Math.floor((headwind / 2) + 0.5)
   var pressAlt = ((1013 - press) * 30) + elev
 
   if (pressAlt < 0) {
@@ -392,6 +394,7 @@ function perfTO() {
   document.getElementById("TOResults").style.display = "block"
   document.getElementById("txtDepPressAlt").style.display = "block"
   document.getElementById("txtDepPressAlt").innerHTML = "Pressure Altitude: " + pressAlt + " ft"
+  document.getElementById("txtDepWindComp").innerHTML = "Headwind: " + headwind + " Crosswind: " + crosswind
 
   if (unitTO == "met") {
     document.getElementById("txtTODR").innerHTML = Intl.NumberFormat().format(todr) + " m"
@@ -425,7 +428,9 @@ function perfLDG() {
   var windSpd = Number(arrMetar.data[0].wind.speed_kts) || 0
 
   var angle = windDir - bearing
-  var wind = Math.floor(((windSpd * Math.cos(angle * (Math.PI / 180))) / 2) + 0.5)
+  var crosswind = Math.floor((windSpd * Math.sin(angle * (Math.PI / 180))) + 0.5)
+  var headwind = Math.floor((windSpd * Math.cos(angle * (Math.PI / 180))) + 0.5)
+  var wind = Math.floor((headwind / 2) + 0.5)
   var pressAlt = ((1013 - press) * 30) + elev
 
   if (pressAlt < 0) {
@@ -458,6 +463,7 @@ function perfLDG() {
   document.getElementById("LDGResults").style.display = "block"
   document.getElementById("txtArrPressAlt").style.display = "block"
   document.getElementById("txtArrPressAlt").innerHTML = "Pressure Altitude: " + pressAlt + " ft"
+  document.getElementById("txtArrWindComp").innerHTML = "Headwind: " + headwind + " Crosswind: " + crosswind
 
   if (unitLDG == "met") {
     document.getElementById("txtLDR").innerHTML = Intl.NumberFormat().format(ldr) + " m"
