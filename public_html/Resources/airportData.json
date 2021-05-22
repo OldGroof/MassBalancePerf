@@ -1,5 +1,100 @@
 [
     {
+        "icao": "EGBJ",
+        "name": "Gloucestershire",
+        "elevation": 101,
+        "runways": [
+            {
+                "name": "04",
+                "bearing": 35,
+                "slope": 0.0,
+                "tora": 988,
+                "toda": 1094,
+                "asda": 1094,
+                "lda": 988,
+                "intx": [
+                ]
+            },
+            {
+                "name": "22",
+                "bearing": 215,
+                "slope": 0.0,
+                "tora": 983,
+                "toda": 1073,
+                "asda": 983,
+                "lda": 900,
+                "intx": [
+                ]
+            },
+            {
+                "name": "04G",
+                "bearing": 35,
+                "slope": 0.0,
+                "tora": 304,
+                "toda": 304,
+                "asda": 304,
+                "lda": 304,
+                "intx": [
+                ]
+            },
+            {
+                "name": "22G",
+                "bearing": 215,
+                "slope": 0.0,
+                "tora": 304,
+                "toda": 304,
+                "asda": 304,
+                "lda": 304,
+                "intx": [
+                ]
+            },
+            {
+                "name": "09",
+                "bearing": 84,
+                "slope": 0.0,
+                "tora": 1271,
+                "toda": 1311,
+                "asda": 1271,
+                "lda": 1241,
+                "intx": [
+                ]
+            },
+            {
+                "name": "27",
+                "bearing": 264,
+                "slope": 0.0,
+                "tora": 1317,
+                "toda": 1319,
+                "asda": 1317,
+                "lda": 1147,
+                "intx": [
+                ]
+            },
+            {
+                "name": "18",
+                "bearing": 174,
+                "slope": 0.0,
+                "tora": 799,
+                "toda": 799,
+                "asda": 799,
+                "lda": 799,
+                "intx": [
+                ]
+            },
+            {
+                "name": "36",
+                "bearing": 354,
+                "slope": 0.0,
+                "tora": 799,
+                "toda": 799,
+                "asda": 799,
+                "lda": 799,
+                "intx": [
+                ]
+            }
+        ]
+    },
+    {
         "icao": "EGTC",
         "name": "Cranfield",
         "elevation": 360,
@@ -69,6 +164,57 @@
                         "name": "C1",
                         "adjust": 381
                     }
+                ]
+            }
+        ]
+    },
+    {
+        "icao": "EGSC",
+        "name": "Cambridge",
+        "elevation": 48,
+        "runways": [
+            {
+                "name": "05",
+                "bearing": 50,
+                "slope": 0.14,
+                "tora": 1843,
+                "toda": 1952,
+                "asda": 1843,
+                "lda": 1628,
+                "intx": [
+                ]
+            },
+            {
+                "name": "23",
+                "bearing": 230,
+                "slope": -0.83,
+                "tora": 1886,
+                "toda": 2019,
+                "asda": 1886,
+                "lda": 1742,
+                "intx": [
+                ]
+            },
+            {
+                "name": "05G",
+                "bearing": 50,
+                "slope": 0.14,
+                "tora": 899,
+                "toda": 899,
+                "asda": 899,
+                "lda": 899,
+                "intx": [
+                ]
+            },
+            {
+                "name": "23G",
+                "bearing": 230,
+                "slope": -0.83,
+                "tora": 899,
+                "toda": 899,
+                "asda": 899,
+                "lda": 899,
+                "intx": [
                 ]
             }
         ]
