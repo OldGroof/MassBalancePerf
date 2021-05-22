@@ -85,6 +85,7 @@ function depRunwayUpdate() {
   }
 
   document.getElementById("TOResults").style.display = "none"
+  document.getElementById("txtDepPressAlt").style.display = "none"
   document.getElementById("rwySelect").disabled = false
   document.getElementById("rwyCondDep").disabled = false
   document.getElementById("rwySelect").value = 0
@@ -105,6 +106,7 @@ function arrRunwayUpdate() {
   }
 
   document.getElementById("LDGResults").style.display = "none"
+  document.getElementById("txtArrPressAlt").style.display = "none"
   document.getElementById("rwySelectArr").disabled = false
   document.getElementById("rwyCondArr").disabled = false
   document.getElementById("rwySelectArr").value = 0
@@ -282,10 +284,10 @@ function maths() {
 
   graphUpdate()
 
-  if (document.getElementById("airpSelect").value != null) {
+  if (document.getElementById("airpSelect").value != "unavail") {
     perfTO()
   }
-  if (document.getElementById("airpSelectArr").value != null) {
+  if (document.getElementById("airpSelectArr").value != "unavail") {
     perfLDG()
   }
 }
