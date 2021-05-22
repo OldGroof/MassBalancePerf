@@ -217,7 +217,6 @@ function unlock() {
   document.getElementById('inpBurn').disabled = false
 
   document.getElementById("unitTO").disabled = false
-  document.getElementById("flapstoggle").disabled = false
   document.getElementById("airpSelect").disabled = false
 
   document.getElementById("unitLDG").disabled = false
@@ -338,6 +337,8 @@ document.getElementById("rwySelectArr").addEventListener("change", perfLDG)
 document.getElementById("rwyCondArr").addEventListener("change", perfLDG)
 
 function perfTO() {
+  document.getElementById("flapstoggle").disabled = false
+  
   if (document.getElementById("unitTO").checked == true) {
     unitTO = "met"
   } else {
