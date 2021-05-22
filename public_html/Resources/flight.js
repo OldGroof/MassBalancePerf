@@ -85,6 +85,7 @@ function depRunwayUpdate() {
   }
 
   document.getElementById("rwySelect").disabled = false
+  document.getElementById("rwyCondDep").disabled = false
   document.getElementById("rwySelect").value = 0
 }
 
@@ -103,6 +104,7 @@ function arrRunwayUpdate() {
   }
 
   document.getElementById("rwySelectArr").disabled = false
+  document.getElementById("rwyCondArr").disabled = false
   document.getElementById("rwySelectArr").value = 0
 }
 
@@ -184,11 +186,9 @@ function unlock() {
   document.getElementById("unitTO").disabled = false
   document.getElementById("flapstoggle").disabled = false
   document.getElementById("airpSelect").disabled = false
-  document.getElementById("rwyCondDep").disabled = false
 
   document.getElementById("unitLDG").disabled = false
   document.getElementById("airpSelectArr").disabled = false
-  document.getElementById("rwyCondArr").disabled = false
 
   document.getElementById("zfmGraph").hidden = false
   document.getElementById("lmGraph").hidden = false
@@ -300,6 +300,7 @@ document.getElementById("rwyCondDep").addEventListener("change", perfTO)
 document.getElementById("unitLDG").addEventListener("change", perfLDG)
 document.getElementById("airpSelectArr").addEventListener("change", getArrMetar)
 document.getElementById("airpSelectArr").addEventListener("change", arrRunwayUpdate)
+document.getElementById("rwySelectArr").addEventListener("change", perfLDG)
 document.getElementById("rwyCondArr").addEventListener("change", perfLDG)
 
 function perfTO() {
