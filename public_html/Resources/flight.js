@@ -64,6 +64,8 @@ function depRunwayUpdate() {
 
   document.getElementById("rwySelect").disabled = false
   document.getElementById("rwySelect").value = 0
+
+  document.getElementById("intxSelect").disabled = false
 }
 
 function intxUpdate() {
