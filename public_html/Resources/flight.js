@@ -145,6 +145,7 @@ function getDepMetar() {
           result = JSON.parse(this.responseText)
           depMetar = result
 
+          console.log(depMetar)
           if (depMetar != null) {
             document.getElementById("txtMetarDep").innerHTML = "METAR " + depMetar.data[0].raw_text
           } else {
