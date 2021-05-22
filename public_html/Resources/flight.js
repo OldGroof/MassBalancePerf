@@ -17,6 +17,8 @@ var tomArm = 87.5
 var lm = 1200
 var lmArm = 87.5
 
+window.onload = alert("Caution!\n This is to be used to confirm that data is correct.\n Do not use this as a substitute to the laminated pack.")
+
 var xmlhttp = new XMLHttpRequest()
 xmlhttp.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
