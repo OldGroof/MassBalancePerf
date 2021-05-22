@@ -103,6 +103,8 @@ function getDepMetar() {
       if (this.readyState == 4 && this.status == 200) {
           result = JSON.parse(this.responseText)
           depMetar = result
+
+          document.getElementById("txtMetarDep").innerHTML = depMetar.data[0].raw_text
       }
   };
   egtcMetar.open("GET", "https://api.checkwx.com/metar/" + icao + "/decoded", true)
