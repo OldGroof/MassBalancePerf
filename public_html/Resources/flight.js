@@ -37,20 +37,35 @@ var airportGet = new XMLHttpRequest()
 airportGet.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
     airport = JSON.parse(this.responseText)
-    var selDep = document.getElementById('airpSelect')
-    var selArr = document.getElementById('airpSelectArr')
+    var sel = document.getElementById('airpSelect')
     for(var i = 0; i < airport.length; i++) {
       var opt = document.createElement('option')
       opt.innerHTML = airport[i]['icao'] + " " + airport[i]['name']
       opt.value = [i]
 
-      selDep.appendChild(opt)
-      selArr.appendChild(opt)
+      sel.appendChild(opt)
     }
   }
 }
 airportGet.open("GET", "Resources/airportData.json", true)
 airportGet.send()
+
+var airportGetArr = new XMLHttpRequest()
+airportGetArr.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    airport = JSON.parse(this.responseText)
+    var sel = document.getElementById('airpSelectArr')
+    for(var i = 0; i < airport.length; i++) {
+      var opt = document.createElement('option')
+      opt.innerHTML = airport[i]['icao'] + " " + airport[i]['name']
+      opt.value = [i]
+
+      sel.appendChild(opt)
+    }
+  }
+}
+airportGetArr.open("GET", "Resources/airportData.json", true)
+airportGetArr.send()
 
 window.onload = graphUpdate
 window.onresize = graphUpdate
@@ -250,8 +265,9 @@ function maths() {
   if (document.getElementById("airpSelect").value != null) {
     perfTO()
   }
-  
-  perfLDG()
+  if (document.getElementById("airpSelectArr").value != null) {
+    perfLDG()
+  }
 }
 
 document.getElementById("unitTO").addEventListener("change", perfTO)
