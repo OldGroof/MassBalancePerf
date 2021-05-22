@@ -64,8 +64,6 @@ function depRunwayUpdate() {
 
   document.getElementById("rwySelect").disabled = false
   document.getElementById("rwySelect").value = 0
-
-  document.getElementById("intxSelect").disabled = false
 }
 
 function intxUpdate() {
@@ -82,8 +80,8 @@ function intxUpdate() {
     sel.appendChild(opt)
   }
 
-  document.getElementById("rwySelect").disabled = false
-  document.getElementById("rwySelect").value = 0
+  document.getElementById("intxSelect").disabled = false
+  document.getElementById("intxSelect").value = 0
 }
 
 function graphUpdate() {
