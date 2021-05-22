@@ -397,7 +397,7 @@ function perfTO() {
   document.getElementById("txtDepPressAlt").style.display = "block"
   document.getElementById("txtDepWindComp").style.display = "block"
   document.getElementById("txtDepPressAlt").innerHTML = "Pressure Altitude: " + pressAlt + " ft"
-  document.getElementById("txtDepWindComp").innerHTML = "Headwind: " + headwind + " Crosswind: " + crosswind
+  document.getElementById("txtDepWindComp").innerHTML = "Headwind: " + headwind + " kts Crosswind: " + crosswind + " kts"
 
   if (unitTO == "met") {
     document.getElementById("txtTODR").innerHTML = Intl.NumberFormat().format(todr) + " m"
@@ -467,13 +467,13 @@ function perfLDG() {
   document.getElementById("txtArrPressAlt").style.display = "block"
   document.getElementById("txtArrWindComp").style.display = "block"
   document.getElementById("txtArrPressAlt").innerHTML = "Pressure Altitude: " + pressAlt + " ft"
-  document.getElementById("txtArrWindComp").innerHTML = "Headwind: " + headwind + " Crosswind: " + crosswind
+  document.getElementById("txtArrWindComp").innerHTML = "Headwind: " + headwind + " kts Crosswind: " + crosswind + " kts"
 
   if (unitLDG == "met") {
     document.getElementById("txtLDR").innerHTML = Intl.NumberFormat().format(ldr) + " m"
     document.getElementById("txtLDR143").innerHTML = Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " m ≤ " + (runway[document.getElementById("rwySelectArr").value]["lda"]) + " m"
   } else {
     document.getElementById("txtLDR").innerHTML = Intl.NumberFormat().format(ldr) + " ft"
-    document.getElementById("txtLDR143").innerHTML = Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " ft ≤ " + (runway[document.getElementById("rwySelectArr").value]["lda"] * 3.285) + " ft"
+    document.getElementById("txtLDR143").innerHTML = Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " ft ≤ LDA " + Math.floor((runway[document.getElementById("rwySelectArr").value]["lda"] * 3.285) + 0.5) + " ft"
   }
 }
