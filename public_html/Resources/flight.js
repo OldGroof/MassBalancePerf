@@ -287,10 +287,6 @@ function perfTO() {
     }
   }
 
-  console.log(elev, bearing, slope)
-  console.log(press, temp, wind)
-  console.log(pressAlt)
-
   if (flaps == true) {
     var tempVar = 16.9 * temp
     var windVar = 21 * wind
