@@ -130,10 +130,10 @@ function intxUpdate() {
       sel.appendChild(opt)
     }
     document.getElementById("intxSelect").disabled = false
-    document.getElementById("intxSelect").value = 0
+    document.getElementById("intxSelect").value = "unavail"
   } else {
     document.getElementById("intxSelect").disabled = true
-    document.getElementById("intxSelect").value = 0
+    document.getElementById("intxSelect").value = "unavail"
   }
 }
 
