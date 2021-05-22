@@ -119,6 +119,7 @@ function getArrMetar() {
   metar.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
           result = JSON.parse(this.responseText)
+          console.log(result)
           arrMetar = result
 
           document.getElementById("txtMetarArr").innerHTML = "METAR " + arrMetar.data[0].raw_text
