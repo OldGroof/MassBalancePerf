@@ -103,8 +103,7 @@ function getDepMetar() {
   egtcMetar.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
           result = JSON.parse(this.responseText)
-
-          console.log(result)
+          depMetar = result
       }
   };
   egtcMetar.open("GET", "https://api.checkwx.com/metar/" + icao + "/decoded", true)
@@ -238,7 +237,7 @@ function maths() {
 }
 
 document.getElementById("unitTO").addEventListener("change", perfTO)
-document.getElementById("airpSelect").addEventListener("change", perfTO)
+// document.getElementById("airpSelect").addEventListener("change", perfTO)
 document.getElementById("airpSelect").addEventListener("change", getDepMetar)
 document.getElementById("airpSelect").addEventListener("change", depRunwayUpdate)
 document.getElementById("rwySelect").addEventListener("change", perfTO)
@@ -271,12 +270,12 @@ function perfTO() {
   var slope = Number(runway[document.getElementById("rwySelect").value]["slope"]) || 0.0
   var rwyCond = document.getElementById("rwyCondDep").value
 
-  var press = 1013 // Needs updating
+  var press = Math.floor(depMetar.data[0].barometer.hpa) || 1013 // Needs updating
   var temp = 15 // Needs updating
   var wind = 0 // Needs updating
 
-
   console.log(elev, bearing, slope)
+  console.log(press)
 
   var pressAlt = ((1013 - press) * 30) + elev
   // document.getElementById("txtPressAltDep").innerHTML = pressAlt
