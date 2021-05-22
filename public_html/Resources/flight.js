@@ -338,6 +338,11 @@ function perfTO() {
   var elev = Number(airport[document.getElementById("airpSelect").value]["elevation"]) || 0
   var bearing = Number(runway[document.getElementById("rwySelect").value]["bearing"]) || 0
   var slope = Number(runway[document.getElementById("rwySelect").value]["slope"]) || 0.0
+
+  var tora = Number(runway[document.getElementById("rwySelect").value]["tora"])
+  var toda = Number(runway[document.getElementById("rwySelect").value]["toda"])
+  var asda = Number(runway[document.getElementById("rwySelect").value]["asda"])
+  var intxAdjust = Number(intx[document.getElementById("intxSelect").value]["adjust"])
   var rwyCond = document.getElementById("rwyCondDep").value
 
   var press = Number(Math.floor(depMetar.data[0].barometer.hpa)) || 1013
@@ -410,18 +415,22 @@ function perfTO() {
   document.getElementById("txtDepPressAlt").innerHTML = "Pressure Altitude: " + pressAlt + " ft"
   document.getElementById("txtDepWindComp").innerHTML = "Headwind: " + headwind + " kts Crosswind: " + crosswind + " kts"
 
+  tora = tora - intxAdjust
+  toda = toda - intxAdjust
+  asda = asda - intxAdjust
+
   if (unitTO == "met") {
     document.getElementById("txtTODR").innerHTML = "<strong>" + Intl.NumberFormat().format(Number(todr)) + " m</strong>"
-    document.getElementById("txtTODRU").innerHTML = "<strong>" + Intl.NumberFormat().format(Number(todr)) + " m </strong>≤ TORA " + (runway[document.getElementById("rwySelect").value]["tora"]) + " m"
-    document.getElementById("txtTODR125").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((todr * 1.25) + 0.5)) + " m </strong>≤ TORA " + (runway[document.getElementById("rwySelect").value]["tora"]) + " m"
-    document.getElementById("txtTODR115").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((todr * 1.15) + 0.5)) + " m </strong>≤ TODA " + (runway[document.getElementById("rwySelect").value]["toda"]) + " m"
-    document.getElementById("txtTODR130").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((todr * 1.30) + 0.5)) + " m </strong>≤ ASDA " + (runway[document.getElementById("rwySelect").value]["asda"]) + " m"
+    document.getElementById("txtTODRU").innerHTML = "<strong>" + Intl.NumberFormat().format(Number(todr)) + " m </strong>≤ TORA " + Intl.NumberFormat().format(tora) + " m"
+    document.getElementById("txtTODR125").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((todr * 1.25) + 0.5)) + " m </strong>≤ TORA " + Intl.NumberFormat().format(tora) + " m"
+    document.getElementById("txtTODR115").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((todr * 1.15) + 0.5)) + " m </strong>≤ TODA " + Intl.NumberFormat().format(toda) + " m"
+    document.getElementById("txtTODR130").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((todr * 1.30) + 0.5)) + " m </strong>≤ ASDA " + Intl.NumberFormat().format(asda) + " m"
   } else {
     document.getElementById("txtTODR").innerHTML = "<strong>" + Intl.NumberFormat().format(Number(todr)) + " ft"
-    document.getElementById("txtTODRU").innerHTML = "<strong>" + Intl.NumberFormat().format(Number(todr)) + " ft </strong>≤ TORA " + Math.floor((runway[document.getElementById("rwySelect").value]["tora"] * 3.285) + 0.5) + " ft"
-    document.getElementById("txtTODR125").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((todr * 1.25) + 0.5)) + " ft </strong>≤ TORA " + Math.floor((runway[document.getElementById("rwySelect").value]["tora"] * 3.285) + 0.5) + " ft"
-    document.getElementById("txtTODR115").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((todr * 1.15) + 0.5)) + " ft </strong>≤ TODA " + Math.floor((runway[document.getElementById("rwySelect").value]["toda"] * 3.285) + 0.5) + " ft"
-    document.getElementById("txtTODR130").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((todr * 1.30) + 0.5)) + " ft </strong>≤ ASDA " + Math.floor((runway[document.getElementById("rwySelect").value]["asda"] * 3.285) + 0.5) + " ft"
+    document.getElementById("txtTODRU").innerHTML = "<strong>" + Intl.NumberFormat().format(Number(todr)) + " ft </strong>≤ TORA " + Intl.NumberFormat().format(Math.floor((tora * 3.285) + 0.5)) + " ft"
+    document.getElementById("txtTODR125").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((todr * 1.25) + 0.5)) + " ft </strong>≤ TORA " + Intl.NumberFormat().format(Math.floor((tora * 3.285) + 0.5)) + " ft"
+    document.getElementById("txtTODR115").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((todr * 1.15) + 0.5)) + " ft </strong>≤ TODA " + Intl.NumberFormat().format(Math.floor((toda * 3.285) + 0.5)) + " ft"
+    document.getElementById("txtTODR130").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((todr * 1.30) + 0.5)) + " ft </strong>≤ ASDA " + Intl.NumberFormat().format(Math.floor((asda * 3.285) + 0.5)) + " ft"
   }
 }
 
