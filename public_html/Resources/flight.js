@@ -50,7 +50,7 @@ window.onresize = graphUpdate
 function depRunwayUpdate() {
   var sel = document.getElementById('rwySelect')
 
-  for (i = sel.options.length-1; i >= 0; i--) {
+  for (i = sel.options.length-1; i >= 1; i--) {
     sel.options[i] = null;
   }
 
