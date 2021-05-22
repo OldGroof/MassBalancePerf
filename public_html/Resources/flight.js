@@ -4,6 +4,8 @@ var aircraft
 var airport
 var runway
 var intx
+
+var depMetar
 var vertRng = document.getElementById("graph").style.height
 
 var zfm = 1200
@@ -85,13 +87,27 @@ function intxUpdate() {
     opt.innerHTML = "FULL"
     opt.value = intx.length + 1
     sel.appendChild(opt)
-    
+
     document.getElementById("intxSelect").disabled = false
     document.getElementById("intxSelect").value = 0
   } else {
     document.getElementById("intxSelect").disabled = true
     document.getElementById("intxSelect").value = 0
   }
+}
+
+function getDepMetar(icao) {
+  var egtcMetar = new XMLHttpRequest()
+  egtcMetar.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          result = JSON.parse(this.responseText)
+
+          console.log(result)
+      }
+  };
+  egtcMetar.open("GET", "https://api.checkwx.com/metar/" + icao + "/decoded", true)
+  egtcMetar.setRequestHeader('X-API-Key', '6f5de2372b0543bc9959c51695')
+  egtcMetar.send()
 }
 
 function graphUpdate() {
@@ -221,6 +237,7 @@ function maths() {
 
 document.getElementById("unitTO").addEventListener("change", perfTO)
 document.getElementById("airpSelect").addEventListener("change", perfTO)
+document.getElementById("airpSelect").addEventListener("change", getDepMetar(airport[document.getElementById("airpSelect")["icao"]].icao))
 document.getElementById("airpSelect").addEventListener("change", depRunwayUpdate)
 document.getElementById("rwySelect").addEventListener("change", perfTO)
 document.getElementById("rwySelect").addEventListener("change", intxUpdate)
