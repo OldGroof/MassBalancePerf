@@ -62,7 +62,7 @@ function depRunwayUpdate() {
   }
 
   document.getElementById("rwySelect").disabled = false
-  document.getElementById("rwySelect").selectedIndex = 0
+  document.getElementById("rwySelect").value = 0
 }
 
 function graphUpdate() {
