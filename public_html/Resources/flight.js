@@ -98,7 +98,7 @@ function getDepMetar() {
       if (this.readyState == 4 && this.status == 200) {
           result = JSON.parse(this.responseText)
           depMetar = result
-          
+
           document.getElementById("txtMetarDep").innerHTML = "METAR " + depMetar.data[0].raw_text
           document.getElementById("metarBox").style.display = "block"
       }
@@ -322,6 +322,7 @@ function perfTO() {
   }
 
   document.getElementById("TOResults").style.display = "block"
+  document.getElementById("txtDepPressAlt").style.display = "block"
   document.getElementById("txtDepPressAlt").innerHTML = "Pressure Altitude: " + pressAlt + " ft"
 
   if (unitTO == "met") {
