@@ -411,13 +411,13 @@ function perfTO() {
   document.getElementById("txtDepWindComp").innerHTML = "Headwind: " + headwind + " kts Crosswind: " + crosswind + " kts"
 
   if (unitTO == "met") {
-    document.getElementById("txtTODR").innerHTML = Intl.NumberFormat().format(todr) + " m"
-    document.getElementById("txtTODR125").innerHTML = Intl.NumberFormat().format(Math.floor((todr * 1.25) + 0.5)) + " m"
+    document.getElementById("txtTODR").innerHTML = Intl.NumberFormat().format(Number(todr)) + " m"
+    document.getElementById("txtTODR125").innerHTML = Intl.NumberFormat().format(Math.floor((todr * 1.25) + 0.5)) + " m ≤ TORA " + (runway[document.getElementById("rwySelect").value]["tora"]) + " m"
     document.getElementById("txtTODR115").innerHTML = Intl.NumberFormat().format(Math.floor((todr * 1.15) + 0.5)) + " m"
     document.getElementById("txtTODR130").innerHTML = Intl.NumberFormat().format(Math.floor((todr * 1.30) + 0.5)) + " m"
   } else {
-    document.getElementById("txtTODR").innerHTML = Intl.NumberFormat().format(todr) + " ft"
-    document.getElementById("txtTODR125").innerHTML = Intl.NumberFormat().format(Math.floor((todr * 1.25) + 0.5)) + " ft"
+    document.getElementById("txtTODR").innerHTML = Intl.NumberFormat().format(Number(todr)) + " ft"
+    document.getElementById("txtTODR125").innerHTML = Intl.NumberFormat().format(Math.floor((todr * 1.25) + 0.5)) + " ft ≤ TORA " + Math.floor((runway[document.getElementById("rwySelect").value]["tora"] * 3.285) + 0.5) + " ft"
     document.getElementById("txtTODR115").innerHTML = Intl.NumberFormat().format(Math.floor((todr * 1.15) + 0.5)) + " ft"
     document.getElementById("txtTODR130").innerHTML = Intl.NumberFormat().format(Math.floor((todr * 1.30) + 0.5)) + " ft"
   }
@@ -482,7 +482,7 @@ function perfLDG() {
 
   if (unitLDG == "met") {
     document.getElementById("txtLDR").innerHTML = Intl.NumberFormat().format(ldr) + " m"
-    document.getElementById("txtLDR143").innerHTML = Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " m ≤ " + (runway[document.getElementById("rwySelectArr").value]["lda"]) + " m"
+    document.getElementById("txtLDR143").innerHTML = Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " m ≤ LDA " + (runway[document.getElementById("rwySelectArr").value]["lda"]) + " m"
   } else {
     document.getElementById("txtLDR").innerHTML = Intl.NumberFormat().format(ldr) + " ft"
     document.getElementById("txtLDR143").innerHTML = Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " ft ≤ LDA " + Math.floor((runway[document.getElementById("rwySelectArr").value]["lda"] * 3.285) + 0.5) + " ft"
