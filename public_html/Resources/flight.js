@@ -6,6 +6,8 @@ var runway
 var intx
 
 var depMetar
+var arrMetar
+
 var vertRng = document.getElementById("graph").style.height
 
 var zfm = 1200
@@ -102,6 +104,23 @@ function getDepMetar() {
 
           document.getElementById("txtMetarDep").innerHTML = "METAR " + depMetar.data[0].raw_text
           document.getElementById("metarBox").style.display = "block"
+      }
+  };
+  metar.open("GET", "https://api.checkwx.com/metar/" + icao + "/decoded", true)
+  metar.setRequestHeader('X-API-Key', '6f5de2372b0543bc9959c51695')
+  metar.send()
+}
+
+function getArrMetar() {
+  var icao = airport[document.getElementById("airpSelectArr").value]["icao"]
+  var metar = new XMLHttpRequest()
+  metar.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          result = JSON.parse(this.responseText)
+          arrMetar = result
+
+          document.getElementById("txtMetarArr").innerHTML = "METAR " + arrMetar.data[0].raw_text
+          document.getElementById("metarBoxArr").style.display = "block"
       }
   };
   metar.open("GET", "https://api.checkwx.com/metar/" + icao + "/decoded", true)
@@ -243,11 +262,7 @@ document.getElementById("flapstoggle").addEventListener("click", perfTO)
 document.getElementById("rwyCondDep").addEventListener("change", perfTO)
 
 document.getElementById("unitLDG").addEventListener("change", perfLDG)
-document.getElementById("inpElevArr").addEventListener("keyup", perfLDG)
-document.getElementById("inpPressArr").addEventListener("keyup", perfLDG)
-document.getElementById("inpTempArr").addEventListener("keyup", perfLDG)
-document.getElementById("inpWindArr").addEventListener("keyup", perfLDG)
-document.getElementById("inpSlopeArr").addEventListener("keyup", perfLDG)
+document.getElementById("airpSelectArr").addEventListener("change", getArrMetar)
 document.getElementById("rwyCondArr").addEventListener("change", perfLDG)
 
 function perfTO() {
