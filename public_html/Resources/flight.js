@@ -272,7 +272,7 @@ function perfTO() {
   var rwyCond = document.getElementById("rwyCondDep").value
 
   var press = Number(Math.floor(depMetar.data[0].barometer.hpa)) || 1013 // Needs updating
-  var temp = Number(depMetar.data[0].temperature.celcius) || 15 // Needs updating
+  var temp = Number(depMetar.data[0].temperature.celsius) || 15 // Needs updating
 
   var windDir = Number(depMetar.data[0].wind.degrees) || 0
   var windSpd = Number(depMetar.data[0].wind.speed_kts) || 0
