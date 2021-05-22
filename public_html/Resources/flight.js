@@ -229,7 +229,7 @@ function maths() {
 
   graphUpdate()
 
-  if (document.getElementById("airpSelect").value != 0) {
+  if (document.getElementById("airpSelect").value != null) {
     perfTO()
   }
   
