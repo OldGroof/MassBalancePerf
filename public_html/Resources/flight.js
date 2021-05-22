@@ -146,7 +146,7 @@ function getDepMetar() {
           depMetar = result
 
           console.log(depMetar)
-          if (depMetar != null) {
+          if (depMetar.data[0] != null) {
             document.getElementById("txtMetarDep").innerHTML = "METAR " + depMetar.data[0].raw_text
           } else {
             document.getElementById("txtMetarDep").innerHTML = "METAR Unavail"
@@ -167,7 +167,7 @@ function getArrMetar() {
           result = JSON.parse(this.responseText)
           arrMetar = result
 
-          if (arrMetar != null) {
+          if (arrMetar.data[0] != null) {
             document.getElementById("txtMetarArr").innerHTML = "METAR " + arrMetar.data[0].raw_text
           } else {
             document.getElementById("txtMetarArr").innerHTML = "METAR Unavail"
@@ -362,7 +362,7 @@ function perfTO() {
   }
   var rwyCond = document.getElementById("rwyCondDep").value
 
-  if (depMetar != null) {
+  if (depMetar.data[0] != null) {
     var press = Number(Math.floor(depMetar.data[0].barometer.hpa))
     var temp = Number(depMetar.data[0].temperature.celsius)
   
