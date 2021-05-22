@@ -84,6 +84,7 @@ function depRunwayUpdate() {
     sel.appendChild(opt)
   }
 
+  document.getElementById("TOResults").style.display = "none"
   document.getElementById("rwySelect").disabled = false
   document.getElementById("rwyCondDep").disabled = false
   document.getElementById("rwySelect").value = 0
@@ -103,6 +104,7 @@ function arrRunwayUpdate() {
     sel.appendChild(opt)
   }
 
+  document.getElementById("LDGResults").style.display = "none"
   document.getElementById("rwySelectArr").disabled = false
   document.getElementById("rwyCondArr").disabled = false
   document.getElementById("rwySelectArr").value = 0
