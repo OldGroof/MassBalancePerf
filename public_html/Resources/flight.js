@@ -83,11 +83,6 @@ function intxUpdate() {
       opt.value = [i]
       sel.appendChild(opt)
     }
-  
-    opt.innerHTML = "FULL"
-    opt.value = intx.length + 1
-    sel.appendChild(opt)
-
     document.getElementById("intxSelect").disabled = false
     document.getElementById("intxSelect").value = 0
   } else {
@@ -328,6 +323,7 @@ function perfTO() {
   }
 
   document.getElementById("TOResults").style.display = "block"
+  document.getElementById("txtDepPressAlt").innerHTML = "Pressure Altitude: " + pressAlt + " ft"
 
   if (unitTO == "met") {
     document.getElementById("txtTODR").innerHTML = Intl.NumberFormat().format(todr) + " m"
