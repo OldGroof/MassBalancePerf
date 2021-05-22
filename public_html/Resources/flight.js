@@ -342,7 +342,7 @@ function perfTO() {
   var tora = Number(runway[document.getElementById("rwySelect").value]["tora"])
   var toda = Number(runway[document.getElementById("rwySelect").value]["toda"])
   var asda = Number(runway[document.getElementById("rwySelect").value]["asda"])
-  var intxAdjust = Number(intx[document.getElementById("intxSelect").value]["adjust"])
+  var intxAdjust = Number(intx[document.getElementById("intxSelect").value]["adjust"]) || 0
   var rwyCond = document.getElementById("rwyCondDep").value
 
   var press = Number(Math.floor(depMetar.data[0].barometer.hpa)) || 1013
