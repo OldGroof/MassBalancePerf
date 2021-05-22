@@ -104,10 +104,7 @@ function getDepMetar() {
           result = JSON.parse(this.responseText)
           depMetar = result
 
-          document.getElementById("txtMetarDep").style.display = "block"
           document.getElementById("txtMetarDep").innerHTML = "METAR " + depMetar.data[0].raw_text
-
-          console.log(depMetar)
       }
   };
   egtcMetar.open("GET", "https://api.checkwx.com/metar/" + icao + "/decoded", true)
@@ -241,7 +238,6 @@ function maths() {
 }
 
 document.getElementById("unitTO").addEventListener("change", perfTO)
-// document.getElementById("airpSelect").addEventListener("change", perfTO)
 document.getElementById("airpSelect").addEventListener("change", getDepMetar)
 document.getElementById("airpSelect").addEventListener("change", depRunwayUpdate)
 document.getElementById("rwySelect").addEventListener("change", perfTO)
@@ -274,11 +270,11 @@ function perfTO() {
   var slope = Number(runway[document.getElementById("rwySelect").value]["slope"]) || 0.0
   var rwyCond = document.getElementById("rwyCondDep").value
 
-  var press = Math.floor(depMetar.data[0].barometer.hpa) || 1013 // Needs updating
-  var temp = depMetar.data[0].temperature.celcius || 15 // Needs updating
+  var press = Number(Math.floor(depMetar.data[0].barometer.hpa)) || 1013 // Needs updating
+  var temp = Number(depMetar.data[0].temperature.celcius) || 15 // Needs updating
 
-  var windDir = depMetar.data[0].wind.degrees || 0
-  var windSpd = depMetar.data[0].wind.speed_kts || 0
+  var windDir = Number(depMetar.data[0].wind.degrees) || 0
+  var windSpd = Number(depMetar.data[0].wind.speed_kts) || 0
 
   var angle = windDir - bearing
   var wind = Math.floor(((windSpd * Math.cos(angle * (Math.PI / 180))) / 2) + 0.5) // Needs updating
@@ -331,6 +327,8 @@ function perfTO() {
   }
 
   document.getElementById("TOResults").style.display = "block"
+  document.getElementById("txtMetarDep").style.display = "block"
+
   if (unitTO == "met") {
     document.getElementById("txtTODR").innerHTML = Intl.NumberFormat().format(todr) + " m"
     document.getElementById("txtTODR125").innerHTML = Intl.NumberFormat().format(Math.floor((todr * 1.25) + 0.5)) + " m"
