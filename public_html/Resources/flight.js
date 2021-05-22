@@ -85,7 +85,8 @@ function intxUpdate() {
     document.getElementById("intxSelect").disabled = false
     document.getElementById("intxSelect").value = 0
   } else {
-    document.getElementById("intxSelect").style.display = "none"
+    document.getElementById("intxSelect").disabled = true
+    document.getElementById("intxSelect").value = 0
   }
 }
 
