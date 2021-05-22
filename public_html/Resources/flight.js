@@ -413,13 +413,13 @@ function perfTO() {
   if (unitTO == "met") {
     document.getElementById("txtTODR").innerHTML = Intl.NumberFormat().format(Number(todr)) + " m"
     document.getElementById("txtTODR125").innerHTML = Intl.NumberFormat().format(Math.floor((todr * 1.25) + 0.5)) + " m ≤ TORA " + (runway[document.getElementById("rwySelect").value]["tora"]) + " m"
-    document.getElementById("txtTODR115").innerHTML = Intl.NumberFormat().format(Math.floor((todr * 1.15) + 0.5)) + " m"
-    document.getElementById("txtTODR130").innerHTML = Intl.NumberFormat().format(Math.floor((todr * 1.30) + 0.5)) + " m"
+    document.getElementById("txtTODR115").innerHTML = Intl.NumberFormat().format(Math.floor((todr * 1.15) + 0.5)) + " m ≤ TODA " + (runway[document.getElementById("rwySelect").value]["toda"]) + " m"
+    document.getElementById("txtTODR130").innerHTML = Intl.NumberFormat().format(Math.floor((todr * 1.30) + 0.5)) + " m ≤ ASDA " + (runway[document.getElementById("rwySelect").value]["asda"]) + " m"
   } else {
     document.getElementById("txtTODR").innerHTML = Intl.NumberFormat().format(Number(todr)) + " ft"
     document.getElementById("txtTODR125").innerHTML = Intl.NumberFormat().format(Math.floor((todr * 1.25) + 0.5)) + " ft ≤ TORA " + Math.floor((runway[document.getElementById("rwySelect").value]["tora"] * 3.285) + 0.5) + " ft"
-    document.getElementById("txtTODR115").innerHTML = Intl.NumberFormat().format(Math.floor((todr * 1.15) + 0.5)) + " ft"
-    document.getElementById("txtTODR130").innerHTML = Intl.NumberFormat().format(Math.floor((todr * 1.30) + 0.5)) + " ft"
+    document.getElementById("txtTODR115").innerHTML = Intl.NumberFormat().format(Math.floor((todr * 1.15) + 0.5)) + " ft ≤ TODA " + Math.floor((runway[document.getElementById("rwySelect").value]["toda"] * 3.285) + 0.5) + " ft"
+    document.getElementById("txtTODR130").innerHTML = Intl.NumberFormat().format(Math.floor((todr * 1.30) + 0.5)) + " ft ≤ ASDA " + Math.floor((runway[document.getElementById("rwySelect").value]["asda"] * 3.285) + 0.5) + " ft"
   }
 }
 
