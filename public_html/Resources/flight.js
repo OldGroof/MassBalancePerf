@@ -37,13 +37,15 @@ var airportGet = new XMLHttpRequest()
 airportGet.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
     airport = JSON.parse(this.responseText)
-    var sel = document.getElementById('airpSelect')
+    var selDep = document.getElementById('airpSelect')
+    var selArr = document.getElementById('airpSelect')
     for(var i = 0; i < airport.length; i++) {
       var opt = document.createElement('option')
       opt.innerHTML = airport[i]['icao'] + " " + airport[i]['name']
       opt.value = [i]
-      document.getElementById('airpSelect').appendChild(opt)
-      document.getElementById('airpSelectArr').appendChild(opt)
+
+      selDep.appendChild(opt)
+      selArr.appendChild(opt)
     }
   }
 }
