@@ -3,6 +3,7 @@ var unitLDG = "imp"
 var aircraft
 var airport
 var runway
+var intx
 var vertRng = document.getElementById("graph").style.height
 
 var zfm = 1200
@@ -49,14 +50,14 @@ window.onresize = graphUpdate
 
 function depRunwayUpdate() {
   var sel = document.getElementById('rwySelect')
-
   for (i = sel.options.length-1; i >= 1; i--) {
     sel.options[i] = null;
   }
 
-  for(var i = 0; i < airport[document.getElementById("airpSelect").value].runways.length; i++) {
+  runway = airport[document.getElementById("airpSelect").value].runways
+  for(var i = 0; i < runway.length; i++) {
     var opt = document.createElement('option')
-    opt.innerHTML = "RWY" + airport[document.getElementById("airpSelect").value].runways[i]['name']
+    opt.innerHTML = "RWY " + runway[i]['name']
     opt.value = [i]
     sel.appendChild(opt)
   }
