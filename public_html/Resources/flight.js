@@ -144,7 +144,7 @@ function getDepMetar() {
       if (this.readyState == 4 && this.status == 200) {
           result = JSON.parse(this.responseText)
           depMetar = result
-          
+
           if (depMetar.data[0] != null) {
             document.getElementById("txtMetarDep").innerHTML = "METAR " + depMetar.data[0].raw_text
           } else {
@@ -470,11 +470,19 @@ function perfLDG() {
 
   var lda = Number(runway[document.getElementById("rwySelectArr").value]["lda"])
 
-  var press = Number(Math.floor(arrMetar.data[0].barometer.hpa)) || 1013
-  var temp = Number(arrMetar.data[0].temperature.celsius) || 15
+  if (arrMetar.data[0] != null) {
+    var press = Number(Math.floor(arrMetar.data[0].barometer.hpa))
+    var temp = Number(arrMetar.data[0].temperature.celsius)
+  
+    var windDir = Number(arrMetar.data[0].wind.degrees)
+    var windSpd = Number(arrMetar.data[0].wind.speed_kts)
+  } else {
+    var press = 1013
+    var temp = 15
 
-  var windDir = Number(arrMetar.data[0].wind.degrees) || 0
-  var windSpd = Number(arrMetar.data[0].wind.speed_kts) || 0
+    var windDir = 0
+    var windSpd = 0
+  }
 
   var angle = windDir - bearing
   var crosswind = Math.floor((windSpd * Math.sin(angle * (Math.PI / 180))) + 0.5)
