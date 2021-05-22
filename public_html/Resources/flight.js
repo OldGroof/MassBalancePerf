@@ -40,6 +40,7 @@ airportGet.onreadystatechange = function() {
       sel.appendChild(opt)
     }
   }
+  console.log(airport[0].runways[0].name)
 }
 airportGet.open("GET", "Resources/airportData.json", true)
 airportGet.send()
@@ -210,7 +211,6 @@ function perfTO() {
   var mass = tom || 2550
   var flaps = document.getElementById("flapstoggle").checked
   var elev = Number(airport[document.getElementById("airpSelect").value]["elevation"]) || 0
-  console.log(elev)
   var press = Number(document.getElementById("inpPressDep").value) || 1013
   var temp = Number(document.getElementById("inpTempDep").value) || 15
   var wind = Number(document.getElementById("inpWindDep").value) || 0
