@@ -66,11 +66,7 @@ function unlock() {
 
   document.getElementById("unitTO").disabled = false
   document.getElementById("flapstoggle").disabled = false
-  document.getElementById("inpElevDep").disabled = false
-  document.getElementById("inpPressDep").disabled = false
-  document.getElementById("inpTempDep").disabled = false
-  document.getElementById("inpWindDep").disabled = false
-  document.getElementById("inpSlopeDep").disabled = false
+  document.getElementById("airpSelect").disabled = false
   document.getElementById("rwyCondDep").disabled = false
 
   document.getElementById("unitLDG").disabled = false
