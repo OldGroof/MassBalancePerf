@@ -82,6 +82,10 @@ function intxUpdate() {
       sel.appendChild(opt)
     }
   
+    opt.innerHTML = "FULL"
+    opt.value = intx.length + 1
+    sel.appendChild(opt)
+    
     document.getElementById("intxSelect").disabled = false
     document.getElementById("intxSelect").value = 0
   } else {
