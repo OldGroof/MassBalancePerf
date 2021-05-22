@@ -394,6 +394,13 @@ function perfTO() {
   }
 
   document.getElementById("TOResults").style.display = "block"
+
+  if (runway[document.getElementById("rwySelect").value]["tora"] == runway[document.getElementById("rwySelect").value]["toda"] == runway[document.getElementById("rwySelect").value]["asda"]) {
+    document.getElementById("toBalanced").style.display = "block"
+  } else {
+    document.getElementById("toUnbalanced").style.display = "block"
+  }
+
   document.getElementById("txtDepPressAlt").style.display = "block"
   document.getElementById("txtDepWindComp").style.display = "block"
   document.getElementById("txtDepPressAlt").innerHTML = "Pressure Altitude: " + pressAlt + " ft"
