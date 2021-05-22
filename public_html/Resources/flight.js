@@ -2,6 +2,8 @@ var unitTO = "imp"
 var unitLDG = "imp"
 var aircraft
 var airport
+
+var selAirport
 var vertRng = document.getElementById("graph").style.height
 
 var zfm = 1200
@@ -172,11 +174,7 @@ function maths() {
 }
 
 document.getElementById("unitTO").addEventListener("change", perfTO)
-document.getElementById("inpElevDep").addEventListener("keyup", perfTO)
-document.getElementById("inpPressDep").addEventListener("keyup", perfTO)
-document.getElementById("inpTempDep").addEventListener("keyup", perfTO)
-document.getElementById("inpWindDep").addEventListener("keyup", perfTO)
-document.getElementById("inpSlopeDep").addEventListener("keyup", perfTO)
+document.getElementById("airpSelect").addEventListener("change", perfTO)
 document.getElementById("flapstoggle").addEventListener("click", perfTO)
 document.getElementById("rwyCondDep").addEventListener("change", perfTO)
 
@@ -197,7 +195,8 @@ function perfTO() {
 
   var mass = tom || 2550
   var flaps = document.getElementById("flapstoggle").checked
-  var elev = Number(document.getElementById("inpElevDep").value) || 0
+  var elev = Number(airport[document.getElementById("airpSelect").value]["elevation"]) || 0
+  console.log(elev)
   var press = Number(document.getElementById("inpPressDep").value) || 1013
   var temp = Number(document.getElementById("inpTempDep").value) || 15
   var wind = Number(document.getElementById("inpWindDep").value) || 0
