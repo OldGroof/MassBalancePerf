@@ -471,9 +471,9 @@ function perfLDG() {
 
   if (unitLDG == "met") {
     document.getElementById("txtLDR").innerHTML = Intl.NumberFormat().format(ldr) + " m"
-    document.getElementById("txtLDR143").innerHTML = Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " m"
+    document.getElementById("txtLDR143").innerHTML = Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " m ≤ " + (runway[document.getElementById("rwySelectArr").value]["lda"]) + " m"
   } else {
     document.getElementById("txtLDR").innerHTML = Intl.NumberFormat().format(ldr) + " ft"
-    document.getElementById("txtLDR143").innerHTML = Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " ft"
+    document.getElementById("txtLDR143").innerHTML = Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " ft ≤ " + (runway[document.getElementById("rwySelectArr").value]["lda"] * 3.285) + " ft"
   }
 }
