@@ -104,7 +104,10 @@ function getDepMetar() {
           result = JSON.parse(this.responseText)
           depMetar = result
 
+          document.getElementById("txtMetarDep").style.display = "block"
           document.getElementById("txtMetarDep").innerHTML = "METAR " + depMetar.data[0].raw_text
+
+          console.log(depMetar)
       }
   };
   egtcMetar.open("GET", "https://api.checkwx.com/metar/" + icao + "/decoded", true)
