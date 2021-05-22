@@ -2,8 +2,7 @@ var unitTO = "imp"
 var unitLDG = "imp"
 var aircraft
 var airport
-
-var selAirport
+var runway
 var vertRng = document.getElementById("graph").style.height
 
 var zfm = 1200
@@ -47,6 +46,18 @@ airportGet.send()
 
 window.onload = graphUpdate
 window.onresize = graphUpdate
+
+function depRunwayUpdate() {
+  var sel = document.getElementById('rwySelect')
+  runway = airport[document.getElementById("airpSelect").value][runways]
+
+  for(var i = 0; i < runway.length; i++) {
+    var opt = document.createElement('option')
+    opt.innerHTML = runway[i]['name']
+    opt.value = [i]
+    sel.appendChild(opt)
+  }
+}
 
 function graphUpdate() {
   vertRng = document.getElementById("graph").height
@@ -175,6 +186,9 @@ function maths() {
 
 document.getElementById("unitTO").addEventListener("change", perfTO)
 document.getElementById("airpSelect").addEventListener("change", perfTO)
+document.getElementById("airpSelect").addEventListener("change", depRunwayUpdate)
+document.getElementById("rwySelect").addEventListener("change", perfTO)
+document.getElementById("intxSelect").addEventListener("change", perfTO)
 document.getElementById("flapstoggle").addEventListener("click", perfTO)
 document.getElementById("rwyCondDep").addEventListener("change", perfTO)
 
