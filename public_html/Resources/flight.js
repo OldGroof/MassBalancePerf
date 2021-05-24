@@ -172,7 +172,7 @@ function SelectArrAirport() {
 function SelectArrRunway() {
   selArrRunway = {}
 
-  selArrRunway = selAirport.runways[document.getElementById("rwySelectArr").value]
+  selArrRunway = selArrAirport.runways[document.getElementById("rwySelectArr").value]
 
   perfLDG()
 }
@@ -368,8 +368,6 @@ document.getElementById("flapstoggle").addEventListener("click", perfTO)
 document.getElementById("rwyCondDep").addEventListener("change", perfTO)
 
 document.getElementById("unitLDG").addEventListener("change", perfLDG)
-document.getElementById("airpSelectArr").addEventListener("change", getArrMetar)
-document.getElementById("airpSelectArr").addEventListener("change", getArrTaf)
 document.getElementById("airpSelectArr").addEventListener("change", SelectArrAirport)
 document.getElementById("rwySelectArr").addEventListener("change", SelectArrRunway)
 document.getElementById("rwyCondArr").addEventListener("change", perfLDG)
