@@ -159,7 +159,7 @@ function SelectArrAirport() {
   for(var i = 0; i < arrRunway.length; i++) {
     console.log(arrRunway[i].name)
     var opt = document.createElement('option')
-    opt.innerHTML = "RWY " + runway[i]['name']
+    opt.innerHTML = "RWY " + arrRunway[i]['name']
     opt.value = [i]
     sel.appendChild(opt)
   }
@@ -387,7 +387,7 @@ function perfTO() {
 
   var flaps = document.getElementById("flapstoggle").checked
   var elev = Number(selAirport.elevation) || 0
-  var bearing = Number(selRunway.baering) || 0
+  var bearing = Number(selRunway.bearing) || 0
   var slope = Number(selRunway.slope) || 0.0
 
   var tora = Number(selRunway.tora)
