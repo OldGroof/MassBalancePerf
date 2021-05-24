@@ -145,6 +145,7 @@ function SelectArrAirport() {
   selArrAirport = {}
 
   selArrAirport = airport[document.getElementById("airpSelectArr").value]
+  console.log(selArrAirport.icao)
 
   getArrMetar()
   getArrTaf()
@@ -155,7 +156,8 @@ function SelectArrAirport() {
   }
 
   arrRunway = selArrAirport.runways
-  for(var i = 0; i < runway.length; i++) {
+  for(var i = 0; i < arrRunway.length; i++) {
+    console.log(arrRunway[i].name)
     var opt = document.createElement('option')
     opt.innerHTML = "RWY " + runway[i]['name']
     opt.value = [i]
