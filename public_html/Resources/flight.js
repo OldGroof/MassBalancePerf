@@ -64,8 +64,8 @@ airportGet.onreadystatechange = function() {
 airportGet.open("GET", "Resources/airportData.json", true)
 airportGet.send()
 
-window.onload = function() {appendDepAirport()}
-window.onload = function() {appendArrAirport()}
+window.onload = appendDepAirport
+window.onload = appendArrAirport
 
 function appendDepAirport() {
   var sel = document.getElementById('airpSelect')
