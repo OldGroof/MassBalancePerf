@@ -39,6 +39,19 @@ var airportGet = new XMLHttpRequest()
 airportGet.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
     airport = JSON.parse(this.responseText)
+    airport = airport.sort(function(a, b) {
+      var icaoA = a.icao.toUpperCase()
+      var icaoB = b.icao.toUpperCase()
+
+      if (icaoA < icaoB) {
+        return -1
+      }
+      if (icaoA > icaoB) {
+        return 1
+      }
+
+      return 0
+    })
     var sel = document.getElementById('airpSelect')
     for(var i = 0; i < airport.length; i++) {
       var opt = document.createElement('option')
