@@ -96,6 +96,7 @@ function SelectDepAirport() {
   selAirport = {}
 
   selAirport = airport[document.getElementById("airpSelect").value]
+  console.log(selAirport.icao)
 
   getDepMetar()
 
