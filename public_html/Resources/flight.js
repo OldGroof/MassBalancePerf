@@ -63,7 +63,7 @@ airportGet.onreadystatechange = function() {
     for(var i = 0; i < airport.length; i++) {
       var opt = document.createElement('option')
       opt.innerHTML = airport[i]['icao'] + " " + airport[i]['name']
-      opt.value = [i]
+      opt.value = airport[i]['icao']
 
       sel.appendChild(opt)
     }
@@ -95,7 +95,7 @@ window.onresize = graphUpdate
 function SelectDepAirport() {
   selAirport = {}
 
-  selAirport = airport[document.getElementById("airpSelect").value]
+  selAirport = airport.icao[document.getElementById("airpSelect").value]
   console.log(selAirport.icao)
 
   getDepMetar()
