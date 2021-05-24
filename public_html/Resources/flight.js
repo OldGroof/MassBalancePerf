@@ -4,9 +4,11 @@ var aircraft
 
 var airport
 var selAirport
+var selArrAirport
 
 var runway
 var selRunway
+var selArrRunway
 
 var intx
 
@@ -90,7 +92,7 @@ airportGetArr.send()
 window.onload = graphUpdate
 window.onresize = graphUpdate
 
-function SelectAirport() {
+function SelectDepAirport() {
   selAirport = {}
 
   selAirport = airport[document.getElementById("airpSelect").value]
@@ -104,6 +106,13 @@ function SelectAirport() {
   document.getElementById("rwySelect").disabled = false
   document.getElementById("rwyCondDep").disabled = false
   document.getElementById("rwySelect").value = 0
+}
+
+function SelectDepRunway() {
+  selRunway = {}
+
+  selRunway = selAirport.runways[document.getElementById("rwySelect").value]
+  console.log(selRunway.name)
 }
 
 function depRunwayUpdate() {
@@ -349,7 +358,7 @@ function maths() {
 }
 
 document.getElementById("unitTO").addEventListener("change", perfTO)
-document.getElementById("airpSelect").addEventListener("change", SelectAirport)
+document.getElementById("airpSelect").addEventListener("change", SelectDepAirport)
 document.getElementById("rwySelect").addEventListener("change", intxUpdate)
 document.getElementById("rwySelect").addEventListener("change", perfTO)
 document.getElementById("intxSelect").addEventListener("change", perfTO)
@@ -375,7 +384,7 @@ function perfTO() {
   var mass = tom || 2550
 
   var flaps = document.getElementById("flapstoggle").checked
-  var elev = Number(airport[document.getElementById("airpSelect").value]["elevation"]) || 0
+  var elev = Number(selAirport.elevation) || 0
   var bearing = Number(runway[document.getElementById("rwySelect").value]["bearing"]) || 0
   var slope = Number(runway[document.getElementById("rwySelect").value]["slope"]) || 0.0
 
