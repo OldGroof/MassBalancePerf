@@ -64,7 +64,10 @@ airportGet.onreadystatechange = function() {
 airportGet.open("GET", "Resources/airportData.json", true)
 airportGet.send()
 
-window.onload = function(){
+window.onload = function() {appendDepAirport()}
+window.onload = function() {appendArrAirport()}
+
+function appendDepAirport() {
   var sel = document.getElementById('airpSelect')
   for(var i = 0; i < airport.length; i++) {
     var opt = document.createElement('option')
@@ -75,7 +78,7 @@ window.onload = function(){
   }
 }
 
-window.onload = function(){
+function appendArrAirport() {
   var sel = document.getElementById('airpSelectArr')
   for(var i = 0; i < airport.length; i++) {
     var opt = document.createElement('option')
@@ -356,8 +359,7 @@ function maths() {
 
 document.getElementById("unitTO").addEventListener("change", perfTO)
 document.getElementById("airpSelect").addEventListener("change", SelectDepAirport)
-document.getElementById("rwySelect").addEventListener("change", intxUpdate)
-document.getElementById("rwySelect").addEventListener("change", perfTO)
+document.getElementById("rwySelect").addEventListener("change", SelectDepRunway)
 document.getElementById("intxSelect").addEventListener("change", perfTO)
 document.getElementById("flapstoggle").addEventListener("click", perfTO)
 document.getElementById("rwyCondDep").addEventListener("change", perfTO)
