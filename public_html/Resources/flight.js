@@ -92,10 +92,18 @@ window.onresize = graphUpdate
 
 function SelectAirport() {
   selAirport = {}
-  console.log(selAirport.icao)
 
   selAirport = airport[document.getElementById("airpSelect").value]
-  console.log(selAirport.icao)
+
+  getDepMetar()
+
+  depRunwayUpdate()
+
+  document.getElementById("TOResults").style.display = "none"
+  document.getElementById("txtDepPressAlt").style.display = "none"
+  document.getElementById("rwySelect").disabled = false
+  document.getElementById("rwyCondDep").disabled = false
+  document.getElementById("rwySelect").value = 0
 }
 
 function depRunwayUpdate() {
@@ -104,19 +112,13 @@ function depRunwayUpdate() {
     sel.options[i] = null;
   }
 
-  runway = airport[document.getElementById("airpSelect").value].runways
+  runway = selAirport.runways
   for(var i = 0; i < runway.length; i++) {
     var opt = document.createElement('option')
     opt.innerHTML = "RWY " + runway[i]['name']
     opt.value = [i]
     sel.appendChild(opt)
   }
-
-  document.getElementById("TOResults").style.display = "none"
-  document.getElementById("txtDepPressAlt").style.display = "none"
-  document.getElementById("rwySelect").disabled = false
-  document.getElementById("rwyCondDep").disabled = false
-  document.getElementById("rwySelect").value = 0
 }
 
 function arrRunwayUpdate() {
@@ -164,7 +166,7 @@ function intxUpdate() {
 }
 
 function getDepMetar() {
-  var icao = airport[document.getElementById("airpSelect").value]["icao"]
+  var icao = selAirport.icao
   var metar = new XMLHttpRequest()
   metar.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
@@ -347,9 +349,7 @@ function maths() {
 }
 
 document.getElementById("unitTO").addEventListener("change", perfTO)
-document.getElementById("airpSelect").addEventListener("change", getDepMetar)
 document.getElementById("airpSelect").addEventListener("change", SelectAirport)
-document.getElementById("airpSelect").addEventListener("change", depRunwayUpdate)
 document.getElementById("rwySelect").addEventListener("change", intxUpdate)
 document.getElementById("rwySelect").addEventListener("change", perfTO)
 document.getElementById("intxSelect").addEventListener("change", perfTO)
