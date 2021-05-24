@@ -220,7 +220,7 @@ function getArrMetar() {
 }
 
 function getArrTaf() {
-  icao = airport[document.getElementById("airpSelectArr").value]["icao"]
+  icao = selArrAirport.icao
   var taf = new XMLHttpRequest()
   taf.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
@@ -413,7 +413,7 @@ function perfTO() {
   }
 
   var angle = windDir - bearing
-  var crosswind = Math.floor((windSpd * Math.sin(angle * (Math.PI / 180))) + 0.5)
+  var crosswind = Math.abs(Math.floor((windSpd * Math.sin(angle * (Math.PI / 180))) + 0.5))
   var headwind = Math.floor((windSpd * Math.cos(angle * (Math.PI / 180))) + 0.5)
   var wind = Math.floor((headwind / 2) + 0.5)
   var pressAlt = ((1013 - press) * 30) + elev
@@ -522,7 +522,7 @@ function perfLDG() {
   }
 
   var angle = windDir - bearing
-  var crosswind = Math.floor((windSpd * Math.sin(angle * (Math.PI / 180))) + 0.5)
+  var crosswind = Math.abs(Math.floor((windSpd * Math.sin(angle * (Math.PI / 180))) + 0.5))
   var headwind = Math.floor((windSpd * Math.cos(angle * (Math.PI / 180))) + 0.5)
   var wind = Math.floor((headwind / 2) + 0.5)
   var pressAlt = ((1013 - press) * 30) + elev
