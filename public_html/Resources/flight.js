@@ -65,24 +65,12 @@ airportGet.onreadystatechange = function() {
       opt.value = [i]
   
       document.getElementById('airpSelect').appendChild(opt)
+      document.getElementById('airpSelectArr').appendChild(opt)
     }
   }
 }
 airportGet.open("GET", "Resources/airportData.json", true)
 airportGet.send()
-
-window.onload = appendArrAirport
-
-function appendArrAirport() {
-  var sel = document.getElementById('airpSelectArr')
-  for(var i = 0; i < airport.length; i++) {
-    var opt = document.createElement('option')
-    opt.innerHTML = airport[i]['icao'] + " " + airport[i]['name']
-    opt.value = [i]
-
-    sel.appendChild(opt)
-  }
-}
 
 window.onload = graphUpdate
 window.onresize = graphUpdate
