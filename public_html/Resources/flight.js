@@ -348,7 +348,7 @@ function maths() {
 
 document.getElementById("unitTO").addEventListener("change", perfTO)
 document.getElementById("airpSelect").addEventListener("change", getDepMetar)
-ocument.getElementById("airpSelect").addEventListener("change", SelectAirport)
+document.getElementById("airpSelect").addEventListener("change", SelectAirport)
 document.getElementById("airpSelect").addEventListener("change", depRunwayUpdate)
 document.getElementById("rwySelect").addEventListener("change", intxUpdate)
 document.getElementById("rwySelect").addEventListener("change", perfTO)
