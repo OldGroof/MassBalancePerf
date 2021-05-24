@@ -91,10 +91,10 @@ window.onload = graphUpdate
 window.onresize = graphUpdate
 
 function SelectAirport() {
-  var selAirport = null
+  selAirport = {}
   console.log(selAirport.icao)
 
-  var selAirport = airport[document.getElementById("airpSelect").value]
+  selAirport = airport[document.getElementById("airpSelect").value]
   console.log(selAirport.icao)
 }
 
