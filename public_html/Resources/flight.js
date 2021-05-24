@@ -90,7 +90,18 @@ function SelectDepAirport() {
 
   getDepMetar()
 
-  depRunwayUpdate()
+  var sel = document.getElementById('rwySelect')
+  for (i = sel.options.length-1; i >= 1; i--) {
+    sel.options[i] = null;
+  }
+
+  runway = selAirport.runways
+  for(var i = 0; i < runway.length; i++) {
+    var opt = document.createElement('option')
+    opt.innerHTML = "RWY " + runway[i]['name']
+    opt.value = [i]
+    sel.appendChild(opt)
+  }
 
   document.getElementById("TOResults").style.display = "none"
   document.getElementById("txtDepPressAlt").style.display = "none"
@@ -105,24 +116,28 @@ function SelectDepRunway() {
   selRunway = selAirport.runways[document.getElementById("rwySelect").value]
   console.log(selRunway.name)
 
-  intxUpdate()
-
-  perfTO()
-}
-
-function depRunwayUpdate() {
-  var sel = document.getElementById('rwySelect')
+  var sel = document.getElementById('intxSelect')
   for (i = sel.options.length-1; i >= 1; i--) {
     sel.options[i] = null;
   }
 
-  runway = selAirport.runways
-  for(var i = 0; i < runway.length; i++) {
-    var opt = document.createElement('option')
-    opt.innerHTML = "RWY " + runway[i]['name']
-    opt.value = [i]
-    sel.appendChild(opt)
+  intx = selRunway.intx
+
+  if (intx.length != 0) {
+    for(var i = 0; i < intx.length; i++) {
+      var opt = document.createElement('option')
+      opt.innerHTML = intx[i]['name']
+      opt.value = [i]
+      sel.appendChild(opt)
+    }
+    document.getElementById("intxSelect").disabled = false
+    document.getElementById("intxSelect").value = "unavail"
+  } else {
+    document.getElementById("intxSelect").disabled = true
+    document.getElementById("intxSelect").value = "unavail"
   }
+
+  perfTO()
 }
 
 function arrRunwayUpdate() {
@@ -144,29 +159,6 @@ function arrRunwayUpdate() {
   document.getElementById("rwySelectArr").disabled = false
   document.getElementById("rwyCondArr").disabled = false
   document.getElementById("rwySelectArr").value = 0
-}
-
-function intxUpdate() {
-  var sel = document.getElementById('intxSelect')
-  for (i = sel.options.length-1; i >= 1; i--) {
-    sel.options[i] = null;
-  }
-
-  intx = selRunway.intx
-
-  if (intx.length != 0) {
-    for(var i = 0; i < intx.length; i++) {
-      var opt = document.createElement('option')
-      opt.innerHTML = intx[i]['name']
-      opt.value = [i]
-      sel.appendChild(opt)
-    }
-    document.getElementById("intxSelect").disabled = false
-    document.getElementById("intxSelect").value = "unavail"
-  } else {
-    document.getElementById("intxSelect").disabled = true
-    document.getElementById("intxSelect").value = "unavail"
-  }
 }
 
 function getDepMetar() {
