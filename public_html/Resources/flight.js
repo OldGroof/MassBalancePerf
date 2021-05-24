@@ -63,7 +63,7 @@ airportGet.onreadystatechange = function() {
     for(var i = 0; i < airport.length; i++) {
       var opt = document.createElement('option')
       opt.innerHTML = airport[i]['icao'] + " " + airport[i]['name']
-      opt.value = airport[i]['icao']
+      opt.value = [i]
 
       sel.appendChild(opt)
     }
@@ -76,6 +76,19 @@ var airportGetArr = new XMLHttpRequest()
 airportGetArr.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
     airport = JSON.parse(this.responseText)
+    airport = airport.sort(function(a, b) {
+      var icaoA = a.icao.toUpperCase()
+      var icaoB = b.icao.toUpperCase()
+
+      if (icaoA < icaoB) {
+        return -1
+      }
+      if (icaoA > icaoB) {
+        return 1
+      }
+
+      return 0
+    })
     var sel = document.getElementById('airpSelectArr')
     for(var i = 0; i < airport.length; i++) {
       var opt = document.createElement('option')
@@ -95,7 +108,7 @@ window.onresize = graphUpdate
 function SelectDepAirport() {
   selAirport = {}
 
-  selAirport = airport.icao[document.getElementById("airpSelect").value]
+  selAirport = airport[document.getElementById("airpSelect").value]
   console.log(selAirport.icao)
 
   getDepMetar()
