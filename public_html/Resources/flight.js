@@ -1,8 +1,13 @@
 var unitTO = "imp"
 var unitLDG = "imp"
 var aircraft
+
 var airport
+var selAirport
+
 var runway
+var selRunway
+
 var intx
 
 var depMetar
@@ -84,6 +89,14 @@ airportGetArr.send()
 
 window.onload = graphUpdate
 window.onresize = graphUpdate
+
+function SelectAirport() {
+  var selAirport = null
+  console.log(selAirport.icao)
+
+  var selAirport = airport[document.getElementById("airpSelect").value]
+  console.log(selAirport.icao)
+}
 
 function depRunwayUpdate() {
   var sel = document.getElementById('rwySelect')
@@ -335,6 +348,7 @@ function maths() {
 
 document.getElementById("unitTO").addEventListener("change", perfTO)
 document.getElementById("airpSelect").addEventListener("change", getDepMetar)
+ocument.getElementById("airpSelect").addEventListener("change", SelectAirport)
 document.getElementById("airpSelect").addEventListener("change", depRunwayUpdate)
 document.getElementById("rwySelect").addEventListener("change", intxUpdate)
 document.getElementById("rwySelect").addEventListener("change", perfTO)
