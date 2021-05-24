@@ -108,7 +108,6 @@ function SelectDepAirport() {
   document.getElementById("TOResults").style.display = "none"
   document.getElementById("txtDepPressAlt").style.display = "none"
   document.getElementById("rwySelect").disabled = false
-  document.getElementById("rwyCondDep").disabled = false
   document.getElementById("rwySelect").value = 0
 }
 
@@ -138,6 +137,8 @@ function SelectDepRunway() {
     document.getElementById("intxSelect").value = "unavail"
   }
 
+  document.getElementById("rwyCondDep").disabled = false
+
   perfTO()
 }
 
@@ -145,7 +146,6 @@ function SelectArrAirport() {
   selArrAirport = {}
 
   selArrAirport = airport[document.getElementById("airpSelectArr").value]
-  console.log(selArrAirport.icao)
 
   getArrMetar()
   getArrTaf()
@@ -157,7 +157,6 @@ function SelectArrAirport() {
 
   arrRunway = selArrAirport.runways
   for(var i = 0; i < arrRunway.length; i++) {
-    console.log(arrRunway[i].name)
     var opt = document.createElement('option')
     opt.innerHTML = "RWY " + arrRunway[i]['name']
     opt.value = [i]
@@ -167,7 +166,6 @@ function SelectArrAirport() {
   document.getElementById("LDGResults").style.display = "none"
   document.getElementById("txtArrPressAlt").style.display = "none"
   document.getElementById("rwySelectArr").disabled = false
-  document.getElementById("rwyCondArr").disabled = false
   document.getElementById("rwySelectArr").value = 0
 }
 
@@ -175,6 +173,8 @@ function SelectArrRunway() {
   selArrRunway = {}
 
   selArrRunway = selArrAirport.runways[document.getElementById("rwySelectArr").value]
+
+  document.getElementById("rwyCondArr").disabled = false
 
   perfLDG()
 }
