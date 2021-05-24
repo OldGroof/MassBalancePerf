@@ -8,6 +8,8 @@ var selArrAirport
 
 var runway
 var selRunway
+
+var arrRunway
 var selArrRunway
 
 var intx
@@ -114,7 +116,6 @@ function SelectDepRunway() {
   selRunway = {}
 
   selRunway = selAirport.runways[document.getElementById("rwySelect").value]
-  console.log(selRunway.name)
 
   var sel = document.getElementById('intxSelect')
   for (i = sel.options.length-1; i >= 1; i--) {
@@ -140,13 +141,20 @@ function SelectDepRunway() {
   perfTO()
 }
 
-function arrRunwayUpdate() {
+function SelectArrAirport() {
+  selArrAirport = {}
+
+  selArrAirport = airport[document.getElementById("airpSelectArr").value]
+
+  getArrMetar()
+  getArrTaf()
+
   var sel = document.getElementById('rwySelectArr')
   for (i = sel.options.length-1; i >= 1; i--) {
     sel.options[i] = null;
   }
 
-  runway = airport[document.getElementById("airpSelectArr").value].runways
+  arrRunway = selArrAirport.runways
   for(var i = 0; i < runway.length; i++) {
     var opt = document.createElement('option')
     opt.innerHTML = "RWY " + runway[i]['name']
@@ -159,6 +167,14 @@ function arrRunwayUpdate() {
   document.getElementById("rwySelectArr").disabled = false
   document.getElementById("rwyCondArr").disabled = false
   document.getElementById("rwySelectArr").value = 0
+}
+
+function SelectArrRunway() {
+  selArrRunway = {}
+
+  selArrRunway = selAirport.runways[document.getElementById("rwySelectArr").value]
+
+  perfLDG()
 }
 
 function getDepMetar() {
@@ -354,8 +370,8 @@ document.getElementById("rwyCondDep").addEventListener("change", perfTO)
 document.getElementById("unitLDG").addEventListener("change", perfLDG)
 document.getElementById("airpSelectArr").addEventListener("change", getArrMetar)
 document.getElementById("airpSelectArr").addEventListener("change", getArrTaf)
-document.getElementById("airpSelectArr").addEventListener("change", arrRunwayUpdate)
-document.getElementById("rwySelectArr").addEventListener("change", perfLDG)
+document.getElementById("airpSelectArr").addEventListener("change", SelectArrAirport)
+document.getElementById("rwySelectArr").addEventListener("change", SelectArrRunway)
 document.getElementById("rwyCondArr").addEventListener("change", perfLDG)
 
 function perfTO() {
@@ -371,12 +387,12 @@ function perfTO() {
 
   var flaps = document.getElementById("flapstoggle").checked
   var elev = Number(selAirport.elevation) || 0
-  var bearing = Number(runway[document.getElementById("rwySelect").value]["bearing"]) || 0
-  var slope = Number(runway[document.getElementById("rwySelect").value]["slope"]) || 0.0
+  var bearing = Number(selRunway.baering) || 0
+  var slope = Number(selRunway.slope) || 0.0
 
-  var tora = Number(runway[document.getElementById("rwySelect").value]["tora"])
-  var toda = Number(runway[document.getElementById("rwySelect").value]["toda"])
-  var asda = Number(runway[document.getElementById("rwySelect").value]["asda"])
+  var tora = Number(selRunway.tora)
+  var toda = Number(selRunway.toda)
+  var asda = Number(selRunway.asda)
   if (document.getElementById("intxSelect").value != "unavail"){
     var intxAdjust = Number(intx[document.getElementById("intxSelect").value]["adjust"])
   } else {
@@ -486,12 +502,12 @@ function perfLDG() {
     unitLDG = "imp"
   }
   var mass = lm || 2550
-  var elev = Number(airport[document.getElementById("airpSelectArr").value]["elevation"]) || 0
-  var bearing = Number(runway[document.getElementById("rwySelectArr").value]["bearing"]) || 0
-  var slope = Number(runway[document.getElementById("rwySelectArr").value]["slope"]) || 0.0
+  var elev = Number(selArrAirport.elevation) || 0
+  var bearing = Number(selArrRunway.bearing) || 0
+  var slope = Number(selArrRunway.slope) || 0.0
   var rwyCond = document.getElementById("rwyCondArr").value
 
-  var lda = Number(runway[document.getElementById("rwySelectArr").value]["lda"])
+  var lda = Number(selArrRunway.lda)
 
   if (arrMetar.data[0] != null) {
     var press = Number(Math.floor(arrMetar.data[0].barometer.hpa))
