@@ -59,48 +59,32 @@ airportGet.onreadystatechange = function() {
 
       return 0
     })
-    var sel = document.getElementById('airpSelect')
-    for(var i = 0; i < airport.length; i++) {
-      var opt = document.createElement('option')
-      opt.innerHTML = airport[i]['icao'] + " " + airport[i]['name']
-      opt.value = [i]
-
-      sel.appendChild(opt)
-    }
   }
 }
 airportGet.open("GET", "Resources/airportData.json", true)
 airportGet.send()
 
-var airportGetArr = new XMLHttpRequest()
-airportGetArr.onreadystatechange = function() {
-  if (this.readyState == 4 && this.status == 200) {
-    airport = JSON.parse(this.responseText)
-    airport = airport.sort(function(a, b) {
-      var icaoA = a.icao.toUpperCase()
-      var icaoB = b.icao.toUpperCase()
+window.onload = function(){
+  var sel = document.getElementById('airpSelect')
+  for(var i = 0; i < airport.length; i++) {
+    var opt = document.createElement('option')
+    opt.innerHTML = airport[i]['icao'] + " " + airport[i]['name']
+    opt.value = [i]
 
-      if (icaoA < icaoB) {
-        return -1
-      }
-      if (icaoA > icaoB) {
-        return 1
-      }
-
-      return 0
-    })
-    var sel = document.getElementById('airpSelectArr')
-    for(var i = 0; i < airport.length; i++) {
-      var opt = document.createElement('option')
-      opt.innerHTML = airport[i]['icao'] + " " + airport[i]['name']
-      opt.value = [i]
-
-      sel.appendChild(opt)
-    }
+    sel.appendChild(opt)
   }
 }
-airportGetArr.open("GET", "Resources/airportData.json", true)
-airportGetArr.send()
+
+window.onload = function(){
+  var sel = document.getElementById('airpSelectArr')
+  for(var i = 0; i < airport.length; i++) {
+    var opt = document.createElement('option')
+    opt.innerHTML = airport[i]['icao'] + " " + airport[i]['name']
+    opt.value = [i]
+
+    sel.appendChild(opt)
+  }
+}
 
 window.onload = graphUpdate
 window.onresize = graphUpdate
@@ -109,7 +93,6 @@ function SelectDepAirport() {
   selAirport = {}
 
   selAirport = airport[document.getElementById("airpSelect").value]
-  console.log(selAirport.icao)
 
   getDepMetar()
 
