@@ -59,14 +59,22 @@ airportGet.onreadystatechange = function() {
 
       return 0
     })
+
     for(var i = 0; i < airport.length; i++) {
       var opt = document.createElement('option')
       opt.innerHTML = airport[i]['icao'] + " " + airport[i]['name']
       opt.value = [i]
   
       document.getElementById('airpSelect').appendChild(opt)
+    }
+    for(var i = 0; i < airport.length; i++) {
+      var opt = document.createElement('option')
+      opt.innerHTML = airport[i]['icao'] + " " + airport[i]['name']
+      opt.value = [i]
+  
       document.getElementById('airpSelectArr').appendChild(opt)
     }
+
   }
 }
 airportGet.open("GET", "Resources/airportData.json", true)
@@ -96,6 +104,10 @@ function SelectDepRunway() {
 
   selRunway = selAirport.runways[document.getElementById("rwySelect").value]
   console.log(selRunway.name)
+
+  intxUpdate()
+
+  perfTO()
 }
 
 function depRunwayUpdate() {
@@ -140,7 +152,7 @@ function intxUpdate() {
     sel.options[i] = null;
   }
 
-  intx = runway[document.getElementById("rwySelect").value].intx
+  intx = selRunway.intx
 
   if (intx.length != 0) {
     for(var i = 0; i < intx.length; i++) {
