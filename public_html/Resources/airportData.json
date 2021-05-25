@@ -1354,5 +1354,202 @@
                 ]
             }
         ]
+    },
+    {
+        "icao": "EGTU",
+        "name": "Dunkeswell",
+        "elevation": 839,
+        "runways": [
+            {
+                "name": "04",
+                "bearing": 41,
+                "slope": 0.0,
+                "tora": 968,
+                "toda": 968,
+                "asda": 968,
+                "lda": 968,
+                "intx": [
+                ]
+            },
+            {
+                "name": "22",
+                "bearing": 221,
+                "slope": 0.0,
+                "tora": 968,
+                "toda": 968,
+                "asda": 968,
+                "lda": 968,
+                "intx": [
+                ]
+            }
+        ]
+    },
+    {
+        "icao": "EGSV",
+        "name": "Old Buckenham",
+        "elevation": 194,
+        "runways": [
+            {
+                "name": "02",
+                "bearing": 20,
+                "slope": 0.0,
+                "tora": 798,
+                "toda": 798,
+                "asda": 798,
+                "lda": 798,
+                "intx": [
+                ]
+            },
+            {
+                "name": "20",
+                "bearing": 200,
+                "slope": 0.0,
+                "tora": 798,
+                "toda": 798,
+                "asda": 798,
+                "lda": 798,
+                "intx": [
+                ]
+            },
+            {
+                "name": "07",
+                "bearing": 65,
+                "slope": 0.0,
+                "tora": 407,
+                "toda": 407,
+                "asda": 407,
+                "lda": 407,
+                "intx": [
+                ]
+            },
+            {
+                "name": "25",
+                "bearing": 245,
+                "slope": 0.0,
+                "tora": 469,
+                "toda": 469,
+                "asda": 469,
+                "lda": 407,
+                "intx": [
+                ]
+            },
+            {
+                "name": "07L",
+                "bearing": 65,
+                "slope": 0.0,
+                "tora": 370,
+                "toda": 370,
+                "asda": 428,
+                "lda": 428,
+                "intx": [
+                ]
+            },
+            {
+                "name": "25R",
+                "bearing": 245,
+                "slope": 0.0,
+                "tora": 428,
+                "toda": 428,
+                "asda": 428,
+                "lda": 370,
+                "intx": [
+                ]
+            }
+        ]
+    },
+    {
+        "icao": "EGKA",
+        "name": "Shoreham",
+        "elevation": 7,
+        "runways": [
+            {
+                "name": "02",
+                "bearing": 22,
+                "slope": 0.0,
+                "tora": 1002,
+                "toda": 1031,
+                "asda": 1002,
+                "lda": 838,
+                "intx": [
+                ]
+            },
+            {
+                "name": "20",
+                "bearing": 202,
+                "slope": 0.0,
+                "tora": 908,
+                "toda": 971,
+                "asda": 908,
+                "lda": 798,
+                "intx": [
+                ]
+            },
+            {
+                "name": "02G",
+                "bearing": 22,
+                "slope": 0.0,
+                "tora": 602,
+                "toda": 602,
+                "asda": 602,
+                "lda": 602,
+                "intx": [
+                ]
+            },
+            {
+                "name": "20G",
+                "bearing": 202,
+                "slope": 0.0,
+                "tora": 602,
+                "toda": 602,
+                "asda": 602,
+                "lda": 602,
+                "intx": [
+                ]
+            },
+            {
+                "name": "06",
+                "bearing": 64,
+                "slope": 0.0,
+                "tora": 599,
+                "toda": 599,
+                "asda": 599,
+                "lda": 599,
+                "intx": [
+                ]
+            },
+            {
+                "name": "24",
+                "bearing": 244,
+                "slope": 0.0,
+                "tora": 799,
+                "toda": 799,
+                "asda": 799,
+                "lda": 715,
+                "intx": [
+                ]
+            },
+            {
+                "name": "13",
+                "bearing": 125,
+                "slope": 0.0,
+                "tora": 408,
+                "toda": 408,
+                "asda": 408,
+                "lda": 408,
+                "intx": [
+                ]
+            },
+            {
+                "name": "31",
+                "bearing": 305,
+                "slope": 0.0,
+                "tora": 534,
+                "toda": 534,
+                "asda": 534,
+                "lda": 408,
+                "intx": [
+                ]
+            }
+        ]
     }
 ]
