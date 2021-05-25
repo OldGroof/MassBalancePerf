@@ -109,6 +109,9 @@ function SelectDepAirport() {
   document.getElementById("txtDepPressAlt").style.display = "none"
   document.getElementById("txtDepWindComp").style.display = "none"
   document.getElementById("manDepEntry").style.display = "none"
+  document.getElementById("inpPressDep").disabled = true
+  document.getElementById("inpTempDep").disabled = true
+  document.getElementById("inpWindDep").disabled = true
   document.getElementById("rwySelect").disabled = false
   document.getElementById("rwySelect").value = 0
   document.getElementById("intxSelect").disabled = true
