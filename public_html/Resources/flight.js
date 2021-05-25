@@ -433,14 +433,22 @@ function perfTO() {
   if (flaps == true) {
     var tempVar = 16.9 * temp
     var windVar = 21 * wind
-    var slopeVar = slope / 2
+    if (selRunway.slope > 0) {
+      var slopeVar = slope / 2
+    } else {
+      var slopeVar = 0
+    }
     var tomVar = 1.53 * (2550 - mass)
 
     var tod = Math.floor((1400 + altVar + tempVar - tomVar - windVar) + 0.5)
   } else {
     var tempVar = 21.5 * temp
     var windVar = 18.5 * wind
-    var slopeVar = slope / 2
+    if (selRunway.slope > 0) {
+      var slopeVar = slope / 2
+    } else {
+      var slopeVar = 0
+    }
     var tomVar = 2000 - ((0.00168824 * (mass * mass)) + (-6.04939 * (mass)) + 6447.05)
 
     var tod = Math.floor((1700 + altVar + tempVar - tomVar - windVar) + 0.5)
@@ -463,7 +471,7 @@ function perfTO() {
 
   document.getElementById("TOResults").style.display = "block"
 
-  if (runway[document.getElementById("rwySelect").value]["tora"] == runway[document.getElementById("rwySelect").value]["toda"]) {
+  if ((selRunway.tora == selRunway.toda)&&(selRunway.tora == selRunway.asda)&&(selRunway.toda == selRunway.asda)) {
     document.getElementById("toBalanced").style.display = "block"
     document.getElementById("toUnbalanced").style.display = "none"
   } else {
@@ -538,7 +546,11 @@ function perfLDG() {
   var tempVar = 3.2 * temp
   var windVar = 17.78 * wind
   var lmVar = 0.29 * (2550 - mass)
-  var slopeVar = slope / 2
+  if (selRunway.slope < 0) {
+    var slopeVar = slope / 2
+  } else {
+    var slopeVar = 0
+  }
 
   var ld = Math.floor((1360 + altVar + tempVar - lmVar - windVar) + 0.5)
 
