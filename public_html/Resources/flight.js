@@ -108,6 +108,7 @@ function SelectDepAirport() {
   document.getElementById("TOResults").style.display = "none"
   document.getElementById("txtDepPressAlt").style.display = "none"
   document.getElementById("txtDepWindComp").style.display = "none"
+  document.getElementById("manDepEntry").style.display = "none"
   document.getElementById("rwySelect").disabled = false
   document.getElementById("rwySelect").value = 0
   document.getElementById("intxSelect").disabled = true
@@ -201,6 +202,10 @@ function getDepMetar() {
             document.getElementById("txtMetarDep").innerHTML = "METAR Unavail"
             document.getElementById("txtMetarDep").style.display = "none"
             document.getElementById("manDepEntry").style.display = "block"
+
+            document.getElementById("inpPressDep").disabled = false
+            document.getElementById("inpTempDep").disabled = false
+            document.getElementById("inpWindDep").disabled = false
           }
           document.getElementById("metarBox").style.display = "block"
       }
@@ -490,11 +495,12 @@ function perfTO() {
   }
 
   if (depMetar.data[0] != null) {
-    document.getElementById("txtDepPressAlt").style.display = "block"
     document.getElementById("txtDepWindComp").style.display = "block"
-    document.getElementById("txtDepPressAlt").innerHTML = "Pressure Altitude: " + pressAlt + " ft"
     document.getElementById("txtDepWindComp").innerHTML = "Headwind: " + headwind + " kts Crosswind: " + crosswind + " kts"
   }
+
+  document.getElementById("txtDepPressAlt").style.display = "block"
+  document.getElementById("txtDepPressAlt").innerHTML = "Pressure Altitude: " + pressAlt + " ft"
 
   tora = tora - intxAdjust
   toda = toda - intxAdjust
