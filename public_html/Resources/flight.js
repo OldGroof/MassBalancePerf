@@ -199,6 +199,8 @@ function getDepMetar() {
             document.getElementById("txtMetarDep").innerHTML = "METAR " + depMetar.data[0].raw_text
           } else {
             document.getElementById("txtMetarDep").innerHTML = "METAR Unavail"
+            document.getElementById("txtMetarDep").style.display = "none"
+            document.getElementById("manDepEntry").style.display = "block"
           }
           document.getElementById("metarBox").style.display = "block"
       }
@@ -487,10 +489,12 @@ function perfTO() {
     document.getElementById("toBalanced").style.display = "none"
   }
 
-  document.getElementById("txtDepPressAlt").style.display = "block"
-  document.getElementById("txtDepWindComp").style.display = "block"
-  document.getElementById("txtDepPressAlt").innerHTML = "Pressure Altitude: " + pressAlt + " ft"
-  document.getElementById("txtDepWindComp").innerHTML = "Headwind: " + headwind + " kts Crosswind: " + crosswind + " kts"
+  if (depMetar.data[0] != null) {
+    document.getElementById("txtDepPressAlt").style.display = "block"
+    document.getElementById("txtDepWindComp").style.display = "block"
+    document.getElementById("txtDepPressAlt").innerHTML = "Pressure Altitude: " + pressAlt + " ft"
+    document.getElementById("txtDepWindComp").innerHTML = "Headwind: " + headwind + " kts Crosswind: " + crosswind + " kts"
+  }
 
   tora = tora - intxAdjust
   toda = toda - intxAdjust
