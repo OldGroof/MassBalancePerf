@@ -902,7 +902,7 @@
                         "adjust": 180
                     },
                     {
-                        "name": "RWY14 THOLD",
+                        "name": "THRESH",
                         "adjust": 311
                     },
                     {
@@ -933,7 +933,7 @@
                 "lda": 1916,
                 "intx": [
                     {
-                        "name": "RWY32 THOLD",
+                        "name": "THRESH",
                         "adjust": 274
                     },
                     {
