@@ -110,8 +110,11 @@ function SelectDepAirport() {
   document.getElementById("txtDepWindComp").style.display = "none"
   document.getElementById("manDepEntry").style.display = "none"
   document.getElementById("inpPressDep").disabled = true
-  document.getElementById("inpTempDep").disabled = true
+  document.getElementById("inpPressDep").value = ""
+  document.getElementById("inpTempDep").disabled = 
+  document.getElementById("inpTempDep").value = ""
   document.getElementById("inpWindDep").disabled = true
+  document.getElementById("inpWindDep").value = ""
   document.getElementById("rwySelect").disabled = false
   document.getElementById("rwySelect").value = 0
   document.getElementById("intxSelect").disabled = true
@@ -396,6 +399,9 @@ document.getElementById("rwySelect").addEventListener("change", SelectDepRunway)
 document.getElementById("intxSelect").addEventListener("change", perfTO)
 document.getElementById("flapstoggle").addEventListener("click", perfTO)
 document.getElementById("rwyCondDep").addEventListener("change", perfTO)
+document.getElementById("inpPressDep").addEventListener("keyup", perfTO)
+document.getElementById("inpTempDep").addEventListener("keyup", perfTO)
+document.getElementById("inpWindDep").addEventListener("keyup", perfTO)
 
 document.getElementById("unitLDG").addEventListener("change", perfLDG)
 document.getElementById("airpSelectArr").addEventListener("change", SelectArrAirport)
@@ -578,7 +584,7 @@ function perfLDG() {
   var tempVar = 3.2 * temp
   var windVar = 17.78 * wind
   var lmVar = 0.29 * (2550 - mass)
-  if (selRunway.slope < 0) {
+  if (selArrRunway.slope < 0) {
     var slopeVar = slope / 2
   } else {
     var slopeVar = 0
