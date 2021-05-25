@@ -175,6 +175,10 @@ function SelectArrAirport() {
   document.getElementById("LDGResults").style.display = "none"
   document.getElementById("txtArrPressAlt").style.display = "none"
   document.getElementById("txtArrWindComp").style.display = "none"
+  document.getElementById("manArrEntry").style.display = "none"
+  document.getElementById("inpPressArr").disabled = true
+  document.getElementById("inpTempArr").disabled = true
+  document.getElementById("inpWindArr").disabled = true
   document.getElementById("rwySelectArr").disabled = false
   document.getElementById("rwySelectArr").value = 0
   document.getElementById("rwyCondArr").disabled = true
@@ -229,8 +233,11 @@ function getArrMetar() {
 
           if (arrMetar.data[0] != null) {
             document.getElementById("txtMetarArr").innerHTML = "METAR " + arrMetar.data[0].raw_text
+            document.getElementById("txtMetarArr").style.display = "block"
           } else {
             document.getElementById("txtMetarArr").innerHTML = "METAR Unavail"
+            document.getElementById("txtMetarArr").style.display = "none"
+            document.getElementById("manArrEntry").style.display = "block"
           }
           document.getElementById("metarBoxArr").style.display = "block"
       }
@@ -249,8 +256,10 @@ function getArrTaf() {
 
           if (result.raw != null) {
             document.getElementById('txtTafArr').innerHTML = "TAF " + result.raw
+            document.getElementById("txtTafArr").style.display = "block"
           } else {
             document.getElementById('txtTafArr').innerHTML = "TAF Unavail"
+            document.getElementById("txtTafArr").style.display = "none"
           }
       }
   };
@@ -591,10 +600,13 @@ function perfLDG() {
   } 
 
   document.getElementById("LDGResults").style.display = "block"
+  if (arrMetar.data[0] != null) {
+    document.getElementById("txtArrWindComp").style.display = "block"
+    document.getElementById("txtArrDepWindComp").innerHTML = "Headwind: " + headwind + " kts Crosswind: " + crosswind + " kts"
+  }
+
   document.getElementById("txtArrPressAlt").style.display = "block"
-  document.getElementById("txtArrWindComp").style.display = "block"
   document.getElementById("txtArrPressAlt").innerHTML = "Pressure Altitude: " + pressAlt + " ft"
-  document.getElementById("txtArrWindComp").innerHTML = "Headwind: " + headwind + " kts Crosswind: " + crosswind + " kts"
 
   if (unitLDG == "met") {
     document.getElementById("txtLDR").innerHTML = "<strong>" + Intl.NumberFormat().format(ldr) + " m</strong>"
