@@ -234,9 +234,11 @@ function getArrMetar() {
           if (arrMetar.data[0] != null) {
             document.getElementById("txtMetarArr").innerHTML = "METAR " + arrMetar.data[0].raw_text
             document.getElementById("txtMetarArr").style.display = "block"
+            document.getElementById("txtTafArr").style.display = "block"
           } else {
             document.getElementById("txtMetarArr").innerHTML = "METAR Unavail"
             document.getElementById("txtMetarArr").style.display = "none"
+            document.getElementById("txtTafArr").style.display = "none"
             document.getElementById("manArrEntry").style.display = "block"
           }
           document.getElementById("metarBoxArr").style.display = "block"
@@ -256,10 +258,8 @@ function getArrTaf() {
 
           if (result.raw != null) {
             document.getElementById('txtTafArr').innerHTML = "TAF " + result.raw
-            document.getElementById("txtTafArr").style.display = "block"
           } else {
             document.getElementById('txtTafArr').innerHTML = "TAF Unavail"
-            document.getElementById("txtTafArr").style.display = "none"
           }
       }
   };
@@ -434,18 +434,19 @@ function perfTO() {
   
     var windDir = Number(depMetar.data[0].wind.degrees)
     var windSpd = Number(depMetar.data[0].wind.speed_kts)
-  } else {
-    var press = 1013
-    var temp = 15
 
-    var windDir = 0
-    var windSpd = 0
+    var angle = windDir - bearing
+    var crosswind = Math.abs(Math.floor((windSpd * Math.sin(angle * (Math.PI / 180))) + 0.5))
+    var headwind = Math.floor((windSpd * Math.cos(angle * (Math.PI / 180))) + 0.5)
+    var wind = Math.floor((headwind / 2) + 0.5)
+  } else {
+    var press = Number(document.getElementById("inpPressDep").value) || 1013
+    var temp = Number(document.getElementById("inpTempDep").value) || 15
+
+    var wind = Number(document.getElementById("inpTWindDep").value) || 0
   }
 
-  var angle = windDir - bearing
-  var crosswind = Math.abs(Math.floor((windSpd * Math.sin(angle * (Math.PI / 180))) + 0.5))
-  var headwind = Math.floor((windSpd * Math.cos(angle * (Math.PI / 180))) + 0.5)
-  var wind = Math.floor((headwind / 2) + 0.5)
+
   var pressAlt = ((1013 - press) * 30) + elev
 
   if (pressAlt < 0) {
