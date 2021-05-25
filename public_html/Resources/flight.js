@@ -201,6 +201,7 @@ function getDepMetar() {
 
           if (depMetar.data[0] != null) {
             document.getElementById("txtMetarDep").innerHTML = "METAR " + depMetar.data[0].raw_text
+            document.getElementById("txtMetarDep").style.display = "block"
           } else {
             document.getElementById("txtMetarDep").innerHTML = "METAR Unavail"
             document.getElementById("txtMetarDep").style.display = "none"
