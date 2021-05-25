@@ -109,6 +109,9 @@ function SelectDepAirport() {
   document.getElementById("txtDepPressAlt").style.display = "none"
   document.getElementById("rwySelect").disabled = false
   document.getElementById("rwySelect").value = 0
+  document.getElementById("intxSelect").disabled = true
+  document.getElementById("intxSelect").value = "unavail"
+  document.getElementById("rwyCondDep").disabled = true
 }
 
 function SelectDepRunway() {
@@ -167,6 +170,7 @@ function SelectArrAirport() {
   document.getElementById("txtArrPressAlt").style.display = "none"
   document.getElementById("rwySelectArr").disabled = false
   document.getElementById("rwySelectArr").value = 0
+  document.getElementById("rwyCondArr").disabled = true
 }
 
 function SelectArrRunway() {
