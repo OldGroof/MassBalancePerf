@@ -180,8 +180,11 @@ function SelectArrAirport() {
   document.getElementById("txtArrWindComp").style.display = "none"
   document.getElementById("manArrEntry").style.display = "none"
   document.getElementById("inpPressArr").disabled = true
+  document.getElementById("inpPressArr").value = ""
   document.getElementById("inpTempArr").disabled = true
+  document.getElementById("inpTempArr").value = ""
   document.getElementById("inpWindArr").disabled = true
+  document.getElementById("inpWindArr").value = ""
   document.getElementById("rwySelectArr").disabled = false
   document.getElementById("rwySelectArr").value = 0
   document.getElementById("rwyCondArr").disabled = true
