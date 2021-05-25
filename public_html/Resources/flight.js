@@ -443,7 +443,7 @@ function perfTO() {
     var press = Number(document.getElementById("inpPressDep").value) || 1013
     var temp = Number(document.getElementById("inpTempDep").value) || 15
 
-    var wind = Number(document.getElementById("inpTWindDep").value) || 0
+    var wind = Number(document.getElementById("inpWindDep").value) || 0
   }
 
 
@@ -603,7 +603,7 @@ function perfLDG() {
   document.getElementById("LDGResults").style.display = "block"
   if (arrMetar.data[0] != null) {
     document.getElementById("txtArrWindComp").style.display = "block"
-    document.getElementById("txtArrDepWindComp").innerHTML = "Headwind: " + headwind + " kts Crosswind: " + crosswind + " kts"
+    document.getElementById("txtArrWindComp").innerHTML = "Headwind: " + headwind + " kts Crosswind: " + crosswind + " kts"
   }
 
   document.getElementById("txtArrPressAlt").style.display = "block"
