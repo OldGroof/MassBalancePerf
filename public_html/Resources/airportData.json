@@ -576,5 +576,783 @@
                 ]
             }
         ]
+    },
+    {
+        "icao": "EGCN",
+        "name": "Doncaster Sheffield",
+        "elevation": 53,
+        "runways": [
+            {
+                "name": "02",
+                "bearing": 18,
+                "slope": -0.3,
+                "tora": 2894,
+                "toda": 2894,
+                "asda": 2894,
+                "lda": 2742,
+                "intx": [
+                    {
+                        "name": "B",
+                        "adjust": 1050
+                    },
+                    {
+                        "name": "C",
+                        "adjust": 1901
+                    }
+                ]
+            },
+            {
+                "name": "20",
+                "bearing": 198,
+                "slope": 0.3,
+                "tora": 2894,
+                "toda": 3057,
+                "asda": 2894,
+                "lda": 2605,
+                "intx": [
+                    {
+                        "name": "A7",
+                        "adjust": 143
+                    },
+                    {
+                        "name": "C",
+                        "adjust": 945
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "icao": "EGPN",
+        "name": "Dundee",
+        "elevation": 17,
+        "runways": [
+            {
+                "name": "09",
+                "bearing": 91,
+                "slope": 0.0,
+                "tora": 1319,
+                "toda": 1319,
+                "asda": 1400,
+                "lda": 1400,
+                "intx": [
+                ]
+            },
+            {
+                "name": "27",
+                "bearing": 271,
+                "slope": 0.0,
+                "tora": 1319,
+                "toda": 1319,
+                "asda": 1400,
+                "lda": 1400,
+                "intx": [
+                ]
+            }
+        ]
+    },
+    {
+        "icao": "EGNV",
+        "name": "Tesside International",
+        "elevation": 120,
+        "runways": [
+            {
+                "name": "05",
+                "bearing": 48,
+                "slope": 0.01,
+                "tora": 2291,
+                "toda": 2576,
+                "asda": 2291,
+                "lda": 2291,
+                "intx": [
+                    {
+                        "name": "C",
+                        "adjust": 521
+                    }
+                ]
+            },
+            {
+                "name": "23",
+                "bearing": 228,
+                "slope": 0.01,
+                "tora": 2291,
+                "toda": 2488,
+                "asda": 2291,
+                "lda": 2291,
+                "intx": [
+                ]
+            }
+        ]
+    },
+    {
+        "icao": "EGTE",
+        "name": "Exeter",
+        "elevation": 102,
+        "runways": [
+            {
+                "name": "08",
+                "bearing": 76,
+                "slope": 0.0,
+                "tora": 2037,
+                "toda": 2252,
+                "asda": 2037,
+                "lda": 2037,
+                "intx": [
+                    {
+                        "name": "B",
+                        "adjust": 372
+                    },
+                    {
+                        "name": "G",
+                        "adjust": 910
+                    },
+                    {
+                        "name": "D",
+                        "adjust": 956
+                    },
+                    {
+                        "name": "C",
+                        "adjust": 1246
+                    },
+                    {
+                        "name": "E",
+                        "adjust": 1250
+                    }
+                ]
+            },
+            {
+                "name": "26",
+                "bearing": 256,
+                "slope": 0.0,
+                "tora": 2076,
+                "toda": 2657,
+                "asda": 2076,
+                "lda": 2037,
+                "intx": [
+                    {
+                        "name": "F",
+                        "adjust": 257
+                    },
+                    {
+                        "name": "E",
+                        "adjust": 812
+                    },
+                    {
+                        "name": "C",
+                        "adjust": 812
+                    },
+                    {
+                        "name": "D",
+                        "adjust": 1103
+                    },
+                    {
+                        "name": "G",
+                        "adjust": 1149
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "icao": "EGNJ",
+        "name": "Humberside",
+        "elevation": 121,
+        "runways": [
+            {
+                "name": "02",
+                "bearing": 22,
+                "slope": -0.7,
+                "tora": 2070,
+                "toda": 2208,
+                "asda": 2070,
+                "lda": 2070,
+                "intx": [
+                    {
+                        "name": "U",
+                        "adjust": 1270
+                    },
+                    {
+                        "name": "S",
+                        "adjust": 1298
+                    }
+                ]
+            },
+            {
+                "name": "20",
+                "bearing": 202,
+                "slope": 0.7,
+                "tora": 2196,
+                "toda": 2196,
+                "asda": 2196,
+                "lda": 1950,
+                "intx": [
+                    {
+                        "name": "A",
+                        "adjust": 350
+                    },
+                    {
+                        "name": "S",
+                        "adjust": 871
+                    },
+                    {
+                        "name": "U",
+                        "adjust": 896
+                    }
+                ]
+            },
+            {
+                "name": "08",
+                "bearing": 82,
+                "slope": -0.15,
+                "tora": 769,
+                "toda": 769,
+                "asda": 799,
+                "lda": 799,
+                "intx": [
+                ]
+            },
+            {
+                "name": "26",
+                "bearing": 262,
+                "slope": 0.15,
+                "tora": 799,
+                "toda": 799,
+                "asda": 799,
+                "lda": 701,
+                "intx": [
+                ]
+            }
+        ]
+    },
+    {
+        "icao": "EGPE",
+        "name": "Inverness",
+        "elevation": 31,
+        "runways": [
+            {
+                "name": "05",
+                "bearing": 49,
+                "slope": 0.13,
+                "tora": 1887,
+                "toda": 2037,
+                "asda": 1887,
+                "lda": 1820,
+                "intx": [
+                    {
+                        "name": "RWY11",
+                        "adjust": 940
+                    }
+                ]
+            },
+            {
+                "name": "23",
+                "bearing": 229,
+                "slope": 0.13,
+                "tora": 1820,
+                "toda": 1970,
+                "asda": 1820,
+                "lda": 1820,
+                "intx": [
+                    {
+                        "name": "RWY11",
+                        "adjust": 974
+                    }
+                ]
+            },
+            {
+                "name": "11",
+                "bearing": 110,
+                "slope": 0.22,
+                "tora": 700,
+                "toda": 700,
+                "asda": 700,
+                "lda": 700,
+                "intx": [
+                ]
+            },
+            {
+                "name": "29",
+                "bearing": 290,
+                "slope": 0.22,
+                "tora": 700,
+                "toda": 700,
+                "asda": 700,
+                "lda": 700,
+                "intx": [
+                ]
+            }
+        ]
+    },
+    {
+        "icao": "EGNM",
+        "name": "Leeds Bradford",
+        "elevation": 681,
+        "runways": [
+            {
+                "name": "14",
+                "bearing": 138,
+                "slope": -0.36,
+                "tora": 2113,
+                "toda": 3169,
+                "asda": 2113,
+                "lda": 1802,
+                "intx": [
+                    {
+                        "name": "E2",
+                        "adjust": 180
+                    },
+                    {
+                        "name": "RWY14 THOLD",
+                        "adjust": 311
+                    },
+                    {
+                        "name": "A",
+                        "adjust": 605
+                    },
+                    {
+                        "name": "F",
+                        "adjust": 680
+                    },
+                    {
+                        "name": "M",
+                        "adjust": 862
+                    },
+                    {
+                        "name": "L",
+                        "adjust": 1150
+                    }
+                ]
+            },
+            {
+                "name": "32",
+                "bearing": 318,
+                "slope": 0.36,
+                "tora": 2190,
+                "toda": 2389,
+                "asda": 2190,
+                "lda": 1916,
+                "intx": [
+                    {
+                        "name": "RWY32 THOLD",
+                        "adjust": 274
+                    },
+                    {
+                        "name": "D",
+                        "adjust": 563
+                    },
+                    {
+                        "name": "L",
+                        "adjust": 1072
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "icao": "EGGP",
+        "name": "Liverpool",
+        "elevation": 81,
+        "runways": [
+            {
+                "name": "09",
+                "bearing": 86,
+                "slope": 0.78,
+                "tora": 2162,
+                "toda": 2364,
+                "asda": 2162,
+                "lda": 2101,
+                "intx": [
+                    {
+                        "name": "D",
+                        "adjust": 175
+                    }
+                ]
+            },
+            {
+                "name": "27",
+                "bearing": 266,
+                "slope": -0.78,
+                "tora": 2285,
+                "toda": 3428,
+                "asda": 2292,
+                "lda": 2285,
+                "intx": [
+                    {
+                        "name": "G",
+                        "adjust": 221
+                    },
+                    {
+                        "name": "F",
+                        "adjust": 802
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "icao": "EGMD",
+        "name": "Lydd",
+        "elevation": 13,
+        "runways": [
+            {
+                "name": "03",
+                "bearing": 33,
+                "slope": 0.0,
+                "tora": 1470,
+                "toda": 1799,
+                "asda": 1470,
+                "lda": 1470,
+                "intx": [
+                ]
+            },
+            {
+                "name": "21",
+                "bearing": 213,
+                "slope": 0.0,
+                "tora": 1505,
+                "toda": 1681,
+                "asda": 1505,
+                "lda": 1470,
+                "intx": [
+                ]
+            }
+        ]
+    },
+    {
+        "icao": "EGNT",
+        "name": "Newcastle",
+        "elevation": 266,
+        "runways": [
+            {
+                "name": "07",
+                "bearing": 65,
+                "slope": -0.35,
+                "tora": 2330,
+                "toda": 2405,
+                "asda": 2344,
+                "lda": 2209,
+                "intx": [
+                    {
+                        "name": "B",
+                        "adjust": 531
+                    },
+                    {
+                        "name": "F",
+                        "adjust": 585
+                    },
+                    {
+                        "name": "E",
+                        "adjust": 773
+                    },
+                    {
+                        "name": "G",
+                        "adjust": 925
+                    }
+                ]
+            },
+            {
+                "name": "25",
+                "bearing": 245,
+                "slope": 0.35,
+                "tora": 2262,
+                "toda": 2386,
+                "asda": 2262,
+                "lda": 2124,
+                "intx": [
+                    {
+                        "name": "C",
+                        "adjust": 710
+                    },
+                    {
+                        "name": "G",
+                        "adjust": 1384
+                    },
+                    {
+                        "name": "E",
+                        "adjust": 1542
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "icao": "EGHQ",
+        "name": "Newquay",
+        "elevation": 388,
+        "runways": [
+            {
+                "name": "12",
+                "bearing": 121,
+                "slope": 0.0,
+                "tora": 2637,
+                "toda": 2937,
+                "asda": 2637,
+                "lda": 2637,
+                "intx": [
+                    {
+                        "name": "B1",
+                        "adjust": 717
+                    },
+                    {
+                        "name": "C1",
+                        "adjust": 1366
+                    },
+                    {
+                        "name": "E1",
+                        "adjust": 1415
+                    }
+                ]
+            },
+            {
+                "name": "30",
+                "bearing": 301,
+                "slope": 0.0,
+                "tora": 2744,
+                "toda": 3044,
+                "asda": 2744,
+                "lda": 2444,
+                "intx": [
+                    {
+                        "name": "E1",
+                        "adjust": 1303
+                    },
+                    {
+                        "name": "C1",
+                        "adjust": 1351
+                    },
+                    {
+                        "name": "B1",
+                        "adjust": 2001
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "icao": "EGSH",
+        "name": "Norwich",
+        "elevation": 117,
+        "runways": [
+            {
+                "name": "09",
+                "bearing": 89,
+                "slope": 0.0,
+                "tora": 1841,
+                "toda": 1993,
+                "asda": 1841,
+                "lda": 1841,
+                "intx": [
+                    {
+                        "name": "D",
+                        "adjust": 177
+                    }
+                ]
+            },
+            {
+                "name": "27",
+                "bearing": 269,
+                "slope": 0.0,
+                "tora": 1841,
+                "toda": 2111,
+                "asda": 1841,
+                "lda": 1841,
+                "intx": [
+                    {
+                        "name": "B",
+                        "adjust": 523
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "icao": "EGPK",
+        "name": "Prestwick",
+        "elevation": 66,
+        "runways": [
+            {
+                "name": "03",
+                "bearing": 24,
+                "slope": 0.0,
+                "tora": 1905,
+                "toda": 1999,
+                "asda": 1905,
+                "lda": 1825,
+                "intx": [
+                ]
+            },
+            {
+                "name": "21",
+                "bearing": 204,
+                "slope": 0.0,
+                "tora": 1905,
+                "toda": 2147,
+                "asda": 1991,
+                "lda": 1905,
+                "intx": [
+                    {
+                        "name": "R1",
+                        "adjust": 195
+                    }
+                ]
+            },
+            {
+                "name": "12",
+                "bearing": 121,
+                "slope": 0.0,
+                "tora": 2986,
+                "toda": 3170,
+                "asda": 2986,
+                "lda": 2743,
+                "intx": [
+                    {
+                        "name": "K",
+                        "adjust": 541
+                    },
+                    {
+                        "name": "M",
+                        "adjust": 1533
+                    }
+                ]
+            },
+            {
+                "name": "30",
+                "bearing": 301,
+                "slope": 0.0,
+                "tora": 2986,
+                "toda": 3075,
+                "asda": 2986,
+                "lda": 2986,
+                "intx": [
+                    {
+                        "name": "Q",
+                        "adjust": 308
+                    },
+                    {
+                        "name": "M",
+                        "adjust": 1397
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "icao": "EGHI",
+        "name": "Southampton",
+        "elevation": 44,
+        "runways": [
+            {
+                "name": "02",
+                "bearing": 19,
+                "slope": 0.23,
+                "tora": 1723,
+                "toda": 1831,
+                "asda": 1723,
+                "lda": 1650,
+                "intx": [
+                    {
+                        "name": "A",
+                        "adjust": 296
+                    },
+                    {
+                        "name": "B",
+                        "adjust": 834
+                    }
+                ]
+            },
+            {
+                "name": "20",
+                "bearing": 199,
+                "slope": -0.23,
+                "tora": 1650,
+                "toda": 1805,
+                "asda": 1650,
+                "lda": 1605,
+                "intx": [
+                    {
+                        "name": "B",
+                        "adjust": 869
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "icao": "EGMC",
+        "name": "Southend",
+        "elevation": 55,
+        "runways": [
+            {
+                "name": "05",
+                "bearing": 54,
+                "slope": -0.35,
+                "tora": 1739,
+                "toda": 1799,
+                "asda": 1739,
+                "lda": 1604,
+                "intx": [
+                    {
+                        "name": "C",
+                        "adjust": 723
+                    },
+                    {
+                        "name": "B",
+                        "adjust": 761
+                    }
+                ]
+            },
+            {
+                "name": "23",
+                "bearing": 234,
+                "slope": 0.35,
+                "tora": 1739,
+                "toda": 1799,
+                "asda": 1799,
+                "lda": 1604,
+                "intx": [
+                    {
+                        "name": "B/F",
+                        "adjust": 550
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "icao": "EGPC",
+        "name": "Wick",
+        "elevation": 126,
+        "runways": [
+            {
+                "name": "13",
+                "bearing": 127,
+                "slope": 0.0,
+                "tora": 1740,
+                "toda": 1890,
+                "asda": 1740,
+                "lda": 1400,
+                "intx": [
+                ]
+            },
+            {
+                "name": "31",
+                "bearing": 307,
+                "slope": 0.0,
+                "tora": 1708,
+                "toda": 1858,
+                "asda": 1708,
+                "lda": 1398,
+                "intx": [
+                    {
+                        "name": "C",
+                        "adjust": 418
+                    },
+                    {
+                        "name": "F",
+                        "adjust": 718
+                    }
+                ]
+            }
+        ]
     }
 ]
