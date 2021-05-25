@@ -243,6 +243,10 @@ function getArrMetar() {
             document.getElementById("txtMetarArr").style.display = "none"
             document.getElementById("txtTafArr").style.display = "none"
             document.getElementById("manArrEntry").style.display = "block"
+
+            document.getElementById("inpPressArr").disabled = false
+            document.getElementById("inpTempArr").disabled = false
+            document.getElementById("inpWindArr").disabled = false
           }
           document.getElementById("metarBoxArr").style.display = "block"
       }
@@ -407,6 +411,9 @@ document.getElementById("unitLDG").addEventListener("change", perfLDG)
 document.getElementById("airpSelectArr").addEventListener("change", SelectArrAirport)
 document.getElementById("rwySelectArr").addEventListener("change", SelectArrRunway)
 document.getElementById("rwyCondArr").addEventListener("change", perfLDG)
+document.getElementById("inpPressArr").addEventListener("keyup", perfLDG)
+document.getElementById("inpTempArr").addEventListener("keyup", perfLDG)
+document.getElementById("inpWindArr").addEventListener("keyup", perfLDG)
 
 function perfTO() {
   document.getElementById("flapstoggle").disabled = false
@@ -451,7 +458,6 @@ function perfTO() {
 
     var wind = Number(document.getElementById("inpWindDep").value) || 0
   }
-
 
   var pressAlt = ((1013 - press) * 30) + elev
 
@@ -561,18 +567,18 @@ function perfLDG() {
   
     var windDir = Number(arrMetar.data[0].wind.degrees)
     var windSpd = Number(arrMetar.data[0].wind.speed_kts)
-  } else {
-    var press = 1013
-    var temp = 15
 
-    var windDir = 0
-    var windSpd = 0
+    var angle = windDir - bearing
+    var crosswind = Math.abs(Math.floor((windSpd * Math.sin(angle * (Math.PI / 180))) + 0.5))
+    var headwind = Math.floor((windSpd * Math.cos(angle * (Math.PI / 180))) + 0.5)
+    var wind = Math.floor((headwind / 2) + 0.5)
+  } else {
+    var press = Number(document.getElementById("inpPressArr").value) || 1013
+    var temp = Number(document.getElementById("inpTempArr").value) || 15
+
+    var wind = Number(document.getElementById("inpWindArr").value) || 0
   }
 
-  var angle = windDir - bearing
-  var crosswind = Math.abs(Math.floor((windSpd * Math.sin(angle * (Math.PI / 180))) + 0.5))
-  var headwind = Math.floor((windSpd * Math.cos(angle * (Math.PI / 180))) + 0.5)
-  var wind = Math.floor((headwind / 2) + 0.5)
   var pressAlt = ((1013 - press) * 30) + elev
 
   if (pressAlt < 0) {
