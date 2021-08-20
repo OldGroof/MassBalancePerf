@@ -503,18 +503,18 @@ function perfTO() {
 
   if (rwyCond == 1) {
     var todr = Math.floor(((tod + ((0.1 * tod) * slopeVar)) * 1.2) + 0.5)
-    console.log(Math.round(10*todr)/10)
+    console.log(todr, Math.round(todr / 10) * 10)
   } else if (rwyCond == 2) {
     var todr = Math.floor(((tod + ((0.1 * tod) * slopeVar)) * 1.3) + 0.5)
-    console.log(Math.round(10*todr)/10)
+    console.log(todr, Math.round(todr / 10) * 10)
   } else {
     var todr = Math.floor((tod + ((0.1 * tod) * slopeVar)) + 0.5)
-    console.log(Math.round(10*todr)/10)
+    console.log(todr, Math.round(todr / 10) * 10)
   }
 
   if (unitTO == "met") {
     todr = Math.floor((todr / 3.285) + 0.5)
-    console.log(Math.round(10*todr)/10)
+    console.log(todr, Math.round(todr / 10) * 10)
   }
 
   document.getElementById("TOResults").style.display = "block"
