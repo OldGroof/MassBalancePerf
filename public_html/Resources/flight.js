@@ -503,18 +503,18 @@ function perfTO() {
 
   if (rwyCond == 1) {
     var todr = Math.floor(((tod + ((0.1 * tod) * slopeVar)) * 1.2) + 0.5)
-    console.log(todr, Math.round(todr / 10) * 10)
+    todr = Math.round(todr / 10) * 10
   } else if (rwyCond == 2) {
     var todr = Math.floor(((tod + ((0.1 * tod) * slopeVar)) * 1.3) + 0.5)
-    console.log(todr, Math.round(todr / 10) * 10)
+    todr = Math.round(todr / 10) * 10
   } else {
     var todr = Math.floor((tod + ((0.1 * tod) * slopeVar)) + 0.5)
-    console.log(todr, Math.round(todr / 10) * 10)
+    todr = Math.round(todr / 10) * 10
   }
 
   if (unitTO == "met") {
     todr = Math.floor((todr / 3.285) + 0.5)
-    console.log(todr, Math.round(todr / 10) * 10)
+    todr = Math.round(todr / 10) * 10
   }
 
   document.getElementById("TOResults").style.display = "block"
@@ -607,16 +607,21 @@ function perfLDG() {
 
   if (rwyCond == 0) {
     var ldr = Math.floor((ld + ((0.1 * ld) * slopeVar)) + 0.5)
+    ldr = Math.round(ldr / 5) * 5
   } else if (rwyCond == 1) {
     var ldr = Math.floor(((ld + ((0.1 * ld) * slopeVar)) * 1.15) + 0.5)
+    ldr = Math.round(ldr / 5) * 5
   } else if (rwyCond == 2) {
     var ldr = Math.floor(((ld + ((0.1 * ld) * slopeVar)) * 1.15) + 0.5)
+    ldr = Math.round(ldr / 5) * 5
   } else if (rwyCond == 3) {
     var ldr = Math.floor(((ld + ((0.1 * ld) * slopeVar)) * 1.35) + 0.5)
+    ldr = Math.round(ldr / 5) * 5
   }
 
   if (unitLDG == "met") {
     ldr = Math.floor((ldr / 3.285) + 0.5)
+    ldr = Math.round(ldr / 5) * 5
   } 
 
   document.getElementById("LDGResults").style.display = "block"
