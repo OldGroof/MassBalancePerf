@@ -616,6 +616,9 @@ function perfLDG() {
   }
 
   var ld = Math.floor((1360 + altVar + tempVar - lmVar - windVar) + 0.5)
+  if (ld < 1200) {
+    ld = 1200
+  }
 
   if (rwyCond == 0) {
     var ldr = Math.floor((ld + ((0.1 * ld) * slopeVar)) + 0.5)
