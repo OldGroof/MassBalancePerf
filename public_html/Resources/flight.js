@@ -522,7 +522,6 @@ function perfTO() {
 
   if (unitTO == "met") {
     todr = Math.floor((todr / 3.285) + 0.5)
-    todr = Math.round(todr / 10) * 10
   }
 
   document.getElementById("TOResults").style.display = "block"
@@ -636,7 +635,6 @@ function perfLDG() {
 
   if (unitLDG == "met") {
     ldr = Math.floor((ldr / 3.285) + 0.5)
-    ldr = Math.round(ldr / 5) * 5
   } 
 
   document.getElementById("LDGResults").style.display = "block"
