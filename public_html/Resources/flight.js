@@ -49,8 +49,8 @@ airportGet.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
     airport = JSON.parse(this.responseText)
     airport = airport.sort(function(a, b) {
-      var icaoA = a.icao.toUpperCase()
-      var icaoB = b.icao.toUpperCase()
+      var icaoA = a.name.toUpperCase()
+      var icaoB = b.name.toUpperCase()
 
       if (icaoA < icaoB) {
         return -1
