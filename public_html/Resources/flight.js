@@ -482,7 +482,11 @@ function perfTO() {
     } else {
       var slopeVar = 0
     }
-    var tomVar = 1.53 * (2550 - mass)
+    if (mass > 2000) {
+      var tomVar = 1.53 * (2550 - mass)
+    } else {
+      var tomVar = 841.5
+    }
 
     var tod = Math.floor((1400 + altVar + tempVar - tomVar - windVar) + 0.5)
   } else {
@@ -493,7 +497,11 @@ function perfTO() {
     } else {
       var slopeVar = 0
     }
-    var tomVar = 2000 - ((0.00168824 * (mass * mass)) + (-6.04939 * (mass)) + 6447.05)
+    if (mass > 2000) {
+      var tomVar = 2000 - ((0.00168824 * (mass * mass)) + (-6.04939 * (mass)) + 6447.05)
+    } else {
+      var tomVar = 898.77
+    }
 
     var tod = Math.floor((1700 + altVar + tempVar - tomVar - windVar) + 0.5)
     if (tod < 1000) {
@@ -596,7 +604,11 @@ function perfLDG() {
 
   var tempVar = 3.2 * temp
   var windVar = 17.78 * wind
-  var lmVar = 0.29 * (2550 - mass)
+  if (mass > 2000) {
+    var lmVar = 0.29 * (2550 - mass)
+  } else {
+    var lmVar = 159.5
+  }
   if (selArrRunway.slope < 0) {
     var slopeVar = slope / 2
   } else {
