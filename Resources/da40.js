@@ -17,8 +17,6 @@ var intx
 var depMetar
 var arrMetar
 
-var vertRng = document.getElementById("graph").style.height
-
 var zfm = 1200
 var zfmArm = 87.5
 var tom = 1200
@@ -27,22 +25,6 @@ var lm = 1200
 var lmArm = 87.5
 
 window.onload = alert("Caution!\n This is to be used to confirm that data is correct.\n Do not use this as a substitute to the laminated pack.")
-
-var xmlhttp = new XMLHttpRequest()
-xmlhttp.onreadystatechange = function() {
-  if (this.readyState == 4 && this.status == 200) {
-    aircraft = JSON.parse(this.responseText)
-    var sel = document.getElementById('aircraftSelect')
-    for(var i = 0; i < aircraft.length; i++) {
-      var opt = document.createElement('option')
-      opt.innerHTML = aircraft[i]['reg']
-      opt.value = [i]
-      sel.appendChild(opt)
-    }
-  }
-}
-xmlhttp.open("GET", "Resources/cranfieldAircraftData.json", true)
-xmlhttp.send()
 
 var airportGet = new XMLHttpRequest()
 airportGet.onreadystatechange = function() {
@@ -81,9 +63,6 @@ airportGet.onreadystatechange = function() {
 }
 airportGet.open("GET", "Resources/airportData.json", true)
 airportGet.send()
-
-window.onload = graphUpdate
-window.onresize = graphUpdate
 
 function SelectDepAirport() {
   selAirport = {}
@@ -278,21 +257,14 @@ function getArrTaf() {
   taf.send()
 }
 
-function graphUpdate() {
-  vertRng = document.getElementById("graph").height
-
-  document.getElementById("zfmGraph").style.top = ((0.958 - (((zfm - 1200) / 1350) * 0.9545)) * vertRng) + "px"
-  document.getElementById("zfmGraph").style.left = (41.0385 + ((7.4 - (0.0026096 * (2550 - zfm))) * (zfmArm - 87.5) )) + "%"
-  document.getElementById("lmGraph").style.top = ((0.958 - (((lm - 1200) / 1350) * 0.9545)) * vertRng) + "px"
-  document.getElementById("lmGraph").style.left = (41.0385 + ((7.4 - (0.0026096 * (2550 - lm))) * (lmArm - 87.5) )) + "%"
-  document.getElementById("tomGraph").style.top = ((0.958 - (((tom - 1200) / 1350) * 0.9545)) * vertRng) + "px"
-  document.getElementById("tomGraph").style.left = (41.0385 + ((7.4 - (0.0026096 * (2550 - tom))) * (tomArm - 87.5) )) + "%"
-}
-
 function unlock() {
   document.getElementById('inpFrnt').disabled = false
   document.getElementById('inpRear').disabled = false
-  document.getElementById('inpBgge').disabled = false
+  document.getElementById('inpStdB').disabled = false
+  document.getElementById('inpBgTb').disabled = false
+  document.getElementById('inpShBge').disabled = false
+  document.getElementById('inpFwdBge').disabled = false
+  document.getElementById('inpAftBge').disabled = false
   document.getElementById('inpFuel').disabled = false
   document.getElementById('inpBurn').disabled = false
 
@@ -301,102 +273,124 @@ function unlock() {
 
   document.getElementById("unitLDG").disabled = false
   document.getElementById("airpSelectArr").disabled = false
-
-  document.getElementById("zfmGraph").hidden = false
-  document.getElementById("lmGraph").hidden = false
-  document.getElementById("tomGraph").hidden = false
 }
 
-document.getElementById("aircraftSelect").addEventListener("change", unlock)
-document.getElementById("aircraftSelect").addEventListener("change", maths)
+document.getElementById("inpBem").addEventListener("keyup", unlock)
+document.getElementById("inpBem").addEventListener("keyup", maths)
+document.getElementById("inpMom").addEventListener("keyup", unlock)
+document.getElementById("inpMom").addEventListener("keyup", maths)
 document.getElementById("inpFrnt").addEventListener("keyup", maths)
 document.getElementById("inpRear").addEventListener("keyup", maths)
-document.getElementById("inpBgge").addEventListener("keyup", maths)
+document.getElementById("inpStdB").addEventListener("keyup", maths)
+document.getElementById("inpBgTb").addEventListener("keyup", maths)
+document.getElementById("inpShBge").addEventListener("keyup", maths)
+document.getElementById("inpFwdBge").addEventListener("keyup", maths)
+document.getElementById("inpAftBge").addEventListener("keyup", maths)
 document.getElementById("inpFuel").addEventListener("keyup", maths)
 document.getElementById("inpBurn").addEventListener("keyup", maths)
 
 function maths() {
-  if (document.getElementById("aircraftSelect").value != "") {
-    var bem = aircraft[document.getElementById("aircraftSelect").value].mass
-    var bemmom = aircraft[document.getElementById("aircraftSelect").value].moment
-    var bemarm = aircraft[document.getElementById("aircraftSelect").value].arm
-  }
-
-  document.getElementById('txtBEMArm').innerHTML = bemarm
-  document.getElementById('txtBEM').innerHTML = Intl.NumberFormat().format(bem)
-  document.getElementById('txtBEMMom').innerHTML = Intl.NumberFormat().format(bemmom)
+  var bem = Number(document.getElementById("inpBem").value)
+  var bemmom = Number(document.getElementById("inpMom").value)
 
   var frntMass = Number(document.getElementById("inpFrnt").value)
   var rearMass = Number(document.getElementById("inpRear").value)
-  var bggeMass = Number(document.getElementById("inpBgge").value)
+  var stdBMass = Number(document.getElementById("inpStdB").value)
+  var bgTbMass = Number(document.getElementById("inpBgTb").value)
+  var shBgeMass = Number(document.getElementById("inpShBge").value)
+  var fwdBgeMass = Number(document.getElementById("inpFwdBge").value)
+  var aftBgeMass = Number(document.getElementById("inpAftBge").value)
   var fuelMass = Number(document.getElementById("inpFuel").value)
   var burnMass = Number(document.getElementById("inpBurn").value)
 
-  var frntMom = frntMass * 80.5
-  var rearMom = rearMass * 118.1
-  var bggeMom = bggeMass * 142.8
+  var frntMom = frntMass * 2.3
+  var rearMom = rearMass * 3.25
 
-  zfm = bem + frntMass + rearMass + bggeMass
-  var zfmMom = bemmom + frntMom + rearMom + bggeMom
-  zfmArm = (Math.round((zfmMom / zfm) * 10) / 10).toFixed(1)
+  var stdBMom = stdBMass * 3.65
+  var bgTbMom = bgTbMass * 4.32
+  var shBgeMom = shBgeMass * 3.97
+  var fwdBgeMom = fwdBgeMass * 3.89
+  var aftBgeMom = aftBgeMass * 4.54
 
-  var fuelMom = fuelMass * 95
+  zfm = bem + frntMass + rearMass + stdBMass + bgTbMass + shBgeMass + fwdBgeMass + aftBgeMass
+  var zfmMom = bemmom + frntMom + rearMom + stdBMom + bgTbMom + shBgeMom + fwdBgeMom + aftBgeMom
+  zfmArm = zfmMom / zfm
 
-  tom = zfm + fuelMass - 8
-  var tomMom = zfmMom + fuelMom - 760
-  tomArm = (Math.round((tomMom / tom) * 10) / 10).toFixed(1)
+  var fuelMom = fuelMass * 2.63
 
-  var burnMom = burnMass * -95
+  tom = zfm + fuelMass
+  var tomMom = zfmMom + fuelMom
+  tomArm = tomMom / tom
+
+  var burnMom = burnMass * -2.63
 
   lm = tom - burnMass
   var lmMom = tomMom + burnMom
-  lmArm = (Math.round((lmMom / lm) * 10) / 10).toFixed(1)
+  lmArm = lmMom / lm
 
   if (frntMom != 0) {
-    document.getElementById("txtFrntMom").innerHTML = Intl.NumberFormat().format(Math.round(frntMom))
+    document.getElementById("txtFrntMom").innerHTML = Intl.NumberFormat().format((frntMom).toFixed(1))
   } else {
     document.getElementById("txtFrntMom").innerHTML = ""
   }
   if (rearMom != 0) {
-    document.getElementById("txtRearMom").innerHTML = Intl.NumberFormat().format(Math.round(rearMom))
+    document.getElementById("txtRearMom").innerHTML = Intl.NumberFormat().format((rearMom).toFixed(1))
   } else {
     document.getElementById("txtRearMom").innerHTML = ""
   }
-  if (bggeMom != 0) {
-    document.getElementById("txtBggeMom").innerHTML = Intl.NumberFormat().format(Math.round(bggeMom))
+  if (stdBMom != 0) {
+    document.getElementById("txtStdBMom").innerHTML = Intl.NumberFormat().format((stdBMom).toFixed(1))
   } else {
-    document.getElementById("txtBggeMom").innerHTML = ""
+    document.getElementById("txtStdBMom").innerHTML = ""
+  }
+  if (bgTbMom != 0) {
+    document.getElementById("txtBgTbMom").innerHTML = Intl.NumberFormat().format((bgTbMom).toFixed(1))
+  } else {
+    document.getElementById("txtBgTbMom").innerHTML = ""
+  }
+  if (shBgeMom != 0) {
+    document.getElementById("txtShBgeMom").innerHTML = Intl.NumberFormat().format((shBgeMom).toFixed(1))
+  } else {
+    document.getElementById("txtShBgeMom").innerHTML = ""
+  }
+  if (fwdBgeMom != 0) {
+    document.getElementById("txtFwdBgeMom").innerHTML = Intl.NumberFormat().format((fwdBgeMom).toFixed(1))
+  } else {
+    document.getElementById("txtFwdBgeMom").innerHTML = ""
+  }
+  if (aftBgeMom != 0) {
+    document.getElementById("txtAftBgeMom").innerHTML = Intl.NumberFormat().format((aftBgeMom).toFixed(1))
+  } else {
+    document.getElementById("txtAftBgeMom").innerHTML = ""
   }
   if (fuelMom != 0) {
-    document.getElementById("txtFuelMom").innerHTML = Intl.NumberFormat().format(Math.round(fuelMom))
+    document.getElementById("txtFuelMom").innerHTML = Intl.NumberFormat().format((fuelMom).toFixed(1))
   } else {
     document.getElementById("txtFuelMom").innerHTML = ""
   }
   if (burnMom != 0) {
-    document.getElementById("txtBurnMom").innerHTML = Intl.NumberFormat().format(Math.round(burnMom))
+    document.getElementById("txtBurnMom").innerHTML = Intl.NumberFormat().format((burnMom).toFixed(1))
   } else {
     document.getElementById("txtBurnMom").innerHTML = ""
   }
 
-  document.getElementById("txtZFMArm").innerHTML = zfmArm
+  document.getElementById("txtZFMArm").innerHTML = zfmArm.toFixed(2)
   document.getElementById("txtZFM").innerHTML = Intl.NumberFormat().format(zfm)
-  document.getElementById("txtZFMMom").innerHTML = Intl.NumberFormat().format(Math.floor(zfmMom + 0.5))
+  document.getElementById("txtZFMMom").innerHTML = Intl.NumberFormat().format((zfmMom).toFixed(1))
 
-  document.getElementById("txtTOMArm").innerHTML = tomArm
+  document.getElementById("txtTOMArm").innerHTML = tomArm.toFixed(2)
   document.getElementById("txtTOM").innerHTML = Intl.NumberFormat().format(tom)
-  document.getElementById("txtTOMMom").innerHTML = Intl.NumberFormat().format(Math.floor(tomMom + 0.5))
+  document.getElementById("txtTOMMom").innerHTML = Intl.NumberFormat().format((tomMom).toFixed(1))
 
-  document.getElementById("txtLMArm").innerHTML = lmArm
+  document.getElementById("txtLMArm").innerHTML = lmArm.toFixed(2)
   document.getElementById("txtLM").innerHTML = Intl.NumberFormat().format(lm)
-  document.getElementById("txtLMMom").innerHTML = Intl.NumberFormat().format(Math.floor(lmMom + 0.5))
-
-  graphUpdate()
+  document.getElementById("txtLMMom").innerHTML = Intl.NumberFormat().format((lmMom).toFixed(1))
 
   if (document.getElementById("airpSelect").value != "unavail") {
-    perfTO()
+    //perfTO()
   }
   if (document.getElementById("airpSelectArr").value != "unavail") {
-    perfLDG()
+    //perfLDG()
   }
 }
 

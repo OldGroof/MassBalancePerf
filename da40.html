@@ -50,35 +50,39 @@
           </div>
           <div class="table-box">
             <p class="table-header">LEVER ARM</p>
-            <p class="table-subheader">(inches)</p>
+            <p class="table-subheader">(meters)</p>
           </div>
           <div class="table-box">
             <p class="table-header">MASS</p>
-            <p class="table-subheader">(lbs)</p>
+            <p class="table-subheader">(kg)</p>
           </div>  
           <div class="table-box">
             <p class="table-header">MOMENT</p>
-            <p class="table-subheader">(IN-lbs)</p>
+            <p class="table-subheader">(kgm)</p>
           </div>
           <div class="table-box">
-            <select class="table-select" id="aircraftSelect">
-              <option value="" disabled selected>Select Aircraft</option>
-            </select>
+            <p class="table-header">Empty Mass</p>
           </div>
           <div class="table-box">
-            <p class="text-table" id="txtBEMArm"><----</p>
+            <input type="text" id="inpArm" class="table-input" inputmode="numeric" placeholder="-"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+            />
           </div>  
           <div class="table-box">
-            <p class="text-table" id="txtBEM">Select Aircraft</p>
-          </div>
+            <input type="text" id="inpBem" class="table-input" inputmode="numeric" placeholder="-"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+            />
+          </div> 
           <div class="table-box">
-            <p class="text-table" id="txtBEMMom"><----</p>
-          </div>
+            <input type="text" id="inpMom" class="table-input" inputmode="numeric" placeholder="-"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+            />
+          </div> 
           <div class="table-box">
             <p class="table-header">Front Seats</p>
           </div>
           <div class="table-box">
-            <p class="table-header">80.5</p>
+            <p class="table-header">2.30</p>
           </div>  
           <div class="table-box">
             <input type="text" id="inpFrnt" class="table-input" disabled inputmode="numeric" placeholder="-"
@@ -92,7 +96,7 @@
             <p class="table-header">Rear Seats</p>
           </div>
           <div class="table-box">
-            <p class="table-header">118.1</p>
+            <p class="table-header">3.25</p>
           </div>  
           <div class="table-box">
             <input type="text" id="inpRear" class="table-input" disabled inputmode="numeric" placeholder="-"
@@ -103,19 +107,79 @@
             <p class="text-table" id="txtRearMom"></p>
           </div>
           <div class="table-box">
-            <p class="table-header">Baggage Comp.</p>
-            <p class="table-subheader">Max 200 lbs</p>
+            <p class="table-header">Std Baggage</p>
+            <p class="table-subheader">Max 30kg</p>
           </div>
           <div class="table-box">
-            <p class="table-header">142.8</p>
+            <p class="table-header">3.65</p>
           </div>  
           <div class="table-box">
-            <input type="text" id="inpBgge" class="table-input" disabled inputmode="numeric" placeholder="-"
+            <input type="text" id="inpStdB" class="table-input" disabled inputmode="numeric" placeholder="-"
             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
             />
           </div>
           <div class="table-box">
-            <p class="text-table" id="txtBggeMom"></p>
+            <p class="text-table" id="txtStdBMom"></p>
+          </div>
+          <div class="table-box">
+            <p class="table-header">Baggage Tube</p>
+            <p class="table-subheader">Max 5kg</p>
+          </div>
+          <div class="table-box">
+            <p class="table-header">4.32</p>
+          </div>  
+          <div class="table-box">
+            <input type="text" id="inpBgTb" class="table-input" disabled inputmode="numeric" placeholder="-"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+            />
+          </div>
+          <div class="table-box">
+            <p class="text-table" id="txtBgTbMom"></p>
+          </div>
+          <div class="table-box">
+            <p class="table-header">Short Baggage</p>
+            <p class="table-subheader">Max 15kg</p>
+          </div>
+          <div class="table-box">
+            <p class="table-header">3.97</p>
+          </div>  
+          <div class="table-box">
+            <input type="text" id="inpShBge" class="table-input" disabled inputmode="numeric" placeholder="-"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+            />
+          </div>
+          <div class="table-box">
+            <p class="text-table" id="txtShBgeMom"></p>
+          </div>
+          <div class="table-box">
+            <p class="table-header">Fwd Baggage</p>
+            <p class="table-subheader">Max 45kg</p>
+          </div>
+          <div class="table-box">
+            <p class="table-header">3.89</p>
+          </div>  
+          <div class="table-box">
+            <input type="text" id="inpFwdBge" class="table-input" disabled inputmode="numeric" placeholder="-"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+            />
+          </div>
+          <div class="table-box">
+            <p class="text-table" id="txtFwdBgeMom"></p>
+          </div>
+          <div class="table-box">
+            <p class="table-header">Aft Baggage</p>
+            <p class="table-subheader">Max 18kg</p>
+          </div>
+          <div class="table-box">
+            <p class="table-header">4.54</p>
+          </div>  
+          <div class="table-box">
+            <input type="text" id="inpAftBge" class="table-input" disabled inputmode="numeric" placeholder="-"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+            />
+          </div>
+          <div class="table-box">
+            <p class="text-table" id="txtAftBgeMom"></p>
           </div>
           <div class="table-box" style="background: #333333;">
             <p class="table-header">Zero Fuel Mass</p>
@@ -131,10 +195,10 @@
           </div>
           <div class="table-box">
             <p class="table-header">Fuel</p>
-            <p class="table-subheader">Max 48usg</p>
+            <p class="table-subheader">Max 30usg</p>
           </div>
           <div class="table-box">
-            <p class="table-header">95.0</p>
+            <p class="table-header">2.63</p>
           </div>  
           <div class="table-box">
             <input type="text" id="inpFuel" class="table-input" disabled inputmode="numeric" min= "1" max="288" placeholder="-"
@@ -143,19 +207,6 @@
           </div>
           <div class="table-box">
             <p class="text-table" id="txtFuelMom"></p>
-          </div>
-          <div class="table-box">
-            <p class="table-header">Fuel Allowance</p>
-            <p class="table-subheader">Start up, Taxi & Run up</p>
-          </div>
-          <div class="table-box">
-            <p class="table-header">95.0</p>
-          </div>  
-          <div class="table-box">
-            <p class="table-header">-8</p>
-          </div>
-          <div class="table-box">
-            <p class="table-header">-760</p>
           </div>
           <div class="table-box" style="background: #333333;">
             <p class="table-header">Take Off Mass</p>
@@ -174,7 +225,7 @@
             <p class="table-subheader">Omit Negative Sign</p>
           </div>
           <div class="table-box">
-            <p class="table-header">95.0</p>
+            <p class="table-header">2.63</p>
           </div>  
           <div class="table-box">
             <input type="text" id="inpBurn" class="table-input" disabled inputmode="numeric" min= "1" max="288" placeholder="-"
@@ -199,188 +250,173 @@
         </div>
     </div>
     <div class="column">
-      <h2 style="border-bottom: 3px solid #a80006; padding-bottom: 3px;">C.G Range and Weight</h2>
-      <div style="text-align: center;">
-        <div id="zfmGraph" style="position: relative; z-index: 1; padding: 0px; margin: 0px; height: 0px; width: 20px;" hidden>
-          <p style="font-size: 20px; color: lightseagreen; font-weight: bold;">X</p>
-        </div>
-        <div id="lmGraph" style="position: relative; z-index: 1; padding: 0px; margin: 0px; height: 0px; width: 20px;" hidden>
-          <p style="font-size: 20px; color: darkgreen; font-weight: bold;">X</p>
-        </div>
-        <div id="tomGraph" style="position: relative; z-index: 1; padding: 0px; margin: 0px; height: 0px; width: 20px;" hidden>
-        <p style="font-size: 20px; color: #a80006; font-weight: bold;">X</p>
-        </div>
-        <img id="graph"; src="Resources/Envelope.png" alt="Mass and Balance Envelope" style="position: relative; width: 85%; padding: 10px; z-index: 0; top: 0px;">
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="column">
-      <h2 style="border-bottom: 3px solid #a80006; padding-bottom: 3px;">Take off</h2>
-      <div class="row" style="padding-top: 5px; padding-bottom: 5px;"> 
-        <label class="container" style=" float: right; margin-left: auto;">Flaps 25°
-          <input type="checkbox" id="flapstoggle" disabled>
-          <span class="checkmark"></span>
-        </label>
-      </div>
-      <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
-        <p class="input-label">Airport</p>
-        <select id="airpSelect" style="float: right; margin-left: auto; width: 265px;" disabled>
-          <option value="unavail" disabled selected>Select Airport</option>
-        </select>
-      </div>
-      <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
-        <p class="input-label">Runway</p>
-        <select id="rwySelect" style="float: right; margin-left: auto;" disabled>
-          <option value="0" disabled selected>RWY</option>
-        </select>
-      </div>
-      <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
-        <p class="input-label">Intersection</p>
-        <select id="intxSelect" style="float: right; margin-left: auto;" disabled>
-          <option value="unavail" selected>FULL</option>
-        </select>
-      </div>
-      <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
-        <p class="input-label">Runway Condition</p>
-        <select id="rwyCondDep" style="float: right; margin-left: auto;" disabled>
-          <option value="0">Paved</option>
-          <option value="1">Dry Grass</option>
-          <option value="2">Wet Grass</option>
-        </select>
-      </div>
-
-      <div id="manDepEntry" style="display: none;">
-        <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
-          <p class="input-label">Air Pressure</p>
-          <input type="text" id="inpPressDep" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Pressure"
-          oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="4"
-          />
-        </div>
-        <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
-          <p class="input-label">Temperature</p>
-          <input type="text" id="inpTempDep" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Temperature"
-          oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="2"
-          />
-        </div>
-        <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
-          <p class="input-label">Wind</p>
-          <input type="text" id="inpWindDep" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Wind Comp."
-          oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1'); " maxlength="2"
-          />
-        </div>
-      </div>
-
-      <div id="metarBox" class="row" style="padding: 15px; display: none;">
-        <p id="txtMetarDep" style="text-align: center; margin: 0 auto;">METAR Loading</p>
-        <p id="txtDepPressAlt" style="color: rgb(128, 128, 128); text-align: center; margin: 0 auto; display: none;">Loading</p>
-        <p id="txtDepWindComp" style="color: rgb(128, 128, 128); text-align: center; margin: 0 auto; display: none;">Loading</p>
-      </div>
-
-      <div class="result-container" id="TOResults">
-        <div style="display: flex;">
-          <p class="input-label">Performance</p>
-          <label class="switch" style="margin-left: auto;">
-            <input id="unitTO" type="checkbox" disabled>
-            <span class="slider round"></span>
+      <div>
+        <h2 style="border-bottom: 3px solid #a80006; padding-bottom: 3px;">Take off</h2>
+        <div class="row" style="padding-top: 5px; padding-bottom: 5px;"> 
+          <label class="container" style=" float: right; margin-left: auto;">Flaps 25°
+            <input type="checkbox" id="flapstoggle" disabled>
+            <span class="checkmark"></span>
           </label>
         </div>
-
-        <div id="toBalanced" style="display: none;">
-          <div class="row" style="padding-top: 5px; padding-bottom: 5px; border:none; border-bottom:1px solid #a8a8a8;">
-            <p class="result-label">Take off Distance Required</p>
-            <p id="txtTODR" class="result-label" style="float: right; margin-left: auto; color: grey;"></p>
-          </div>
-          <div class="row" style="padding-top: 5px; padding-bottom: 5px; border:none; border-bottom:1px solid #a8a8a8;">
-            <p class="result-label">Take off Distance Required x 1.25</p>
-            <p id="txtTODR125" class="result-label" style="float: right; margin-left: auto; color: grey;"></p>
-          </div>
-        </div>
-
-        <div id="toUnbalanced" style="display: none;">
-          <div class="row" style="padding-top: 5px; padding-bottom: 5px; border:none; border-bottom:1px solid #a8a8a8;">
-            <p class="result-label">Take off Distance Required</p>
-            <p id="txtTODRU" class="result-label" style="float: right; margin-left: auto; color: grey;"></p>
-          </div>
-          <div class="row" style="padding-top: 5px; padding-bottom: 5px; border:none; border-bottom:1px solid #a8a8a8;">
-            <p class="result-label">Take off Distance Required x 1.15</p>
-            <p id="txtTODR115" class="result-label" style="float: right; margin-left: auto; color: grey;"></p>
-          </div>
-          <div class="row" style="padding-top: 5px; padding-bottom: 5px; border:none; border-bottom:1px solid #a8a8a8;">
-            <p class="result-label">Take off Distance Required x 1.30</p>
-            <p id="txtTODR130" class="result-label" style="float: right; margin-left: auto; color: grey;"></p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-    <div class="column">
-      <h2 style="border-bottom: 3px solid #a80006; padding-bottom: 3px;">Landing</h2>
-      <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
-        <p class="input-label">Airport</p>
-        <select id="airpSelectArr" style="float: right; margin-left: auto; width: 265px;" disabled>
-          <option value="unavail" disabled selected>Select Airport</option>
-        </select>
-      </div>
-      <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
-        <p class="input-label">Runway</p>
-        <select id="rwySelectArr" style="float: right; margin-left: auto;" disabled>
-          <option value="0" disabled selected>RWY</option>
-        </select>
-      </div>
-      <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
-        <p class="input-label">Runway Condition</p>
-        <select id="rwyCondArr" style="float: right; margin-left: auto;" disabled>
-          <option value="0">Dry Paved</option>
-          <option value="1">Wet Paved</option>
-          <option value="2">Dry Grass</option>
-          <option value="3">Wet Grass</option>
-        </select>
-      </div>
-
-      <div id="manArrEntry" style="display: none;">
         <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
-          <p class="input-label">Air Pressure</p>
-          <input type="text" id="inpPressArr" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Pressure"
-          oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="4"
-          />
+          <p class="input-label">Airport</p>
+          <select id="airpSelect" style="float: right; margin-left: auto; width: 265px;" disabled>
+            <option value="unavail" disabled selected>Select Airport</option>
+          </select>
         </div>
         <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
-          <p class="input-label">Temperature</p>
-          <input type="text" id="inpTempArr" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Temperature"
-          oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="2"
-          />
+          <p class="input-label">Runway</p>
+          <select id="rwySelect" style="float: right; margin-left: auto;" disabled>
+            <option value="0" disabled selected>RWY</option>
+          </select>
         </div>
         <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
-          <p class="input-label">Wind</p>
-          <input type="text" id="inpWindArr" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Wind Comp."
-          oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1'); " maxlength="2"
-          />
+          <p class="input-label">Intersection</p>
+          <select id="intxSelect" style="float: right; margin-left: auto;" disabled>
+            <option value="unavail" selected>FULL</option>
+          </select>
+        </div>
+        <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
+          <p class="input-label">Runway Condition</p>
+          <select id="rwyCondDep" style="float: right; margin-left: auto;" disabled>
+            <option value="0">Paved</option>
+            <option value="1">Dry Grass</option>
+            <option value="2">Wet Grass</option>
+          </select>
+        </div>
+  
+        <div id="manDepEntry" style="display: none;">
+          <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
+            <p class="input-label">Air Pressure</p>
+            <input type="text" id="inpPressDep" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Pressure"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="4"
+            />
+          </div>
+          <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
+            <p class="input-label">Temperature</p>
+            <input type="text" id="inpTempDep" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Temperature"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="2"
+            />
+          </div>
+          <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
+            <p class="input-label">Wind</p>
+            <input type="text" id="inpWindDep" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Wind Comp."
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1'); " maxlength="2"
+            />
+          </div>
+        </div>
+  
+        <div id="metarBox" class="row" style="padding: 15px; display: none;">
+          <p id="txtMetarDep" style="text-align: center; margin: 0 auto;">METAR Loading</p>
+          <p id="txtDepPressAlt" style="color: rgb(128, 128, 128); text-align: center; margin: 0 auto; display: none;">Loading</p>
+          <p id="txtDepWindComp" style="color: rgb(128, 128, 128); text-align: center; margin: 0 auto; display: none;">Loading</p>
+        </div>
+  
+        <div class="result-container" id="TOResults">
+          <div style="display: flex;">
+            <p class="input-label">Performance</p>
+            <label class="switch" style="margin-left: auto;">
+              <input id="unitTO" type="checkbox" disabled>
+              <span class="slider round"></span>
+            </label>
+          </div>
+  
+          <div id="toBalanced" style="display: none;">
+            <div class="row" style="padding-top: 5px; padding-bottom: 5px; border:none; border-bottom:1px solid #a8a8a8;">
+              <p class="result-label">Take off Distance Required</p>
+              <p id="txtTODR" class="result-label" style="float: right; margin-left: auto; color: grey;"></p>
+            </div>
+            <div class="row" style="padding-top: 5px; padding-bottom: 5px; border:none; border-bottom:1px solid #a8a8a8;">
+              <p class="result-label">Take off Distance Required x 1.25</p>
+              <p id="txtTODR125" class="result-label" style="float: right; margin-left: auto; color: grey;"></p>
+            </div>
+          </div>
+  
+          <div id="toUnbalanced" style="display: none;">
+            <div class="row" style="padding-top: 5px; padding-bottom: 5px; border:none; border-bottom:1px solid #a8a8a8;">
+              <p class="result-label">Take off Distance Required</p>
+              <p id="txtTODRU" class="result-label" style="float: right; margin-left: auto; color: grey;"></p>
+            </div>
+            <div class="row" style="padding-top: 5px; padding-bottom: 5px; border:none; border-bottom:1px solid #a8a8a8;">
+              <p class="result-label">Take off Distance Required x 1.15</p>
+              <p id="txtTODR115" class="result-label" style="float: right; margin-left: auto; color: grey;"></p>
+            </div>
+            <div class="row" style="padding-top: 5px; padding-bottom: 5px; border:none; border-bottom:1px solid #a8a8a8;">
+              <p class="result-label">Take off Distance Required x 1.30</p>
+              <p id="txtTODR130" class="result-label" style="float: right; margin-left: auto; color: grey;"></p>
+            </div>
+          </div>
+  
         </div>
       </div>
-
-      <div id="metarBoxArr" class="row" style="padding: 15px; display: none;">
-        <p id="txtMetarArr" style="text-align: center; margin: 0 auto;">METAR Loading</p>
-        <p id="txtTafArr" style="font-size: 13px; color: rgb(128, 128, 128); text-align: center; margin: 0 auto; max-width: 75%;">TAF Loading</p>
-        <p id="txtArrPressAlt" style="color: rgb(128, 128, 128); text-align: center; margin: 0 auto; display: none;">Loading</p>
-        <p id="txtArrWindComp" style="color: rgb(128, 128, 128); text-align: center; margin: 0 auto; display: none;">Loading</p>
-      </div>
-
-      <div class="result-container" id="LDGResults">
-        <div style="display: flex;">
-          <p class="input-label">Performance</p>
-          <label class="switch" style="margin-left: auto;">
-            <input id="unitLDG" type="checkbox" disabled>
-            <span class="slider round"></span>
-          </label>
+      <div>
+        <h2 style="border-bottom: 3px solid #a80006; padding-bottom: 3px;">Landing</h2>
+        <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
+          <p class="input-label">Airport</p>
+          <select id="airpSelectArr" style="float: right; margin-left: auto; width: 265px;" disabled>
+            <option value="unavail" disabled selected>Select Airport</option>
+          </select>
         </div>
-        <div class="row" style="padding-top: 5px; padding-bottom: 5px; border:none; border-bottom:1px solid #a8a8a8;">
-          <p class="result-label">Landing Distance Required</p>
-          <p id="txtLDR" class="result-label" style="float: right; margin-left: auto; color: grey;"></p>
+        <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
+          <p class="input-label">Runway</p>
+          <select id="rwySelectArr" style="float: right; margin-left: auto;" disabled>
+            <option value="0" disabled selected>RWY</option>
+          </select>
         </div>
-        <div class="row" style="padding-top: 5px; padding-bottom: 5px; border:none; border-bottom:1px solid #a8a8a8;">
-          <p class="result-label">Landing Distance Required x 1.43</p>
-          <p id="txtLDR143" class="result-label" style="float: right; margin-left: auto; color: grey;"></p>
+        <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
+          <p class="input-label">Runway Condition</p>
+          <select id="rwyCondArr" style="float: right; margin-left: auto;" disabled>
+            <option value="0">Dry Paved</option>
+            <option value="1">Wet Paved</option>
+            <option value="2">Dry Grass</option>
+            <option value="3">Wet Grass</option>
+          </select>
+        </div>
+  
+        <div id="manArrEntry" style="display: none;">
+          <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
+            <p class="input-label">Air Pressure</p>
+            <input type="text" id="inpPressArr" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Pressure"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="4"
+            />
+          </div>
+          <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
+            <p class="input-label">Temperature</p>
+            <input type="text" id="inpTempArr" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Temperature"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="2"
+            />
+          </div>
+          <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
+            <p class="input-label">Wind</p>
+            <input type="text" id="inpWindArr" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Wind Comp."
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1'); " maxlength="2"
+            />
+          </div>
+        </div>
+  
+        <div id="metarBoxArr" class="row" style="padding: 15px; display: none;">
+          <p id="txtMetarArr" style="text-align: center; margin: 0 auto;">METAR Loading</p>
+          <p id="txtTafArr" style="font-size: 13px; color: rgb(128, 128, 128); text-align: center; margin: 0 auto; max-width: 75%;">TAF Loading</p>
+          <p id="txtArrPressAlt" style="color: rgb(128, 128, 128); text-align: center; margin: 0 auto; display: none;">Loading</p>
+          <p id="txtArrWindComp" style="color: rgb(128, 128, 128); text-align: center; margin: 0 auto; display: none;">Loading</p>
+        </div>
+  
+        <div class="result-container" id="LDGResults">
+          <div style="display: flex;">
+            <p class="input-label">Performance</p>
+            <label class="switch" style="margin-left: auto;">
+              <input id="unitLDG" type="checkbox" disabled>
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div class="row" style="padding-top: 5px; padding-bottom: 5px; border:none; border-bottom:1px solid #a8a8a8;">
+            <p class="result-label">Landing Distance Required</p>
+            <p id="txtLDR" class="result-label" style="float: right; margin-left: auto; color: grey;"></p>
+          </div>
+          <div class="row" style="padding-top: 5px; padding-bottom: 5px; border:none; border-bottom:1px solid #a8a8a8;">
+            <p class="result-label">Landing Distance Required x 1.43</p>
+            <p id="txtLDR143" class="result-label" style="float: right; margin-left: auto; color: grey;"></p>
+          </div>
         </div>
       </div>
     </div>
