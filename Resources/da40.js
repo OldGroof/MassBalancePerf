@@ -374,15 +374,15 @@ function maths() {
     document.getElementById("txtBurnMom").innerHTML = ""
   }
 
-  document.getElementById("txtZFMArm").innerHTML = zfmArm.toFixed(2)
+  document.getElementById("txtZFMArm").innerHTML = zfmArm.toFixed(3)
   document.getElementById("txtZFM").innerHTML = Intl.NumberFormat().format(zfm)
   document.getElementById("txtZFMMom").innerHTML = Intl.NumberFormat().format((zfmMom).toFixed(1))
 
-  document.getElementById("txtTOMArm").innerHTML = tomArm.toFixed(2)
+  document.getElementById("txtTOMArm").innerHTML = tomArm.toFixed(3)
   document.getElementById("txtTOM").innerHTML = Intl.NumberFormat().format(tom)
   document.getElementById("txtTOMMom").innerHTML = Intl.NumberFormat().format((tomMom).toFixed(1))
 
-  document.getElementById("txtLMArm").innerHTML = lmArm.toFixed(2)
+  document.getElementById("txtLMArm").innerHTML = lmArm.toFixed(3)
   document.getElementById("txtLM").innerHTML = Intl.NumberFormat().format(lm)
   document.getElementById("txtLMMom").innerHTML = Intl.NumberFormat().format((lmMom).toFixed(1))
 
