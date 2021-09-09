@@ -308,11 +308,14 @@ document.getElementById("inpBurn").addEventListener("keyup", maths)
 
 function updatePlane() {
 
-  console.log(aircraft[document.getElementById("aircraftSelect").value].mass)
-  if ((document.getElementById("aircraftSelect").value != "")&&(document.getElementById("aircraftSelect").value != "other")) {
+  if (document.getElementById("aircraftSelect").value != ""&&document.getElementById("aircraftSelect").value != "other") {
     document.getElementById("inpBem").value = aircraft[document.getElementById("aircraftSelect").value].mass
     document.getElementById("inpMom").value = aircraft[document.getElementById("aircraftSelect").value].moment
     document.getElementById("inpArm").value = aircraft[document.getElementById("aircraftSelect").value].arm
+  } else {
+    document.getElementById("inpBem").value = ""
+    document.getElementById("inpMom").value = ""
+    document.getElementById("inpArm").value = ""
   }
 
   maths()
