@@ -291,6 +291,7 @@ function unlock() {
   document.getElementById("airpSelectArr").disabled = false
 }
 
+document.getElementById("aircraftSelect").addEventListener("change", updatePlane)
 document.getElementById("inpBem").addEventListener("keyup", unlock)
 document.getElementById("inpBem").addEventListener("keyup", maths)
 document.getElementById("inpMom").addEventListener("keyup", unlock)
@@ -304,6 +305,16 @@ document.getElementById("inpFwdBge").addEventListener("keyup", maths)
 document.getElementById("inpAftBge").addEventListener("keyup", maths)
 document.getElementById("inpFuel").addEventListener("keyup", maths)
 document.getElementById("inpBurn").addEventListener("keyup", maths)
+
+function updatePlane() {
+  if ((document.getElementById("aircraftSelect").value != "")&&(document.getElementById("aircraftSelect").value != "other")) {
+    document.getElementById("inpBem").value = aircraft[document.getElementById("aircraftSelect").value].mass
+    document.getElementById("inpMom").value = aircraft[document.getElementById("aircraftSelect").value].moment
+    document.getElementById("inpArm").value = aircraft[document.getElementById("aircraftSelect").value].arm
+  }
+
+  maths()
+}
 
 function maths() {
   var bem = Number(document.getElementById("inpBem").value)
@@ -403,10 +414,10 @@ function maths() {
   document.getElementById("txtLMMom").innerHTML = Intl.NumberFormat().format((lmMom).toFixed(1))
 
   if (document.getElementById("airpSelect").value != "unavail") {
-    //perfTO()
+    perfTO()
   }
   if (document.getElementById("airpSelectArr").value != "unavail") {
-    //perfLDG()
+    perfLDG()
   }
 }
 
