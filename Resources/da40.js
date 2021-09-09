@@ -318,6 +318,7 @@ function updatePlane() {
     document.getElementById("inpArm").value = ""
   }
 
+  unlock()
   maths()
 }
 
