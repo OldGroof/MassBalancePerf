@@ -292,6 +292,7 @@ function unlock() {
 }
 
 document.getElementById("aircraftSelect").addEventListener("change", updatePlane)
+document.getElementById("aircraftSelect").addEventListener("change", unlock)
 document.getElementById("inpBem").addEventListener("keyup", unlock)
 document.getElementById("inpBem").addEventListener("keyup", maths)
 document.getElementById("inpMom").addEventListener("keyup", unlock)
@@ -318,7 +319,6 @@ function updatePlane() {
     document.getElementById("inpArm").value = ""
   }
 
-  unlock()
   maths()
 }
 
