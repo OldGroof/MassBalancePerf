@@ -307,6 +307,8 @@ document.getElementById("inpFuel").addEventListener("keyup", maths)
 document.getElementById("inpBurn").addEventListener("keyup", maths)
 
 function updatePlane() {
+
+  console.log(aircraft[document.getElementById("aircraftSelect").value].mass)
   if ((document.getElementById("aircraftSelect").value != "")&&(document.getElementById("aircraftSelect").value != "other")) {
     document.getElementById("inpBem").value = aircraft[document.getElementById("aircraftSelect").value].mass
     document.getElementById("inpMom").value = aircraft[document.getElementById("aircraftSelect").value].moment
