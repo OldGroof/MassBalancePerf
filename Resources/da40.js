@@ -26,6 +26,22 @@ var lmArm = 87.5
 
 window.onload = alert("Caution!\n This is to be used to confirm that data is correct.\n Do not use this as a substitute to the laminated pack.")
 
+var xmlhttp = new XMLHttpRequest()
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    aircraft = JSON.parse(this.responseText)
+    var sel = document.getElementById('aircraftSelect')
+    for(var i = 0; i < aircraft.length; i++) {
+      var opt = document.createElement('option')
+      opt.innerHTML = aircraft[i]['reg']
+      opt.value = [i]
+      sel.appendChild(opt)
+    }
+  }
+}
+xmlhttp.open("GET", "Resources/da40AircraftData.json", true)
+xmlhttp.send()
+
 var airportGet = new XMLHttpRequest()
 airportGet.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
