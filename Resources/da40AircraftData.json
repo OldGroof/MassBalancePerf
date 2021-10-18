@@ -1,0 +1,68 @@
+[
+  {
+    "reg": "G-CTSA",
+    "mass": 953.5,
+    "arm": 2.477,
+    "moment": 2362
+  },
+  {
+    "reg": "G-CTSC",
+    "mass": 958.4,
+    "arm": 2.48,
+    "moment": 2376.9
+  },
+  {
+    "reg": "G-CTSD",
+    "mass": 958.4,
+    "arm": 2.48,
+    "moment": 2376.9
+  },
+  {
+    "reg": "G-CTSH",
+    "mass": 958.4,
+    "arm": 2.481,
+    "moment": 2378
+  },
+  {
+    "reg": "G-CTSJ",
+    "mass": 959.4,
+    "arm": 2.48,
+    "moment": 2379.3
+  },
+  {
+    "reg": "G-CTSK",
+    "mass": 954.9,
+    "arm": 2.48,
+    "moment": 2368.2
+  },
+  {
+    "reg": "G-CTSM",
+    "mass": 962.9,
+    "arm": 2.47,
+    "moment": 2378.4
+  },
+  {
+    "reg": "G-CTSN",
+    "mass": 958.9,
+    "arm": 2.48,
+    "moment": 2379.1
+  },
+  {
+    "reg": "G-CTSO",
+    "mass": 957.4,
+    "arm": 2.48,
+    "moment": 2371
+  },
+  {
+    "reg": "G-CTSP",
+    "mass": 958.4,
+    "arm": 2.50,
+    "moment": 2393.4
+  },
+  {
+    "reg": "G-CTSR",
+    "mass": 958.4,
+    "arm": 2.49,
+    "moment": 2390
+  }
+]
