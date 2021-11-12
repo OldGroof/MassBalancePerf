@@ -494,6 +494,11 @@ function perfTO() {
   } else {
     tod = (0.0002778 * (temp * temp * temp)) + (-0.0047619 * (temp * temp)) + (2.94841 * temp) + 540.238
   }
+  if (selRunway.slope > 0) {
+    var slopeVar = slope / 2
+  } else {
+    var slopeVar = 0
+  }
 
   if (rwyCond == 1) {
     var todr = Math.floor(((tod + ((0.1 * tod) * slopeVar)) * 1.2) + 0.5)
