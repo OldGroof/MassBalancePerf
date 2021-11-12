@@ -511,8 +511,8 @@ function perfTO() {
     todr = Math.round(todr / 10) * 10
   }
 
-  if (unitTO == "met") {
-    todr = Math.floor((todr / 3.285) + 0.5)
+  if (unitTO == "imp") {
+    todr = Math.floor((todr * 3.285) + 0.5)
   }
 
   document.getElementById("TOResults").style.display = "block"
