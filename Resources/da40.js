@@ -431,7 +431,6 @@ document.getElementById("unitTO").addEventListener("change", perfTO)
 document.getElementById("airpSelect").addEventListener("change", SelectDepAirport)
 document.getElementById("rwySelect").addEventListener("change", SelectDepRunway)
 document.getElementById("intxSelect").addEventListener("change", perfTO)
-document.getElementById("flapstoggle").addEventListener("click", perfTO)
 document.getElementById("rwyCondDep").addEventListener("change", perfTO)
 document.getElementById("inpPressDep").addEventListener("keyup", perfTO)
 document.getElementById("inpTempDep").addEventListener("keyup", perfTO)
@@ -489,16 +488,6 @@ function perfTO() {
   }
 
   var pressAlt = ((1013 - press) * 30) + elev
-
-  if (pressAlt < 0) {
-    var altVar = 0
-  } else {
-    if (flaps == true) {
-      var altVar = 0.13 * pressAlt
-    } else {
-      var altVar = 0.2 * pressAlt
-    }
-  }
 
   if (type == "1310") {
     tod = (0.0002778 * (temp * temp * temp)) + (-0.0047619 * (temp * temp)) + (2.94841 * temp) + 550.238
