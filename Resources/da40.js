@@ -446,7 +446,7 @@ document.getElementById("inpTempArr").addEventListener("keyup", perfLDG)
 document.getElementById("inpWindArr").addEventListener("keyup", perfLDG)
 
 function perfTO() {
-  document.getElementById("flapstoggle").disabled = false
+  var type = aircraft[document.getElementById("aircraftSelect").value].type
   
   if (document.getElementById("unitTO").checked == true) {
     unitTO = "met"
@@ -454,9 +454,8 @@ function perfTO() {
     unitTO = "imp"
   }
 
-  var mass = tom || 2550
+  var mass = tom || Number(type)
 
-  var flaps = document.getElementById("flapstoggle").checked
   var elev = Number(selAirport.elevation) || 0
   var bearing = Number(selRunway.bearing) || 0
   var slope = Number(selRunway.slope) || 0.0
@@ -501,39 +500,10 @@ function perfTO() {
     }
   }
 
-  if (flaps == true) {
-    var tempVar = 16.9 * temp
-    var windVar = 21 * wind
-    if (selRunway.slope > 0) {
-      var slopeVar = slope / 2
-    } else {
-      var slopeVar = 0
-    }
-    if (mass > 2000) {
-      var tomVar = 1.53 * (2550 - mass)
-    } else {
-      var tomVar = 841.5
-    }
-
-    var tod = Math.floor((1400 + altVar + tempVar - tomVar - windVar) + 0.5)
+  if (type == "1310") {
+    tod = (0.0002778 * (temp * temp * temp)) + (-0.0047619 * (temp * temp)) + (2.94841 * temp) + 550.238
   } else {
-    var tempVar = 21.5 * temp
-    var windVar = 18.5 * wind
-    if (selRunway.slope > 0) {
-      var slopeVar = slope / 2
-    } else {
-      var slopeVar = 0
-    }
-    if (mass > 2000) {
-      var tomVar = 2000 - ((0.00168824 * (mass * mass)) + (-6.04939 * (mass)) + 6447.05)
-    } else {
-      var tomVar = 898.77
-    }
-
-    var tod = Math.floor((1700 + altVar + tempVar - tomVar - windVar) + 0.5)
-    if (tod < 1000) {
-      tod = 1000
-    }
+    tod = (0.0002778 * (temp * temp * temp)) + (-0.0047619 * (temp * temp)) + (2.94841 * temp) + 540.238
   }
 
   if (rwyCond == 1) {
