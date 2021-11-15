@@ -543,6 +543,8 @@ function perfTO() {
 
   document.getElementById("txtDepPressAlt").style.display = "block"
   document.getElementById("txtDepPressAlt").innerHTML = "Pressure Altitude: " + pressAlt + " ft"
+  document.getElementById("txtWeightType").style.display = "block"
+  document.getElementById("txtWeightType").innerHTML = "Max Take off Weight: " + type + " kg"
 
   tora = tora - intxAdjust
   toda = toda - intxAdjust
@@ -638,6 +640,8 @@ if (type == "1310") {
 
   document.getElementById("txtArrPressAlt").style.display = "block"
   document.getElementById("txtArrPressAlt").innerHTML = "Pressure Altitude: " + pressAlt + " ft"
+  document.getElementById("txtArrWeightType").style.display = "block"
+  document.getElementById("txtArrWeightType").innerHTML = "Max Take off weight: " + type + " kg"
 
   if (unitLDG == "met") {
     document.getElementById("txtLDR").innerHTML = "<strong>" + Intl.NumberFormat().format(ldr) + " m</strong>"
