@@ -445,7 +445,7 @@ document.getElementById("inpTempArr").addEventListener("keyup", perfLDG)
 document.getElementById("inpWindArr").addEventListener("keyup", perfLDG)
 
 function perfTO() {
-  var type = aircraft[document.getElementById("aircraftSelect").value].type
+  var mass = tom || 1310
   
   if (document.getElementById("unitTO").checked == true) {
     unitTO = "met"
@@ -488,11 +488,23 @@ function perfTO() {
 
   var pressAlt = ((1013 - press) * 30) + elev
 
-  if (type == "1310") {
-    tod = (0.0002778 * (temp * temp * temp)) + (-0.0047619 * (temp * temp)) + (2.94841 * temp) + 550.238
-  } else {
-    tod = (0.0002778 * (temp * temp * temp)) + (-0.0047619 * (temp * temp)) + (2.94841 * temp) + 540.238
+  if (mass <= 1310 && mass >= 1280) {
+    upper = (6.04752 * Math.cos(0.110304 * temp)) + (3.44116 * temp) + 543.674 // 1310
+    lower = (6.04752 * Math.cos(0.110304 * temp)) + (3.44116 * temp) + 533.674 // 1280
+
+    tod = lower + ((mass - 1280) * ((upper - lower) / 30))
+  } else if (mass >= 1200 && mass <= 1280) {
+    upper = (6.04752 * Math.cos(0.110304 * temp)) + (3.44116 * temp) + 533.674 // 1280
+    lower = (6.02705 * Math.cos(0.132884 * temp)) + (2.98482 * temp) + 485.848 // 1200
+
+    tod = lower + ((mass - 1200) * ((upper - lower) / 80))
+  } else if (mass >= 1100 && mass <= 1200){
+    upper = (6.02705 * Math.cos(0.132884 * temp)) + (2.98482 * temp) + 485.848 // 1200
+    lower = (8.36743 * Math.cos(0.123274 * temp)) + (2.61074 * temp) + 421.793 // 1100
+
+    tod = lower + ((mass - 1100) * ((upper - lower) / 100))
   }
+  
   if (selRunway.slope > 0) {
     var slopeVar = slope / 2
   } else {
