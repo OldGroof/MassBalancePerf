@@ -481,7 +481,8 @@ function perfTO() {
 
   var pressAlt = ((1013 - press) * 30) + elev
 
-  if (mass <= 1310 && mass >= 1280) {
+  // Calculate raw Take off Distance(tod)
+  if (mass <= 1310 && mass > 1280) {
     upper = (6.04752 * Math.cos(0.110304 * temp)) + (3.44116 * temp) + 543.674 // 1310
     lower = (6.04752 * Math.cos(0.110304 * temp)) + (3.44116 * temp) + 533.674 // 1280
 
@@ -491,20 +492,21 @@ function perfTO() {
     lower = (6.02705 * Math.cos(0.132884 * temp)) + (2.98482 * temp) + 485.848 // 1200
 
     var tod = lower + ((mass - 1200) * ((upper - lower) / 80))
-  } else if (mass >= 1100 && mass <= 1200){
+  } else if (mass >= 1100 && mass < 1200){
     upper = (6.02705 * Math.cos(0.132884 * temp)) + (2.98482 * temp) + 485.848 // 1200
     lower = (8.36743 * Math.cos(0.123274 * temp)) + (2.61074 * temp) + 421.793 // 1100
 
     var tod = lower + ((mass - 1100) * ((upper - lower) / 100))
   }
 
+  // Calculate wind variation(windVar) based on headwind or tailwind
   if (wind >= 0) {
     var windVar = (-1 * wind) / 12
   } else {
     var windVar = (-1 * wind) / 2
   }
 
-  var todr = Math.floor((tod + ((0.1 * tod) * windVar)) + 0.5) + 30 // +30m for no wheel fairings
+  var todr = Math.floor((tod + ((0.1 * tod) * windVar)) + 0.5) + 30 // +30m for no wheel fairings and wind correction (+-10% for each windVar)
 
   if (unitTO == "imp") {
     todr = Math.floor((todr * 3.285) + 0.5)
