@@ -501,14 +501,8 @@ function perfTO() {
 
     tod = lower + ((mass - 1100) * ((upper - lower) / 100))
   }
-  
-  if (selRunway.slope > 0) {
-    var slopeVar = slope
-  } else {
-    var slopeVar = 0
-  }
 
-  var todr = Math.floor((tod + ((0.15 * tod) * slopeVar)) + 0.5) + 30 // +30m for no wheel fairings
+  var todr = Math.floor((tod + 30) + 0.5) // +30m for no wheel fairings
 
   if (unitTO == "imp") {
     todr = Math.floor((todr * 3.285) + 0.5)
