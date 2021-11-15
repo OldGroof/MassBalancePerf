@@ -629,7 +629,7 @@ if (type == "1310") {
   document.getElementById("txtArrPressAlt").style.display = "block"
   document.getElementById("txtArrPressAlt").innerHTML = "Pressure Altitude: " + pressAlt + " ft"
   document.getElementById("txtArrWeightType").style.display = "block"
-  document.getElementById("txtArrWeightType").innerHTML = "Max Take off weigh: " + type + " kg"
+  document.getElementById("txtArrWeightType").innerHTML = "Max Take off weight: " + type + " kg"
 
   if (unitLDG == "met") {
     document.getElementById("txtLDR").innerHTML = "<strong>" + Intl.NumberFormat().format(ldr) + " m</strong>"
