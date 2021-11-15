@@ -464,10 +464,17 @@ function perfTO() {
   if (depMetar.data[0] != null) {
     var press = Number(Math.floor(depMetar.data[0].barometer.hpa))
     var temp = Number(depMetar.data[0].temperature.celsius)
-  
-    console.log(depMetar.data)
-    var windDir = Number(depMetar.data[0].wind.degrees)
-    var windSpd = Number(depMetar.data[0].wind.speed_kts)
+
+    if (depMetar.data[0].wind != null) {
+      console.log("Wind Data!!!")
+      var windDir = Number(depMetar.data[0].wind.degrees)
+      var windSpd = Number(depMetar.data[0].wind.speed_kts)
+    } else {
+      console.log("No Wind Data :(")
+      var windDir = 0
+      var windSpd = 0
+    }
+
 
     var angle = windDir - bearing
     var crosswind = Math.abs(Math.floor((windSpd * Math.sin(angle * (Math.PI / 180))) + 0.5))
