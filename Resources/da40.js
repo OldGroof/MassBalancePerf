@@ -488,7 +488,7 @@ function perfTO() {
 
   var pressAlt = ((1013 - press) * 30) + elev
 
-  if (type == "1310") {
+  if (type == "1310") { // change here for weight band instead of aircrafts max
     tod = (0.0002778 * (temp * temp * temp)) + (-0.0047619 * (temp * temp)) + (2.94841 * temp) + 550.238
   } else {
     tod = (0.0002778 * (temp * temp * temp)) + (-0.0047619 * (temp * temp)) + (2.94841 * temp) + 540.238
