@@ -510,12 +510,15 @@ function perfTO() {
     var windVar = -1 * (wind / 2)
   }
 
-  var todr = (Math.floor((tod + ((0.1 * tod) * windVar)) + 0.5)) + 30 // +30m for no wheel fairings and wind correction (+-10% for each windVar)
+  // Add 30m for no wheel fairings and wind correction (+-10% for each windVar)
+  var todr = (Math.floor((tod + ((0.1 * tod) * windVar)) + 0.5)) + 30
 
+  // Convert to ft if necessary
   if (unitTO == "imp") {
     todr = Math.floor((todr * 3.285) + 0.5)
   }
 
+  // Display results
   document.getElementById("TOResults").style.display = "block"
 
   if ((selRunway.tora == selRunway.toda)&&(selRunway.tora == selRunway.asda)&&(selRunway.toda == selRunway.asda)) {
