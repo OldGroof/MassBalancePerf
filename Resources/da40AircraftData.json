@@ -1,77 +1,66 @@
 [
   {
     "reg": "G-CTSA",
-    "type": "1310",
     "mass": 953.5,
     "arm": 2.477,
     "moment": 2362
   },
   {
     "reg": "G-CTSC",
-    "type": "1310",
     "mass": 958.4,
     "arm": 2.48,
     "moment": 2376.9
   },
   {
     "reg": "G-CTSD",
-    "type": "1310",
     "mass": 958.4,
     "arm": 2.48,
     "moment": 2376.9
   },
   {
     "reg": "G-CTSH",
-    "type": "1310",
     "mass": 958.4,
     "arm": 2.481,
     "moment": 2378
   },
   {
     "reg": "G-CTSJ",
-    "type": "1280",
     "mass": 959.4,
     "arm": 2.48,
     "moment": 2379.3
   },
   {
     "reg": "G-CTSK",
-    "type": "1280",
     "mass": 954.9,
     "arm": 2.48,
     "moment": 2368.2
   },
   {
     "reg": "G-CTSM",
-    "type": "1310",
     "mass": 962.9,
     "arm": 2.47,
     "moment": 2378.4
   },
   {
     "reg": "G-CTSN",
-    "type": "1310",
     "mass": 958.9,
     "arm": 2.48,
     "moment": 2379.1
   },
   {
     "reg": "G-CTSO",
-    "type": "1310",
     "mass": 957.4,
     "arm": 2.48,
     "moment": 2371
   },
   {
     "reg": "G-CTSP",
-    "type": "1310",
     "mass": 958.4,
     "arm": 2.50,
     "moment": 2393.4
   },
   {
     "reg": "G-CTSR",
-    "type": "1310",
     "mass": 958.4,
     "arm": 2.49,
     "moment": 2390

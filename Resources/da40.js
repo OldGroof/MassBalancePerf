@@ -564,7 +564,6 @@ function perfTO() {
 }
 
 function perfLDG() {
-  var type = aircraft[document.getElementById("aircraftSelect").value].type
 
   if (document.getElementById("unitLDG").checked == true) {
     unitLDG = "met"
@@ -605,11 +604,11 @@ function perfLDG() {
   } else {
     var slopeVar = 0
   }
-if (type == "1310") {
+//if (type == "1310") {
   var ld = (0.00157407 * (temp * temp * temp)) + (-0.0948413 * (temp * temp)) + (3.62434 * temp) + 620.635
-} else {
-  var ld = (0.0005556 * (temp * temp * temp)) + (-0.00952381 * (temp * temp)) + (1.89683 * temp) + 610.476
-}
+//} else {
+  //var ld = (0.0005556 * (temp * temp * temp)) + (-0.00952381 * (temp * temp)) + (1.89683 * temp) + 610.476
+//}
 
 
   if (rwyCond == 0) {
