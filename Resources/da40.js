@@ -484,7 +484,7 @@ function perfTO() {
   // Calculate raw Take off Distance(tod)
   if (mass > 1310) { 
     var tod = (6.04752 * Math.cos(0.110304 * temp)) + (3.44116 * temp) + 543.674 // 1310
-  } else if(mass > 1280 && mass <= 1310) {
+  } else if (mass > 1280 && mass <= 1310) {
     let upper = (6.04752 * Math.cos(0.110304 * temp)) + (3.44116 * temp) + 543.674 // 1310
     let lower = (6.04752 * Math.cos(0.110304 * temp)) + (3.44116 * temp) + 533.674 // 1280
 
@@ -494,7 +494,7 @@ function perfTO() {
     let lower = (6.02705 * Math.cos(0.132884 * temp)) + (2.98482 * temp) + 485.848 // 1200
 
     var tod = lower + ((mass - 1200) * ((upper - lower) / 80))
-  } else if (mass >= 1100 && mass < 1200){
+  } else if (mass >= 1100 && mass < 1200) {
     let upper = (6.02705 * Math.cos(0.132884 * temp)) + (2.98482 * temp) + 485.848 // 1200
     let lower = (8.36743 * Math.cos(0.123274 * temp)) + (2.61074 * temp) + 421.793 // 1100
 
@@ -513,7 +513,7 @@ function perfTO() {
   // Add 30m for no wheel fairings and wind correction (+-10% for each windVar)
   var todr = (Math.floor((tod + ((0.1 * tod) * windVar)) + 0.5)) + 30
 
-  // Convert to ft if necessary
+  // Convert to feet if necessary
   if (unitTO == "imp") {
     todr = Math.floor((todr * 3.285) + 0.5)
   }
@@ -592,36 +592,48 @@ function perfLDG() {
 
   var pressAlt = ((1013 - press) * 30) + elev
 
-  if (selArrRunway.slope < 0) {
-    var slopeVar = slope / 2
+  // Calculate raw Landing Distance(ld)
+  if (mass > 1310) {
+    var ld = (25.6735 * Math.cos(0.0806753 * temp)) + (3.64901 * temp) + 595.214 // 1310
+  } else if (mass > 1280 && mass <= 1310) {
+    let upper = (25.6735 * Math.cos(0.0806753 * temp)) + (3.64901 * temp) + 595.214 // 1310
+    let lower = (12.095 * Math.cos(0.110304 * temp)) + (2.88233 * temp) + 597.347 // 1280
+
+    var ld = lower + ((mass - 1280) * ((upper - lower) / 30))
+  } else if (mass >= 1200 && mass <= 1280) {
+    let upper = (12.095 * Math.cos(0.110304 * temp)) + (2.88233 * temp) + 597.347 // 1280
+    let lower = (12.1214 * Math.cos(0.0966832 * temp)) + (2.82447 * temp) + 586.832 // 1200
+
+    var ld = lower + ((mass - 1200) * ((upper - lower) / 80))
+  } else if (mass >= 1100 && mass < 1200) {
+    let upper = (12.1214 * Math.cos(0.0966832 * temp)) + (2.82447 * temp) + 586.832 // 1200
+    let lower = (16.373 * Math.cos(0.0969015 * temp)) + (2.90098 * temp) + 573.5 // 1100
+
+    var ld = lower + ((mass - 1100) * ((upper - lower) / 100))
+  } else if (mass < 1100) {
+    var ld = (16.373 * Math.cos(0.0969015 * temp)) + (2.90098 * temp) + 573.5 // 1100
+  }
+
+  // Calculate wind variation(windVar) based on headwind or tailwind
+  if (wind >= 0) {
+    var windVar = -1 * (wind / 20)
   } else {
-    var slopeVar = 0
+    var windVar = -1 * (wind / 3)
   }
-//if (type == "1310") {
-  var ld = (0.00157407 * (temp * temp * temp)) + (-0.0948413 * (temp * temp)) + (3.62434 * temp) + 620.635
-//} else {
-  //var ld = (0.0005556 * (temp * temp * temp)) + (-0.00952381 * (temp * temp)) + (1.89683 * temp) + 610.476
-//}
 
-
+  // Add wind variation(windVar) and wet runway factor - 15%
   if (rwyCond == 0) {
-    var ldr = Math.floor((ld + ((0.1 * ld) * slopeVar)) + 0.5)
-    ldr = Math.round(ldr / 5) * 5
+    var ldr = Math.floor((ld + ((0.1 * ld) * windVar)) + 0.5)
   } else if (rwyCond == 1) {
-    var ldr = Math.floor(((ld + ((0.1 * ld) * slopeVar)) * 1.15) + 0.5)
-    ldr = Math.round(ldr / 5) * 5
-  } else if (rwyCond == 2) {
-    var ldr = Math.floor(((ld + ((0.1 * ld) * slopeVar)) * 1.15) + 0.5)
-    ldr = Math.round(ldr / 5) * 5
-  } else if (rwyCond == 3) {
-    var ldr = Math.floor(((ld + ((0.1 * ld) * slopeVar)) * 1.35) + 0.5)
-    ldr = Math.round(ldr / 5) * 5
+    var ldr = Math.floor(((ld + ((0.1 * ld) * windVar)) * 1.15) + 0.5)
   }
 
+  // Convert to feet if necessary
   if (unitLDG == "imp") {
     ldr = Math.floor((ldr * 3.285) + 0.5)
   } 
 
+  // Display results
   document.getElementById("LDGResults").style.display = "block"
   if (arrMetar.data[0] != null) {
     document.getElementById("txtArrWindComp").style.display = "block"
