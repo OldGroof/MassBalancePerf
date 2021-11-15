@@ -144,8 +144,6 @@ function SelectDepRunway() {
     document.getElementById("intxSelect").value = "unavail"
   }
 
-  document.getElementById("rwyCondDep").disabled = false
-
   perfTO()
 }
 
@@ -431,7 +429,6 @@ document.getElementById("unitTO").addEventListener("change", perfTO)
 document.getElementById("airpSelect").addEventListener("change", SelectDepAirport)
 document.getElementById("rwySelect").addEventListener("change", SelectDepRunway)
 document.getElementById("intxSelect").addEventListener("change", perfTO)
-document.getElementById("rwyCondDep").addEventListener("change", perfTO)
 document.getElementById("inpPressDep").addEventListener("keyup", perfTO)
 document.getElementById("inpTempDep").addEventListener("keyup", perfTO)
 document.getElementById("inpWindDep").addEventListener("keyup", perfTO)
@@ -506,21 +503,12 @@ function perfTO() {
   }
   
   if (selRunway.slope > 0) {
-    var slopeVar = slope / 2
+    var slopeVar = slope
   } else {
     var slopeVar = 0
   }
 
-  if (rwyCond == 1) {
-    var todr = Math.floor(((tod + ((0.1 * tod) * slopeVar)) * 1.2) + 0.5)
-    //todr = Math.round(todr / 5) * 5
-  } else if (rwyCond == 2) {
-    var todr = Math.floor(((tod + ((0.1 * tod) * slopeVar)) * 1.3) + 0.5)
-    //todr = Math.round(todr / 5) * 5
-  } else {
-    var todr = Math.floor((tod + ((0.1 * tod) * slopeVar)) + 0.5)
-    //todr = Math.round(todr / 5) * 5
-  }
+  var todr = Math.floor((tod + ((0.15 * tod) * slopeVar)) + 0.5) + 30 // +30m for no wheel fairings
 
   if (unitTO == "imp") {
     todr = Math.floor((todr * 3.285) + 0.5)
