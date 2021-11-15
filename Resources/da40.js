@@ -582,8 +582,13 @@ function perfLDG() {
     var press = Number(Math.floor(arrMetar.data[0].barometer.hpa))
     var temp = Number(arrMetar.data[0].temperature.celsius)
   
-    var windDir = Number(arrMetar.data[0].wind.degrees)
-    var windSpd = Number(arrMetar.data[0].wind.speed_kts)
+    if (arrMetar.data[0].wind != null) {
+      var windDir = Number(arrMetar.data[0].wind.degrees)
+      var windSpd = Number(arrMetar.data[0].wind.speed_kts)
+    } else {
+      var windDir = 0
+      var windSpd = 0
+    }
 
     var angle = windDir - bearing
     var crosswind = Math.abs(Math.floor((windSpd * Math.sin(angle * (Math.PI / 180))) + 0.5))
