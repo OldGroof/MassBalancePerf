@@ -502,13 +502,11 @@ function perfTO() {
   // Calculate wind variation(windVar) based on headwind or tailwind
   if (wind >= 0) {
     var windVar = -1 * (wind / 12)
-    console.log(windVar)
   } else {
     var windVar = -1 * (wind / 2)
-    console.log(windVar)
   }
 
-  var todr = ( Math.floor( (tod + ((0.1 * tod) * windVar) ) + 0.5) ) // +30m for no wheel fairings and wind correction (+-10% for each windVar)
+  var todr = (Math.floor((tod + ((0.1 * tod) * windVar)) + 0.5)) + 30 // +30m for no wheel fairings and wind correction (+-10% for each windVar)
 
   if (unitTO == "imp") {
     todr = Math.floor((todr * 3.285) + 0.5)
