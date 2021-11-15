@@ -431,7 +431,6 @@ document.getElementById("unitTO").addEventListener("change", perfTO)
 document.getElementById("airpSelect").addEventListener("change", SelectDepAirport)
 document.getElementById("rwySelect").addEventListener("change", SelectDepRunway)
 document.getElementById("intxSelect").addEventListener("change", perfTO)
-document.getElementById("flapstoggle").addEventListener("click", perfTO)
 document.getElementById("rwyCondDep").addEventListener("change", perfTO)
 document.getElementById("inpPressDep").addEventListener("keyup", perfTO)
 document.getElementById("inpTempDep").addEventListener("keyup", perfTO)
@@ -446,7 +445,7 @@ document.getElementById("inpTempArr").addEventListener("keyup", perfLDG)
 document.getElementById("inpWindArr").addEventListener("keyup", perfLDG)
 
 function perfTO() {
-  document.getElementById("flapstoggle").disabled = false
+  var type = aircraft[document.getElementById("aircraftSelect").value].type
   
   if (document.getElementById("unitTO").checked == true) {
     unitTO = "met"
@@ -454,9 +453,6 @@ function perfTO() {
     unitTO = "imp"
   }
 
-  var mass = tom || 2550
-
-  var flaps = document.getElementById("flapstoggle").checked
   var elev = Number(selAirport.elevation) || 0
   var bearing = Number(selRunway.bearing) || 0
   var slope = Number(selRunway.slope) || 0.0
@@ -464,6 +460,7 @@ function perfTO() {
   var tora = Number(selRunway.tora)
   var toda = Number(selRunway.toda)
   var asda = Number(selRunway.asda)
+
   if (document.getElementById("intxSelect").value != "unavail"){
     var intxAdjust = Number(intx[document.getElementById("intxSelect").value]["adjust"])
   } else {
@@ -491,64 +488,30 @@ function perfTO() {
 
   var pressAlt = ((1013 - press) * 30) + elev
 
-  if (pressAlt < 0) {
-    var altVar = 0
+  if (type == "1310") {
+    tod = (0.0002778 * (temp * temp * temp)) + (-0.0047619 * (temp * temp)) + (2.94841 * temp) + 550.238
   } else {
-    if (flaps == true) {
-      var altVar = 0.13 * pressAlt
-    } else {
-      var altVar = 0.2 * pressAlt
-    }
+    tod = (0.0002778 * (temp * temp * temp)) + (-0.0047619 * (temp * temp)) + (2.94841 * temp) + 540.238
   }
-
-  if (flaps == true) {
-    var tempVar = 16.9 * temp
-    var windVar = 21 * wind
-    if (selRunway.slope > 0) {
-      var slopeVar = slope / 2
-    } else {
-      var slopeVar = 0
-    }
-    if (mass > 2000) {
-      var tomVar = 1.53 * (2550 - mass)
-    } else {
-      var tomVar = 841.5
-    }
-
-    var tod = Math.floor((1400 + altVar + tempVar - tomVar - windVar) + 0.5)
+  if (selRunway.slope > 0) {
+    var slopeVar = slope / 2
   } else {
-    var tempVar = 21.5 * temp
-    var windVar = 18.5 * wind
-    if (selRunway.slope > 0) {
-      var slopeVar = slope / 2
-    } else {
-      var slopeVar = 0
-    }
-    if (mass > 2000) {
-      var tomVar = 2000 - ((0.00168824 * (mass * mass)) + (-6.04939 * (mass)) + 6447.05)
-    } else {
-      var tomVar = 898.77
-    }
-
-    var tod = Math.floor((1700 + altVar + tempVar - tomVar - windVar) + 0.5)
-    if (tod < 1000) {
-      tod = 1000
-    }
+    var slopeVar = 0
   }
 
   if (rwyCond == 1) {
     var todr = Math.floor(((tod + ((0.1 * tod) * slopeVar)) * 1.2) + 0.5)
-    todr = Math.round(todr / 10) * 10
+    todr = Math.round(todr / 5) * 5
   } else if (rwyCond == 2) {
     var todr = Math.floor(((tod + ((0.1 * tod) * slopeVar)) * 1.3) + 0.5)
-    todr = Math.round(todr / 10) * 10
+    todr = Math.round(todr / 5) * 5
   } else {
     var todr = Math.floor((tod + ((0.1 * tod) * slopeVar)) + 0.5)
-    todr = Math.round(todr / 10) * 10
+    todr = Math.round(todr / 5) * 5
   }
 
-  if (unitTO == "met") {
-    todr = Math.floor((todr / 3.285) + 0.5)
+  if (unitTO == "imp") {
+    todr = Math.floor((todr * 3.285) + 0.5)
   }
 
   document.getElementById("TOResults").style.display = "block"
@@ -589,12 +552,15 @@ function perfTO() {
 }
 
 function perfLDG() {
+  var type = aircraft[document.getElementById("aircraftSelect").value].type
+
   if (document.getElementById("unitLDG").checked == true) {
     unitLDG = "met"
   } else {
     unitLDG = "imp"
   }
-  var mass = lm || 2550
+  var mass = lm || Number(type)
+
   var elev = Number(selArrAirport.elevation) || 0
   var bearing = Number(selArrRunway.bearing) || 0
   var slope = Number(selArrRunway.slope) || 0.0
@@ -622,29 +588,17 @@ function perfLDG() {
 
   var pressAlt = ((1013 - press) * 30) + elev
 
-  if (pressAlt < 0) {
-    var altVar = 0
-  } else {
-    var altVar = 0.024 * pressAlt
-  }
-
-  var tempVar = 3.2 * temp
-  var windVar = 17.78 * wind
-  if (mass > 2000) {
-    var lmVar = 0.29 * (2550 - mass)
-  } else {
-    var lmVar = 159.5
-  }
   if (selArrRunway.slope < 0) {
     var slopeVar = slope / 2
   } else {
     var slopeVar = 0
   }
+if (type == "1310") {
+  var ld = (0.00157407 * (temp * temp * temp)) + (-0.0948413 * (temp * temp)) + (3.62434 * temp) + 620.635
+} else {
+  var ld = (0.0005556 * (temp * temp * temp)) + (-0.00952381 * (temp * temp)) + (1.89683 * temp) + 610.476
+}
 
-  var ld = Math.floor((1360 + altVar + tempVar - lmVar - windVar) + 0.5)
-  if (ld < 1200) {
-    ld = 1200
-  }
 
   if (rwyCond == 0) {
     var ldr = Math.floor((ld + ((0.1 * ld) * slopeVar)) + 0.5)
@@ -660,8 +614,8 @@ function perfLDG() {
     ldr = Math.round(ldr / 5) * 5
   }
 
-  if (unitLDG == "met") {
-    ldr = Math.floor((ldr / 3.285) + 0.5)
+  if (unitLDG == "imp") {
+    ldr = Math.floor((ldr * 3.285) + 0.5)
   } 
 
   document.getElementById("LDGResults").style.display = "block"
