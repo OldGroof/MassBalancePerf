@@ -487,16 +487,19 @@ function perfTO() {
     let lower = (6.04752 * Math.cos(0.110304 * temp)) + (3.44116 * temp) + 533.674 // 1280
 
     var tod = lower + ((mass - 1280) * ((upper - lower) / 30))
+    console.log("1280-1310: " + tod)
   } else if (mass >= 1200 && mass <= 1280) {
     let upper = (6.04752 * Math.cos(0.110304 * temp)) + (3.44116 * temp) + 533.674 // 1280
     let lower = (6.02705 * Math.cos(0.132884 * temp)) + (2.98482 * temp) + 485.848 // 1200
 
     var tod = lower + ((mass - 1200) * ((upper - lower) / 80))
+    console.log("1200-1280: " + tod)
   } else if (mass >= 1100 && mass < 1200){
     let upper = (6.02705 * Math.cos(0.132884 * temp)) + (2.98482 * temp) + 485.848 // 1200
     let lower = (8.36743 * Math.cos(0.123274 * temp)) + (2.61074 * temp) + 421.793 // 1100
 
     var tod = lower + ((mass - 1100) * ((upper - lower) / 100))
+    console.log("1100-1200: " + tod)
   }
 
   // Calculate wind variation(windVar) based on headwind or tailwind
