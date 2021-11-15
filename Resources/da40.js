@@ -114,8 +114,6 @@ function SelectDepAirport() {
   document.getElementById("rwySelect").value = 0
   document.getElementById("intxSelect").disabled = true
   document.getElementById("intxSelect").value = "unavail"
-  document.getElementById("rwyCondDep").disabled = true
-  document.getElementById("rwyCondDep").value = 0
 }
 
 function SelectDepRunway() {
@@ -452,7 +450,6 @@ function perfTO() {
 
   var elev = Number(selAirport.elevation) || 0
   var bearing = Number(selRunway.bearing) || 0
-  var slope = Number(selRunway.slope) || 0.0
 
   var tora = Number(selRunway.tora)
   var toda = Number(selRunway.toda)
@@ -463,14 +460,13 @@ function perfTO() {
   } else {
     var intxAdjust = 0
   }
-  var rwyCond = document.getElementById("rwyCondDep").value
 
   if (depMetar.data[0] != null) {
     var press = Number(Math.floor(depMetar.data[0].barometer.hpa))
     var temp = Number(depMetar.data[0].temperature.celsius)
   
-    var windDir = Number(depMetar.data[0].wind.degrees) || 0
-    var windSpd = Number(depMetar.data[0].wind.speed_kts) || 0
+    var windDir = Number(depMetar.data[0].wind.degrees)
+    var windSpd = Number(depMetar.data[0].wind.speed_kts)
 
     var angle = windDir - bearing
     var crosswind = Math.abs(Math.floor((windSpd * Math.sin(angle * (Math.PI / 180))) + 0.5))
