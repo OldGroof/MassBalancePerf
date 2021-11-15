@@ -482,7 +482,9 @@ function perfTO() {
   var pressAlt = ((1013 - press) * 30) + elev
 
   // Calculate raw Take off Distance(tod)
-  if (mass > 1280 && mass <= 1310) {
+  if (mass > 1310) { 
+    var tod = (6.04752 * Math.cos(0.110304 * temp)) + (3.44116 * temp) + 543.674 // 1310
+  } else if(mass > 1280 && mass <= 1310) {
     let upper = (6.04752 * Math.cos(0.110304 * temp)) + (3.44116 * temp) + 543.674 // 1310
     let lower = (6.04752 * Math.cos(0.110304 * temp)) + (3.44116 * temp) + 533.674 // 1280
 
@@ -497,6 +499,8 @@ function perfTO() {
     let lower = (8.36743 * Math.cos(0.123274 * temp)) + (2.61074 * temp) + 421.793 // 1100
 
     var tod = lower + ((mass - 1100) * ((upper - lower) / 100))
+  } else if (mass < 1100) {
+    var tod = (8.36743 * Math.cos(0.123274 * temp)) + (2.61074 * temp) + 421.793 // 1100
   }
 
   // Calculate wind variation(windVar) based on headwind or tailwind
