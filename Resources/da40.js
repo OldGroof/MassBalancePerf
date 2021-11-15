@@ -469,8 +469,8 @@ function perfTO() {
     var press = Number(Math.floor(depMetar.data[0].barometer.hpa))
     var temp = Number(depMetar.data[0].temperature.celsius)
   
-    var windDir = Number(depMetar.data[0].wind.degrees)
-    var windSpd = Number(depMetar.data[0].wind.speed_kts)
+    var windDir = Number(depMetar.data[0].wind.degrees) || 0
+    var windSpd = Number(depMetar.data[0].wind.speed_kts) || 0
 
     var angle = windDir - bearing
     var crosswind = Math.abs(Math.floor((windSpd * Math.sin(angle * (Math.PI / 180))) + 0.5))
