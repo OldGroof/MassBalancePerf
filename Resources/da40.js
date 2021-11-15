@@ -513,13 +513,13 @@ function perfTO() {
 
   if (rwyCond == 1) {
     var todr = Math.floor(((tod + ((0.1 * tod) * slopeVar)) * 1.2) + 0.5)
-    todr = Math.round(todr / 5) * 5
+    //todr = Math.round(todr / 5) * 5
   } else if (rwyCond == 2) {
     var todr = Math.floor(((tod + ((0.1 * tod) * slopeVar)) * 1.3) + 0.5)
-    todr = Math.round(todr / 5) * 5
+    //todr = Math.round(todr / 5) * 5
   } else {
     var todr = Math.floor((tod + ((0.1 * tod) * slopeVar)) + 0.5)
-    todr = Math.round(todr / 5) * 5
+    //todr = Math.round(todr / 5) * 5
   }
 
   if (unitTO == "imp") {
