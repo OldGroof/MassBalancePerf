@@ -466,11 +466,9 @@ function perfTO() {
     var temp = Number(depMetar.data[0].temperature.celsius)
 
     if (depMetar.data[0].wind != null) {
-      console.log("Wind Data!!!")
       var windDir = Number(depMetar.data[0].wind.degrees)
       var windSpd = Number(depMetar.data[0].wind.speed_kts)
     } else {
-      console.log("No Wind Data :(")
       var windDir = 0
       var windSpd = 0
     }
