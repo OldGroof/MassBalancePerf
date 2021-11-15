@@ -465,7 +465,7 @@ function perfTO() {
     var press = Number(Math.floor(depMetar.data[0].barometer.hpa))
     var temp = Number(depMetar.data[0].temperature.celsius)
   
-    console.log(depMetar.data[0].wind.degrees)
+    console.log(depMetar.data)
     var windDir = Number(depMetar.data[0].wind.degrees)
     var windSpd = Number(depMetar.data[0].wind.speed_kts)
 
