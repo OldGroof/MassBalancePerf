@@ -69,12 +69,16 @@ h2 {
   text-align: center;
 }
 
-/* TABLE STYLING */
 .text-table {
-  width: inherit;
-  height: inherit;
   font-size: medium;
   text-align: center;
+}
+
+.text-masses {
+  padding: 15px;
+  font-size: 16px;
+  text-align: center;
+  font-weight: bold;
 }
 
 .table-header {
