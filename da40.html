@@ -67,17 +67,17 @@
             </select>
           </div>
           <div class="table-box">
-            <input type="text" id="inpArm" class="table-input" inputmode="numeric" placeholder="-"
+            <input type="text" id="inpArm" class="table-input" inputmode="decimal" placeholder="-"
             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
             />
           </div>  
           <div class="table-box">
-            <input type="text" id="inpBem" class="table-input" inputmode="numeric" placeholder="-"
+            <input type="text" id="inpBem" class="table-input" inputmode="decimal" placeholder="-"
             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
             />
           </div> 
           <div class="table-box">
-            <input type="text" id="inpMom" class="table-input" inputmode="numeric" placeholder="-"
+            <input type="text" id="inpMom" class="table-input" inputmode="decimal" placeholder="-"
             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
             />
           </div> 
@@ -88,7 +88,7 @@
             <p class="table-header">2.30</p>
           </div>  
           <div class="table-box">
-            <input type="text" id="inpFrnt" class="table-input" disabled inputmode="numeric" placeholder="-"
+            <input type="text" id="inpFrnt" class="table-input" disabled inputmode="decimal" placeholder="-"
             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
             />
           </div>
@@ -102,7 +102,7 @@
             <p class="table-header">3.25</p>
           </div>  
           <div class="table-box">
-            <input type="text" id="inpRear" class="table-input" disabled inputmode="numeric" placeholder="-"
+            <input type="text" id="inpRear" class="table-input" disabled inputmode="decimal" placeholder="-"
             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
             />
           </div>
@@ -117,7 +117,7 @@
             <p class="table-header">3.65</p>
           </div>  
           <div class="table-box">
-            <input type="text" id="inpStdB" class="table-input" disabled inputmode="numeric" placeholder="-"
+            <input type="text" id="inpStdB" class="table-input" disabled inputmode="decimal" placeholder="-"
             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
             />
           </div>
@@ -132,7 +132,7 @@
             <p class="table-header">4.32</p>
           </div>  
           <div class="table-box">
-            <input type="text" id="inpBgTb" class="table-input" disabled inputmode="numeric" placeholder="-"
+            <input type="text" id="inpBgTb" class="table-input" disabled inputmode="decimal" placeholder="-"
             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
             />
           </div>
@@ -147,7 +147,7 @@
             <p class="table-header">3.97</p>
           </div>  
           <div class="table-box">
-            <input type="text" id="inpShBge" class="table-input" disabled inputmode="numeric" placeholder="-"
+            <input type="text" id="inpShBge" class="table-input" disabled inputmode="decimal" placeholder="-"
             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
             />
           </div>
@@ -162,7 +162,7 @@
             <p class="table-header">3.89</p>
           </div>  
           <div class="table-box">
-            <input type="text" id="inpFwdBge" class="table-input" disabled inputmode="numeric" placeholder="-"
+            <input type="text" id="inpFwdBge" class="table-input" disabled inputmode="decimal" placeholder="-"
             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
             />
           </div>
@@ -177,7 +177,7 @@
             <p class="table-header">4.54</p>
           </div>  
           <div class="table-box">
-            <input type="text" id="inpAftBge" class="table-input" disabled inputmode="numeric" placeholder="-"
+            <input type="text" id="inpAftBge" class="table-input" disabled inputmode="decimal" placeholder="-"
             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
             />
           </div>
@@ -204,7 +204,7 @@
             <p class="table-header">2.63</p>
           </div>  
           <div class="table-box">
-            <input type="text" id="inpFuel" class="table-input" disabled inputmode="numeric" min= "1" max="288" placeholder="-"
+            <input type="text" id="inpFuel" class="table-input" disabled inputmode="decimal" min= "1" max="288" placeholder="-"
             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
             />
           </div>
@@ -231,7 +231,7 @@
             <p class="table-header">2.63</p>
           </div>  
           <div class="table-box">
-            <input type="text" id="inpBurn" class="table-input" disabled inputmode="numeric" min= "1" max="288" placeholder="-"
+            <input type="text" id="inpBurn" class="table-input" disabled inputmode="decimal" min= "1" max="288" placeholder="-"
             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
             />
           </div>
@@ -277,19 +277,19 @@
         <div id="manDepEntry" style="display: none;">
           <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
             <p class="input-label">Air Pressure</p>
-            <input type="text" id="inpPressDep" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Pressure"
+            <input type="text" id="inpPressDep" class="input" disabled inputmode="decimal" style="float: right; margin-left: auto;" placeholder="Pressure"
             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="4"
             />
           </div>
           <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
             <p class="input-label">Temperature</p>
-            <input type="text" id="inpTempDep" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Temperature"
+            <input type="text" id="inpTempDep" class="input" disabled inputmode="decimal" style="float: right; margin-left: auto;" placeholder="Temperature"
             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="2"
             />
           </div>
           <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
             <p class="input-label">Wind</p>
-            <input type="text" id="inpWindDep" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Wind Comp."
+            <input type="text" id="inpWindDep" class="input" disabled inputmode="decimal" style="float: right; margin-left: auto;" placeholder="Wind Comp."
             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1'); " maxlength="2"
             />
           </div>
@@ -363,19 +363,19 @@
         <div id="manArrEntry" style="display: none;">
           <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
             <p class="input-label">Air Pressure</p>
-            <input type="text" id="inpPressArr" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Pressure"
+            <input type="text" id="inpPressArr" class="input" disabled inputmode="decimal" style="float: right; margin-left: auto;" placeholder="Pressure"
             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="4"
             />
           </div>
           <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
             <p class="input-label">Temperature</p>
-            <input type="text" id="inpTempArr" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Temperature"
+            <input type="text" id="inpTempArr" class="input" disabled inputmode="decimal" style="float: right; margin-left: auto;" placeholder="Temperature"
             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="2"
             />
           </div>
           <div class="row" style="padding-top: 5px; padding-bottom: 5px;">
             <p class="input-label">Wind</p>
-            <input type="text" id="inpWindArr" class="input" disabled inputmode="numeric" style="float: right; margin-left: auto;" placeholder="Wind Comp."
+            <input type="text" id="inpWindArr" class="input" disabled inputmode="decimal" style="float: right; margin-left: auto;" placeholder="Wind Comp."
             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1'); " maxlength="2"
             />
           </div>
