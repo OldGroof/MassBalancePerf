@@ -531,7 +531,7 @@ function perfTO() {
 
   document.getElementById("TOResults").style.display = "block"
 
-  if ((selRunway.tora == selRunway.toda)&&(selRunway.tora == selRunway.asda)&&(selRunway.toda == selRunway.asda)) {
+  if ((todr * 1.25) < tora) {
     document.getElementById("toBalanced").style.display = "block"
     document.getElementById("toUnbalanced").style.display = "none"
   } else {

@@ -455,11 +455,16 @@ function perfTO() {
   var toda = Number(selRunway.toda)
   var asda = Number(selRunway.asda)
 
+
   if (document.getElementById("intxSelect").value != "unavail"){
     var intxAdjust = Number(intx[document.getElementById("intxSelect").value]["adjust"])
   } else {
     var intxAdjust = 0
   }
+
+  tora = tora - intxAdjust
+  toda = toda - intxAdjust
+  asda = asda - intxAdjust
 
   if (depMetar.data[0] != null) {
     var press = Number(Math.floor(depMetar.data[0].barometer.hpa))
@@ -527,7 +532,7 @@ function perfTO() {
   // Display results
   document.getElementById("TOResults").style.display = "block"
 
-  if ((selRunway.tora == selRunway.toda)&&(selRunway.tora == selRunway.asda)&&(selRunway.toda == selRunway.asda)) {
+  if ((todr * 1.25) < tora) {
     document.getElementById("toBalanced").style.display = "block"
     document.getElementById("toUnbalanced").style.display = "none"
   } else {
@@ -542,10 +547,6 @@ function perfTO() {
 
   document.getElementById("txtDepPressAlt").style.display = "block"
   document.getElementById("txtDepPressAlt").innerHTML = "Pressure Altitude: " + pressAlt + " ft"
-
-  tora = tora - intxAdjust
-  toda = toda - intxAdjust
-  asda = asda - intxAdjust
 
   if (unitTO == "met") {
     document.getElementById("txtTODR").innerHTML = "<strong>" + Intl.NumberFormat().format(Number(todr)) + " m</strong>"
