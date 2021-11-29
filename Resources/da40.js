@@ -200,6 +200,7 @@ function SelectArrRunway() {
 }
 
 function getDepMetar() {
+  depMetar = null
   var icao = selAirport.icao
   var metar = new XMLHttpRequest()
   metar.onreadystatechange = function() {
@@ -228,6 +229,7 @@ function getDepMetar() {
 }
 
 function getArrMetar() {
+  arrMetar = null
   var icao = airport[document.getElementById("airpSelectArr").value]["icao"]
   var metar = new XMLHttpRequest()
   metar.onreadystatechange = function() {
