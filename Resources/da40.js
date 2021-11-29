@@ -235,12 +235,11 @@ function getArrMetar() {
           resultArr = JSON.parse(this.responseText)
           oneHourAgo = new Date()
           oneHourAgo.setHours(oneHourAgo.getHours() - 1)
-          if (resultArr.data[0] != null) {
-            dateObservedArr = new Date(resultArr.data[0].observed)
+          if (resultArr.data[0] != null && (new Date(resultArr.data[0].observed)) >= oneHourAgo) {
+            arrMetar = result
           }
-          arrMetar = resultArr
 
-          if (arrMetar.data[0] != null && dateObservedArr >= oneHourAgo) {
+          if (arrMetar != null) {
             document.getElementById("txtMetarArr").innerHTML = "METAR " + arrMetar.data[0].raw_text
             document.getElementById("txtMetarArr").style.display = "block"
             document.getElementById("txtTafArr").style.display = "block"
@@ -474,7 +473,7 @@ function perfTO() {
   toda = toda - intxAdjust
   asda = asda - intxAdjust
 
-  if (depMetar.data[0] != null) {
+  if (depMetar != null) {
     var press = Number(Math.floor(depMetar.data[0].barometer.hpa))
     var temp = Number(depMetar.data[0].temperature.celsius)
 
@@ -548,7 +547,7 @@ function perfTO() {
     document.getElementById("toBalanced").style.display = "none"
   }
 
-  if (depMetar.data[0] != null) {
+  if (depMetar != null) {
     document.getElementById("txtDepWindComp").style.display = "block"
     document.getElementById("txtDepWindComp").innerHTML = "Headwind: " + headwind + " kts Crosswind: " + crosswind + " kts"
   }
@@ -631,7 +630,7 @@ function perfLDG() {
 
   var lda = Number(selArrRunway.lda)
 
-  if (arrMetar.data[0] != null) {
+  if (arrMetar != null) {
     var press = Number(Math.floor(arrMetar.data[0].barometer.hpa))
     var temp = Number(arrMetar.data[0].temperature.celsius)
   
@@ -699,7 +698,7 @@ function perfLDG() {
 
   // Display results
   document.getElementById("LDGResults").style.display = "block"
-  if (arrMetar.data[0] != null) {
+  if (arrMetar != null) {
     document.getElementById("txtArrWindComp").style.display = "block"
     document.getElementById("txtArrWindComp").innerHTML = "Headwind: " + headwind + " kts Crosswind: " + crosswind + " kts"
   }
