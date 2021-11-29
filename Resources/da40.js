@@ -200,7 +200,9 @@ function getDepMetar() {
           result = JSON.parse(this.responseText)
           dateObserved = result.data[0].observed
           console.log(dateObserved)
-          console.log(new Date().getHours() - 1)
+          oneHourAgo = new Date()
+          oneHourAgo.setHours(oneHourAgo.getHours() - 1)
+          console.log(oneHourAgo)
           depMetar = result
 
           if (depMetar.data[0] != null) {
