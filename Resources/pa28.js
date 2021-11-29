@@ -202,24 +202,25 @@ function SelectArrRunway() {
 }
 
 function getDepMetar() {
+  depMetar = null
   var icao = selAirport.icao
   var metar = new XMLHttpRequest()
   metar.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
           result = JSON.parse(this.responseText)
-          depMetar = result
+          oneHourAgo = new Date()
+          oneHourAgo.setHours(oneHourAgo.getHours() - 1)
+          if (result.data[0] != null && (new Date(result.data[0].observed)) >= oneHourAgo) {
+            depMetar = result
+          }
 
-          if (depMetar.data[0] != null) {
+          if (depMetar != null) {
             document.getElementById("txtMetarDep").innerHTML = "METAR " + depMetar.data[0].raw_text
             document.getElementById("txtMetarDep").style.display = "block"
           } else {
             document.getElementById("txtMetarDep").innerHTML = "METAR Unavail"
             document.getElementById("txtMetarDep").style.display = "none"
             document.getElementById("manDepEntry").style.display = "block"
-
-            document.getElementById("inpPressDep").disabled = false
-            document.getElementById("inpTempDep").disabled = false
-            document.getElementById("inpWindDep").disabled = false
           }
           document.getElementById("metarBox").style.display = "block"
       }
@@ -230,14 +231,19 @@ function getDepMetar() {
 }
 
 function getArrMetar() {
+  arrMetar = null
   var icao = airport[document.getElementById("airpSelectArr").value]["icao"]
   var metar = new XMLHttpRequest()
   metar.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-          result = JSON.parse(this.responseText)
-          arrMetar = result
+          resultArr = JSON.parse(this.responseText)
+          oneHourAgo = new Date()
+          oneHourAgo.setHours(oneHourAgo.getHours() - 1)
+          if (resultArr.data[0] != null && (new Date(resultArr.data[0].observed)) >= oneHourAgo) {
+            arrMetar = resultArr
+          }
 
-          if (arrMetar.data[0] != null) {
+          if (arrMetar != null) {
             document.getElementById("txtMetarArr").innerHTML = "METAR " + arrMetar.data[0].raw_text
             document.getElementById("txtMetarArr").style.display = "block"
             document.getElementById("txtTafArr").style.display = "block"
@@ -246,10 +252,6 @@ function getArrMetar() {
             document.getElementById("txtMetarArr").style.display = "none"
             document.getElementById("txtTafArr").style.display = "none"
             document.getElementById("manArrEntry").style.display = "block"
-
-            document.getElementById("inpPressArr").disabled = false
-            document.getElementById("inpTempArr").disabled = false
-            document.getElementById("inpWindArr").disabled = false
           }
           document.getElementById("metarBoxArr").style.display = "block"
       }
