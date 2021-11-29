@@ -107,7 +107,11 @@
             <p class="table-header">3.65</p>
           </div>  
           <div class="table-box">
-            <input type="number" id="inpStdB" class="table-input" disabled inputmode="decimal" placeholder="-" max="30"/>
+            <input type="number" id="inpStdB" class="table-input" disabled inputmode="decimal" placeholder="-" max="30" oninput="
+              if (this.value > this.max) {
+                this.value = this.max
+              }
+            "/>
           </div>
           <div class="table-box">
             <p class="text-table" id="txtStdBMom"></p>
@@ -120,7 +124,11 @@
             <p class="table-header">4.32</p>
           </div>  
           <div class="table-box">
-            <input type="number" id="inpBgTb" class="table-input" disabled inputmode="decimal" placeholder="-" max="5"/>
+            <input type="number" id="inpBgTb" class="table-input" disabled inputmode="decimal" placeholder="-" max="5" oninput="
+            if (this.value > this.max) {
+              this.value = this.max
+            }
+          "/>
           </div>
           <div class="table-box">
             <p class="text-table" id="txtBgTbMom"></p>
@@ -133,7 +141,11 @@
             <p class="table-header">3.97</p>
           </div>  
           <div class="table-box">
-            <input type="number" id="inpShBge" class="table-input" disabled inputmode="decimal" placeholder="-" max="15"/>
+            <input type="number" id="inpShBge" class="table-input" disabled inputmode="decimal" placeholder="-" max="15" oninput="
+            if (this.value > this.max) {
+              this.value = this.max
+            }
+          "/>
           </div>
           <div class="table-box">
             <p class="text-table" id="txtShBgeMom"></p>
@@ -146,7 +158,11 @@
             <p class="table-header">3.89</p>
           </div>  
           <div class="table-box">
-            <input type="number" id="inpFwdBge" class="table-input" disabled inputmode="decimal" placeholder="-" max="45"/>
+            <input type="number" id="inpFwdBge" class="table-input" disabled inputmode="decimal" placeholder="-" max="45" oninput="
+            if (this.value > this.max) {
+              this.value = this.max
+            }
+          "/>
           </div>
           <div class="table-box">
             <p class="text-table" id="txtFwdBgeMom"></p>
@@ -159,7 +175,11 @@
             <p class="table-header">4.54</p>
           </div>  
           <div class="table-box">
-            <input type="number" id="inpAftBge" class="table-input" disabled inputmode="decimal" placeholder="-" max="18"/>
+            <input type="number" id="inpAftBge" class="table-input" disabled inputmode="decimal" placeholder="-" max="18" oninput="
+            if (this.value > this.max) {
+              this.value = this.max
+            }
+          "/>
           </div>
           <div class="table-box">
             <p class="text-table" id="txtAftBgeMom"></p>
@@ -184,7 +204,11 @@
             <p class="table-header">2.63</p>
           </div>  
           <div class="table-box">
-            <input type="number" id="inpFuel" class="table-input" disabled inputmode="decimal" min= "1" max="288" placeholder="-" max="90.9"/>
+            <input type="number" id="inpFuel" class="table-input" disabled inputmode="decimal" min= "1" max="288" placeholder="-" max="90.9" oninput="
+            if (this.value > this.max) {
+              this.value = this.max
+            }
+          "/>
           </div>
           <div class="table-box">
             <p class="text-table" id="txtFuelMom"></p>
@@ -209,7 +233,7 @@
             <p class="table-header">2.63</p>
           </div>  
           <div class="table-box">
-            <input type="number" id="inpBurn" class="table-input" disabled inputmode="decimal" min= "1" max="288" placeholder="-"/>
+            <input type="number" id="inpBurn" class="table-input" disabled inputmode="decimal" placeholder="-"/>
           </div>
           <div class="table-box">
             <p class="text-table" id="txtBurnMom"></p>
