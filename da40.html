@@ -67,19 +67,13 @@
             </select>
           </div>
           <div class="table-box">
-            <input type="text" id="inpArm" class="table-input" inputmode="decimal" placeholder="-"
-            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-            />
+            <input type="number" id="inpArm" class="table-input" inputmode="decimal" placeholder="-"/>
           </div>  
           <div class="table-box">
-            <input type="text" id="inpBem" class="table-input" inputmode="decimal" placeholder="-"
-            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-            />
+            <input type="number" id="inpBem" class="table-input" inputmode="decimal" placeholder="-"/>
           </div> 
           <div class="table-box">
-            <input type="text" id="inpMom" class="table-input" inputmode="decimal" placeholder="-"
-            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-            />
+            <input type="number" id="inpMom" class="table-input" inputmode="decimal" placeholder="-"/>
           </div> 
           <div class="table-box">
             <p class="table-header">Front Seats</p>
@@ -88,9 +82,7 @@
             <p class="table-header">2.30</p>
           </div>  
           <div class="table-box">
-            <input type="text" id="inpFrnt" class="table-input" disabled inputmode="decimal" placeholder="-"
-            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-            />
+            <input type="number" id="inpFrnt" class="table-input" disabled inputmode="decimal" placeholder="-"/>
           </div>
           <div class="table-box">
             <p class="text-table" id="txtFrntMom"></p>
@@ -102,9 +94,7 @@
             <p class="table-header">3.25</p>
           </div>  
           <div class="table-box">
-            <input type="text" id="inpRear" class="table-input" disabled inputmode="decimal" placeholder="-"
-            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-            />
+            <input type="number" id="inpRear" class="table-input" disabled inputmode="decimal" placeholder="-"/>
           </div>
           <div class="table-box">
             <p class="text-table" id="txtRearMom"></p>
@@ -117,9 +107,10 @@
             <p class="table-header">3.65</p>
           </div>  
           <div class="table-box">
-            <input type="text" id="inpStdB" class="table-input" disabled inputmode="decimal" placeholder="-"
-            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-            />
+            <input type="number" id="inpStdB" class="table-input" disabled inputmode="decimal" placeholder="-" max="30" oninput="
+              if (this.value > Number(this.max))
+                this.value = this.max;
+              "/>
           </div>
           <div class="table-box">
             <p class="text-table" id="txtStdBMom"></p>
@@ -132,9 +123,10 @@
             <p class="table-header">4.32</p>
           </div>  
           <div class="table-box">
-            <input type="text" id="inpBgTb" class="table-input" disabled inputmode="decimal" placeholder="-"
-            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-            />
+            <input type="number" id="inpBgTb" class="table-input" disabled inputmode="decimal" placeholder="-" max="5" oninput="
+              if (this.value > Number(this.max))
+                this.value = this.max;
+          "/>
           </div>
           <div class="table-box">
             <p class="text-table" id="txtBgTbMom"></p>
@@ -147,9 +139,10 @@
             <p class="table-header">3.97</p>
           </div>  
           <div class="table-box">
-            <input type="text" id="inpShBge" class="table-input" disabled inputmode="decimal" placeholder="-"
-            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-            />
+            <input type="number" id="inpShBge" class="table-input" disabled inputmode="decimal" placeholder="-" max="15" oninput="
+              if (this.value > Number(this.max))
+                this.value = this.max;
+          "/>
           </div>
           <div class="table-box">
             <p class="text-table" id="txtShBgeMom"></p>
@@ -162,9 +155,10 @@
             <p class="table-header">3.89</p>
           </div>  
           <div class="table-box">
-            <input type="text" id="inpFwdBge" class="table-input" disabled inputmode="decimal" placeholder="-"
-            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-            />
+            <input type="number" id="inpFwdBge" class="table-input" disabled inputmode="decimal" placeholder="-" max="45" oninput="
+              if (this.value > Number(this.max))
+                this.value = this.max;
+          "/>
           </div>
           <div class="table-box">
             <p class="text-table" id="txtFwdBgeMom"></p>
@@ -177,9 +171,10 @@
             <p class="table-header">4.54</p>
           </div>  
           <div class="table-box">
-            <input type="text" id="inpAftBge" class="table-input" disabled inputmode="decimal" placeholder="-"
-            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-            />
+            <input type="number" id="inpAftBge" class="table-input" disabled inputmode="decimal" placeholder="-" max="18" oninput="
+              if (this.value > Number(this.max))
+                this.value = this.max;
+          "/>
           </div>
           <div class="table-box">
             <p class="text-table" id="txtAftBgeMom"></p>
@@ -188,13 +183,13 @@
             <p class="table-header">Zero Fuel Mass</p>
           </div>
           <div class="table-box" style="background: #333333;">
-            <p class="table-header" id="txtZFMArm"></p>
+            <p class="text-masses" id="txtZFMArm"></p>
           </div>  
           <div class="table-box" style="background: #333333;">
-            <p class="table-header" id="txtZFM"></p>
+            <p class="text-masses" id="txtZFM"></p>
           </div>
           <div class="table-box" style="background: #333333;">
-            <p class="table-header" id="txtZFMMom"></p>
+            <p class="text-masses" id="txtZFMMom"></p>
           </div>
           <div class="table-box">
             <p class="table-header">Fuel</p>
@@ -204,9 +199,10 @@
             <p class="table-header">2.63</p>
           </div>  
           <div class="table-box">
-            <input type="text" id="inpFuel" class="table-input" disabled inputmode="decimal" min= "1" max="288" placeholder="-"
-            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-            />
+            <input type="number" id="inpFuel" class="table-input" disabled inputmode="decimal" placeholder="-" max="90.9" oninput="
+              if (this.value > Number(this.max))
+                this.value = this.max;
+          "/>
           </div>
           <div class="table-box">
             <p class="text-table" id="txtFuelMom"></p>
@@ -215,13 +211,13 @@
             <p class="table-header">Take Off Mass</p>
           </div>
           <div class="table-box" style="background: #333333;">
-            <p class="table-header" id="txtTOMArm"></p>
+            <p class="text-masses" id="txtTOMArm"></p>
           </div>  
           <div class="table-box" style="background: #333333;">
-            <p class="table-header" id="txtTOM"></p>
+            <p class="text-masses" id="txtTOM"></p>
           </div>
           <div class="table-box" style="background: #333333;">
-            <p class="table-header" id="txtTOMMom"></p>
+            <p class="text-masses" id="txtTOMMom"></p>
           </div>
           <div class="table-box">
             <p class="table-header">Fuel Burn</p>
@@ -231,9 +227,7 @@
             <p class="table-header">2.63</p>
           </div>  
           <div class="table-box">
-            <input type="text" id="inpBurn" class="table-input" disabled inputmode="decimal" min= "1" max="288" placeholder="-"
-            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-            />
+            <input type="number" id="inpBurn" class="table-input" disabled inputmode="decimal" placeholder="-"/>
           </div>
           <div class="table-box">
             <p class="text-table" id="txtBurnMom"></p>
@@ -242,13 +236,13 @@
             <p class="table-header">Landing Mass</p>
           </div>
           <div class="table-box" style="background: #333333;">
-            <p class="table-header" id="txtLMArm"></p>
+            <p class="text-masses" id="txtLMArm"></p>
           </div>  
           <div class="table-box" style="background: #333333;">
-            <p class="table-header" id="txtLM"></p>
+            <p class="text-masses" id="txtLM"></p>
           </div>
           <div class="table-box" style="background: #333333;">
-            <p class="table-header" id="txtLMMom"></p>
+            <p class="text-masses" id="txtLMMom"></p>
           </div>
         </div>
     </div>

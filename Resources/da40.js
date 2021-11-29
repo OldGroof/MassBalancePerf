@@ -551,12 +551,56 @@ function perfTO() {
   if (unitTO == "met") {
     document.getElementById("txtTODR").innerHTML = "<strong>" + Intl.NumberFormat().format(Number(todr)) + " m</strong>"
     document.getElementById("txtTODRU").innerHTML = "<strong>" + Intl.NumberFormat().format(Number(todr)) + " m </strong>≤ TORA " + Intl.NumberFormat().format(tora) + " m"
+
+    if (Math.floor(todr) >= tora) {
+      document.getElementById("txtTODRU").style.color = "#a80006"
+    } else {
+      document.getElementById("txtTODRU").style.color = "grey"
+    }
+    if (Math.floor((todr * 1.25) + 0.5) >= tora) {
+      document.getElementById("txtTODR125").style.color = "#a80006"
+    } else {
+      document.getElementById("txtTODR125").style.color = "grey"
+    }
+    if (Math.floor((todr * 1.15) + 0.5) >= toda) {
+      document.getElementById("txtTODR115").style.color = "#a80006"
+    } else {
+      document.getElementById("txtTODR115").style.color = "grey"
+    }
+    if (Math.floor((todr * 1.30) + 0.5) >= asda) {
+      document.getElementById("txtTODR130").style.color = "#a80006"
+    } else {
+      document.getElementById("txtTODR130").style.color = "grey"
+    }
+
     document.getElementById("txtTODR125").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((todr * 1.25) + 0.5)) + " m </strong>≤ TORA " + Intl.NumberFormat().format(tora) + " m"
     document.getElementById("txtTODR115").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((todr * 1.15) + 0.5)) + " m </strong>≤ TODA " + Intl.NumberFormat().format(toda) + " m"
     document.getElementById("txtTODR130").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((todr * 1.30) + 0.5)) + " m </strong>≤ ASDA " + Intl.NumberFormat().format(asda) + " m"
   } else {
     document.getElementById("txtTODR").innerHTML = "<strong>" + Intl.NumberFormat().format(Number(todr)) + " ft"
     document.getElementById("txtTODRU").innerHTML = "<strong>" + Intl.NumberFormat().format(Number(todr)) + " ft </strong>≤ TORA " + Intl.NumberFormat().format(Math.floor((tora * 3.285) + 0.5)) + " ft"
+
+    if (Math.floor(todr) >= Math.floor((tora * 3.285) + 0.5)) {
+      document.getElementById("txtTODRU").style.color = "#a80006"
+    } else {
+      document.getElementById("txtTODRU").style.color = "grey"
+    }
+    if (Math.floor((todr * 1.25) + 0.5) >= Math.floor((tora * 3.285) + 0.5)) {
+      document.getElementById("txtTODR125").style.color = "#a80006"
+    } else {
+      document.getElementById("txtTODR125").style.color = "grey"
+    }
+    if (Math.floor((todr * 1.15) + 0.5) >= Math.floor((toda * 3.285) + 0.5)) {
+      document.getElementById("txtTODR115").style.color = "#a80006"
+    } else {
+      document.getElementById("txtTODR115").style.color = "grey"
+    }
+    if (Math.floor((todr * 1.30) + 0.5) >= Math.floor((asda * 3.285) + 0.5)) {
+      document.getElementById("txtTODR130").style.color = "#a80006"
+    } else {
+      document.getElementById("txtTODR130").style.color = "grey"
+    }
+
     document.getElementById("txtTODR125").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((todr * 1.25) + 0.5)) + " ft </strong>≤ TORA " + Intl.NumberFormat().format(Math.floor((tora * 3.285) + 0.5)) + " ft"
     document.getElementById("txtTODR115").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((todr * 1.15) + 0.5)) + " ft </strong>≤ TODA " + Intl.NumberFormat().format(Math.floor((toda * 3.285) + 0.5)) + " ft"
     document.getElementById("txtTODR130").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((todr * 1.30) + 0.5)) + " ft </strong>≤ ASDA " + Intl.NumberFormat().format(Math.floor((asda * 3.285) + 0.5)) + " ft"
@@ -657,9 +701,21 @@ function perfLDG() {
 
   if (unitLDG == "met") {
     document.getElementById("txtLDR").innerHTML = "<strong>" + Intl.NumberFormat().format(ldr) + " m</strong>"
-    document.getElementById("txtLDR143").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " m </strong>≤ LDA " + Intl.NumberFormat().format(lda) + " m"
+    if (Math.floor((ldr * 1.43) + 0.5) >= lda) {
+      document.getElementById("txtLDR143").style.color = "#a80006"
+      document.getElementById("txtLDR143").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " m ≤ LDA " + Intl.NumberFormat().format(lda) + " m</strong>"
+    } else {
+      document.getElementById("txtLDR143").style.color = "grey"
+      document.getElementById("txtLDR143").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " m </strong>≤ LDA " + Intl.NumberFormat().format(lda) + " m"
+    }
   } else {
     document.getElementById("txtLDR").innerHTML = "<strong>" + Intl.NumberFormat().format(ldr) + " ft</strong>"
-    document.getElementById("txtLDR143").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " ft </strong>≤ LDA " + Intl.NumberFormat().format(Math.floor((lda * 3.285) + 0.5)) + " ft"
+    if (Math.floor((ldr * 1.43) + 0.5) >= Math.floor((lda * 3.285) + 0.5)) {
+      document.getElementById("txtLDR143").style.color = "#a80006"
+      document.getElementById("txtLDR143").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " ft ≤ LDA " + Intl.NumberFormat().format(Math.floor((lda * 3.285) + 0.5)) + " ft</strong>"
+    } else {
+      document.getElementById("txtLDR143").style.color = "grey"
+      document.getElementById("txtLDR143").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " ft </strong>≤ LDA " + Intl.NumberFormat().format(Math.floor((lda * 3.285) + 0.5)) + " ft"
+    }
   }
 }
