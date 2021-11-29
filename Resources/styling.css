@@ -104,7 +104,7 @@ h2 {
 }
 .table-input {
   height: 100%;
-  width: 98%;
+  width: 100%;
   border: none;
   background: transparent;
   text-align: center;
@@ -426,7 +426,7 @@ input:checked + .slider:before {
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
-    margin: 0;
+    margin: 0px;
 }
 
 input[type=number] {
