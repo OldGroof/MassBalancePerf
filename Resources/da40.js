@@ -657,7 +657,7 @@ function perfLDG() {
 
   if (unitLDG == "met") {
     if (Math.floor((ldr * 1.43) + 0.5) >= lda) {
-      document.getElementById("txtLDR143").style.color = "#a8006"
+      document.getElementById("txtLDR143").style.color = "#a80006"
       document.getElementById("txtLDR").innerHTML = "<strong>" + Intl.NumberFormat().format(ldr) + " m</strong>"
       document.getElementById("txtLDR143").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " m </strong>≤ LDA " + Intl.NumberFormat().format(lda) + " m"
     } else {
@@ -666,7 +666,7 @@ function perfLDG() {
     }
   } else {
     if (Math.floor((lrd * 1.43) + 0.5) >= lda){
-      document.getElementById("txtLDR143").style.color = "#a8006"
+      document.getElementById("txtLDR143").style.color = "#a80006"
       document.getElementById("txtLDR").innerHTML = "<strong>" + Intl.NumberFormat().format(ldr) + " ft</strong>"
       document.getElementById("txtLDR143").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " ft </strong>≤ LDA " + Intl.NumberFormat().format(Math.floor((lda * 3.285) + 0.5)) + " ft"
     } else {
