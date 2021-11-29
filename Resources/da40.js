@@ -198,8 +198,9 @@ function getDepMetar() {
   metar.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
           result = JSON.parse(this.responseText)
-          dateObservered = result.data[0].observed
-          console.log(dateObservered)
+          dateObserved = result.data[0].observed
+          console.log(dateObserved)
+          console.log(Date().getHours() - 1)
           depMetar = result
 
           if (depMetar.data[0] != null) {
