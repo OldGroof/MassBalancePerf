@@ -207,22 +207,17 @@ function getDepMetar() {
           result = JSON.parse(this.responseText)
           oneHourAgo = new Date()
           oneHourAgo.setHours(oneHourAgo.getHours() - 1)
-          if (result.data[0] != null) {
-            dateObserved = new Date(result.data[0].observed)
+          if (result.data[0] != null && (new Date(result.data[0].observed)) >= oneHourAgo) {
+            depMetar = result
           }
-          depMetar = result
 
-          if ((depMetar.data[0] != null) && (dateObserved >= oneHourAgo)) {
+          if (depMetar.data[0] != null) {
             document.getElementById("txtMetarDep").innerHTML = "METAR " + depMetar.data[0].raw_text
             document.getElementById("txtMetarDep").style.display = "block"
           } else {
             document.getElementById("txtMetarDep").innerHTML = "METAR Unavail"
             document.getElementById("txtMetarDep").style.display = "none"
             document.getElementById("manDepEntry").style.display = "block"
-
-            //document.getElementById("inpPressDep").disabled = false
-            //document.getElementById("inpTempDep").disabled = false
-            //document.getElementById("inpWindDep").disabled = false
           }
           document.getElementById("metarBox").style.display = "block"
       }
@@ -254,10 +249,6 @@ function getArrMetar() {
             document.getElementById("txtMetarArr").style.display = "none"
             document.getElementById("txtTafArr").style.display = "none"
             document.getElementById("manArrEntry").style.display = "block"
-
-            //document.getElementById("inpPressArr").disabled = false
-            //document.getElementById("inpTempArr").disabled = false
-            //document.getElementById("inpWindArr").disabled = false
           }
           document.getElementById("metarBoxArr").style.display = "block"
       }
