@@ -446,7 +446,7 @@ function perfTO() {
   }
   var rwyCond = document.getElementById("rwyCondDep").value
 
-  if (depMetar.data[0] != null) {
+  if (depMetar != null) {
     var press = Number(Math.floor(depMetar.data[0].barometer.hpa))
     var temp = Number(depMetar.data[0].temperature.celsius)
   
@@ -541,7 +541,7 @@ function perfTO() {
     document.getElementById("toBalanced").style.display = "none"
   }
 
-  if (depMetar.data[0] != null) {
+  if (depMetar != null) {
     document.getElementById("txtDepWindComp").style.display = "block"
     document.getElementById("txtDepWindComp").innerHTML = "Headwind: " + headwind + " kts Crosswind: " + crosswind + " kts"
   }
@@ -626,7 +626,7 @@ function perfLDG() {
 
   var lda = Number(selArrRunway.lda)
 
-  if (arrMetar.data[0] != null) {
+  if (arrMetar != null) {
     var press = Number(Math.floor(arrMetar.data[0].barometer.hpa))
     var temp = Number(arrMetar.data[0].temperature.celsius)
   
@@ -694,7 +694,7 @@ function perfLDG() {
   } 
 
   document.getElementById("LDGResults").style.display = "block"
-  if (arrMetar.data[0] != null) {
+  if (arrMetar != null) {
     document.getElementById("txtArrWindComp").style.display = "block"
     document.getElementById("txtArrWindComp").innerHTML = "Headwind: " + headwind + " kts Crosswind: " + crosswind + " kts"
   }
