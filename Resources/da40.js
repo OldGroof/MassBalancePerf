@@ -661,7 +661,7 @@ function perfLDG() {
       document.getElementById("txtLDR143").style.color = "#a80006"
       document.getElementById("txtLDR143").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " m ≤ LDA " + Intl.NumberFormat().format(lda) + " m</strong>"
     } else {
-      document.getElementById("txtLDR143").style.color = "#eee"
+      document.getElementById("txtLDR143").style.color = "grey"
       document.getElementById("txtLDR143").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " m </strong>≤ LDA " + Intl.NumberFormat().format(lda) + " m"
     }
   } else {
@@ -670,7 +670,7 @@ function perfLDG() {
       document.getElementById("txtLDR143").style.color = "#a80006"
       document.getElementById("txtLDR143").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " ft ≤ LDA " + Intl.NumberFormat().format(Math.floor((lda * 3.285) + 0.5)) + " ft</strong>"
     } else {
-      document.getElementById("txtLDR143").style.color = "#eee"
+      document.getElementById("txtLDR143").style.color = "grey"
       document.getElementById("txtLDR143").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " ft </strong>≤ LDA " + Intl.NumberFormat().format(Math.floor((lda * 3.285) + 0.5)) + " ft"
     }
   }
