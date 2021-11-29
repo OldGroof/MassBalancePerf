@@ -205,9 +205,11 @@ function getDepMetar() {
   metar.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
           result = JSON.parse(this.responseText)
-          dateObserved = new Date(result.data[0].observed)
           oneHourAgo = new Date()
           oneHourAgo.setHours(oneHourAgo.getHours() - 1)
+          if (result.data[0] != null) {
+            dateObserved = new Date(result.data[0].observed)
+          }
           depMetar = result
 
           if ((depMetar.data[0] != null) && (dateObserved >= oneHourAgo)) {
@@ -236,7 +238,11 @@ function getArrMetar() {
   metar.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
           resultArr = JSON.parse(this.responseText)
-          dateObservedArr = new Date(resultArr.data[0].observed)
+          oneHourAgo = new Date()
+          oneHourAgo.setHours(oneHourAgo.getHours() - 1)
+          if (resultArr.data[0] != null) {
+            dateObservedArr = new Date(resultArr.data[0].observed)
+          }
           arrMetar = resultArr
 
           if (arrMetar.data[0] != null && dateObservedArr >= oneHourAgo) {
