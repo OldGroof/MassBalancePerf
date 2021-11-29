@@ -659,8 +659,9 @@ function perfLDG() {
     if (Math.floor((ldr * 1.43) + 0.5) >= lda) {
       document.getElementById("txtLDR143").style.color = "#a80006"
       document.getElementById("txtLDR").innerHTML = "<strong>" + Intl.NumberFormat().format(ldr) + " m</strong>"
-      document.getElementById("txtLDR143").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " m </strong>≤ LDA " + Intl.NumberFormat().format(lda) + " m"
+      document.getElementById("txtLDR143").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " m ≤ LDA " + Intl.NumberFormat().format(lda) + " m</strong>"
     } else {
+      document.getElementById("txtLDR143").style.color = "#eee"
       document.getElementById("txtLDR").innerHTML = "<strong>" + Intl.NumberFormat().format(ldr) + " m</strong>"
       document.getElementById("txtLDR143").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " m </strong>≤ LDA " + Intl.NumberFormat().format(lda) + " m"
     }
