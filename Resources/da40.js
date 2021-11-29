@@ -666,7 +666,7 @@ function perfLDG() {
     }
   } else {
     document.getElementById("txtLDR").innerHTML = "<strong>" + Intl.NumberFormat().format(ldr) + " ft</strong>"
-    if (Math.floor((lrd * 1.43) + 0.5) >= lda){
+    if (Math.floor((ldr * 1.43) + 0.5) >= Math.floor((lda * 3.285) + 0.5)) {
       document.getElementById("txtLDR143").style.color = "#a80006"
       document.getElementById("txtLDR143").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " ft ≤ LDA " + Intl.NumberFormat().format(Math.floor((lda * 3.285) + 0.5)) + " ft</strong>"
     } else {
