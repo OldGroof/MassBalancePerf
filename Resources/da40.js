@@ -238,7 +238,7 @@ function getArrMetar() {
           oneHourAgo = new Date()
           oneHourAgo.setHours(oneHourAgo.getHours() - 1)
           if (resultArr.data[0] != null && (new Date(resultArr.data[0].observed)) >= oneHourAgo) {
-            arrMetar = result
+            arrMetar = resultArr
           }
 
           if (arrMetar != null) {
