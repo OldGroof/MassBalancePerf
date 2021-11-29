@@ -552,6 +552,11 @@ function perfTO() {
     document.getElementById("txtTODR").innerHTML = "<strong>" + Intl.NumberFormat().format(Number(todr)) + " m</strong>"
     document.getElementById("txtTODRU").innerHTML = "<strong>" + Intl.NumberFormat().format(Number(todr)) + " m </strong>≤ TORA " + Intl.NumberFormat().format(tora) + " m"
 
+    if (Math.floor(todr) >= tora) {
+      document.getElementById("txtTODRU").style.color = "#a80006"
+    } else {
+      document.getElementById("txtTODRU").style.color = "grey"
+    }
     if (Math.floor((todr * 1.25) + 0.5) >= tora) {
       document.getElementById("txtTODR125").style.color = "#a80006"
     } else {
@@ -575,6 +580,11 @@ function perfTO() {
     document.getElementById("txtTODR").innerHTML = "<strong>" + Intl.NumberFormat().format(Number(todr)) + " ft"
     document.getElementById("txtTODRU").innerHTML = "<strong>" + Intl.NumberFormat().format(Number(todr)) + " ft </strong>≤ TORA " + Intl.NumberFormat().format(Math.floor((tora * 3.285) + 0.5)) + " ft"
 
+    if (Math.floor(todr) >= Math.floor((tora * 3.285) + 0.5)) {
+      document.getElementById("txtTODRU").style.color = "#a80006"
+    } else {
+      document.getElementById("txtTODRU").style.color = "grey"
+    }
     if (Math.floor((todr * 1.25) + 0.5) >= Math.floor((tora * 3.285) + 0.5)) {
       document.getElementById("txtTODR125").style.color = "#a80006"
     } else {
