@@ -150,6 +150,9 @@ function SelectDepRunway() {
   }
 
   document.getElementById("rwyCondDep").disabled = false
+  document.getElementById("inpPressDep").disabled = false
+  document.getElementById("inpTempDep").disabled = false
+  document.getElementById("inpWindDep").disabled = false
 
   perfTO()
 }
@@ -197,6 +200,10 @@ function SelectArrRunway() {
   selArrRunway = selArrAirport.runways[document.getElementById("rwySelectArr").value]
 
   document.getElementById("rwyCondArr").disabled = false
+  document.getElementById("rwyCondArr").disabled = false
+  document.getElementById("inpPressArr").disabled = false
+  document.getElementById("inpTempArr").disabled = false
+  document.getElementById("inpWindArr").disabled = false
 
   perfLDG()
 }
