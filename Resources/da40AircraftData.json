@@ -18,6 +18,18 @@
     "moment": 2376.9
   },
   {
+    "reg": "G-CTSF",
+    "mass": 953.5,
+    "arm": 2.493,
+    "moment": 2376.9
+  },
+  {
+    "reg": "G-CTSG",
+    "mass": 954.9,
+    "arm": 2.479,
+    "moment": 2367
+  },
+  {
     "reg": "G-CTSH",
     "mass": 958.4,
     "arm": 2.481,
