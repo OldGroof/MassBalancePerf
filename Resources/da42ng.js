@@ -283,6 +283,10 @@ function unlock() {
     document.getElementById("inpArm").disabled = false
     document.getElementById("inpBem").disabled = false
     document.getElementById("inpMom").disabled = false
+  } else {
+    document.getElementById("inpArm").disabled = true
+    document.getElementById("inpBem").disabled = true
+    document.getElementById("inpMom").disabled = true
   }
   document.getElementById('inpFrnt').disabled = false
   document.getElementById('inpRear').disabled = false
