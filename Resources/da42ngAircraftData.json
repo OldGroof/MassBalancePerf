@@ -1,0 +1,26 @@
+[
+  {
+    "reg": "G-LHXA",
+    "mass": 1470.5,
+    "arm": 2.418,
+    "moment": 3556.06
+  },
+  {
+    "reg": "G-LHXB",
+    "mass": 1467.5,
+    "arm": 2.424,
+    "moment": 3557.13
+  },
+  {
+    "reg": "G-LHXC",
+    "mass": 1464.5,
+    "arm": 2.420,
+    "moment": 3543.58
+  },
+  {
+    "reg": "G-LHXD",
+    "mass": 1465,
+    "arm": 2.416,
+    "moment": 3540.04
+  }
+]
