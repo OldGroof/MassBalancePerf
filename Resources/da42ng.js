@@ -527,12 +527,12 @@ function perfTO() {
     let lower = (91.1456 * Math.cos(0.0923727 * temp)) + (0.131232 * (temp * temp)) + (6.2268 * temp) + 579.008 // 1900
 
     var tod = lower + ((mass - 1900) * ((upper - lower) / 99))
-  } else if (mass >= 1900 && mass <= 1999) {
+  } else if (mass >= 1700 && mass <= 1900) {
     let upper = (91.1456 * Math.cos(0.0923727 * temp)) + (0.131232 * (temp * temp)) + (6.2268 * temp) + 579.008 // 1900
     let lower = (-8.53766 * Math.cos(0.200225 * temp)) + (0.00309748 * (temp * temp * temp)) + (0.548792 * temp) + 588.325 // 1700
 
     var tod = lower + ((mass - 1700) * ((upper - lower) / 200))
-  } else if (mass >= 1700 && mass < 1900) {
+  } else if (mass < 1700) {
     var tod = (-8.53766 * Math.cos(0.200225 * temp)) + (0.00309748 * (temp * temp * temp)) + (0.548792 * temp) + 588.325 // 1700
   }
 
