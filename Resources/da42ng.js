@@ -279,6 +279,11 @@ function getArrTaf() {
 }
 
 function unlock() {
+  if (document.getElementById("aircraftSelect").value = "other") {
+    document.getElementById("inpArm").disabled = false
+    document.getElementById("inpBem").disabled = false
+    document.getElementById("inpMom").disabled = false
+  }
   document.getElementById('inpFrnt').disabled = false
   document.getElementById('inpRear').disabled = false
   document.getElementById('inpNseBge').disabled = false
@@ -316,7 +321,7 @@ document.getElementById("inpAntIceBurn").addEventListener("keyup", maths)
 
 function updatePlane() {
 
-  if (document.getElementById("aircraftSelect").value != ""&&document.getElementById("aircraftSelect").value != "other") {
+  if (document.getElementById("aircraftSelect").value != "" && document.getElementById("aircraftSelect").value != "other") {
     document.getElementById("inpBem").value = aircraft[document.getElementById("aircraftSelect").value].mass
     document.getElementById("inpMom").value = aircraft[document.getElementById("aircraftSelect").value].moment
     document.getElementById("inpArm").value = aircraft[document.getElementById("aircraftSelect").value].arm
