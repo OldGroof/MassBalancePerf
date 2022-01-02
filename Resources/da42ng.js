@@ -279,7 +279,7 @@ function getArrTaf() {
 }
 
 function unlock() {
-  if (document.getElementById("aircraftSelect").value = "other") {
+  if (document.getElementById("aircraftSelect").value == "other") {
     document.getElementById("inpArm").disabled = false
     document.getElementById("inpBem").disabled = false
     document.getElementById("inpMom").disabled = false
@@ -463,7 +463,7 @@ document.getElementById("inpTempArr").addEventListener("keyup", perfLDG)
 document.getElementById("inpWindArr").addEventListener("keyup", perfLDG)
 
 function perfTO() {
-  var mass = tom || 1310
+  var mass = tom || 2001
   
   if (document.getElementById("unitTO").checked == true) {
     unitTO = "met"
