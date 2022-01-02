@@ -520,36 +520,31 @@ function perfTO() {
   var pressAlt = ((1013 - press) * 30) + elev
 
   // Calculate raw Take off Distance(tod)
-  if (mass > 1310) { 
-    var tod = (6.04752 * Math.cos(0.110304 * temp)) + (3.44116 * temp) + 543.674 // 1310
-  } else if (mass > 1280 && mass <= 1310) {
-    let upper = (6.04752 * Math.cos(0.110304 * temp)) + (3.44116 * temp) + 543.674 // 1310
-    let lower = (6.04752 * Math.cos(0.110304 * temp)) + (3.44116 * temp) + 533.674 // 1280
+  if (mass > 1999) { 
+    var tod = (-480.413 * Math.cos(0.000759786 * (temp * temp))) + (-0.0879568 * (temp * temp)) + (3.68545 * temp) + 1210.53 // 1999
+  } else if (mass > 1900 && mass <= 1999) {
+    let upper = (-480.413 * Math.cos(0.000759786 * (temp * temp))) + (-0.0879568 * (temp * temp)) + (3.68545 * temp) + 1210.53 // 1999
+    let lower = (91.1456 * Math.cos(0.0923727 * temp)) + (0.131232 * (temp * temp)) + (6.2268 * temp) + 579.008 // 1900
 
-    var tod = lower + ((mass - 1280) * ((upper - lower) / 30))
-  } else if (mass >= 1200 && mass <= 1280) {
-    let upper = (6.04752 * Math.cos(0.110304 * temp)) + (3.44116 * temp) + 533.674 // 1280
-    let lower = (6.02705 * Math.cos(0.132884 * temp)) + (2.98482 * temp) + 485.848 // 1200
+    var tod = lower + ((mass - 1900) * ((upper - lower) / 99))
+  } else if (mass >= 1900 && mass <= 1999) {
+    let upper = (91.1456 * Math.cos(0.0923727 * temp)) + (0.131232 * (temp * temp)) + (6.2268 * temp) + 579.008 // 1900
+    let lower = (-8.53766 * Math.cos(0.200225 * temp)) + (0.00309748 * (temp * temp * temp)) + (0.548792 * temp) + 588.325 // 1700
 
-    var tod = lower + ((mass - 1200) * ((upper - lower) / 80))
-  } else if (mass >= 1100 && mass < 1200) {
-    let upper = (6.02705 * Math.cos(0.132884 * temp)) + (2.98482 * temp) + 485.848 // 1200
-    let lower = (8.36743 * Math.cos(0.123274 * temp)) + (2.61074 * temp) + 421.793 // 1100
-
-    var tod = lower + ((mass - 1100) * ((upper - lower) / 100))
-  } else if (mass < 1100) {
-    var tod = (8.36743 * Math.cos(0.123274 * temp)) + (2.61074 * temp) + 421.793 // 1100
+    var tod = lower + ((mass - 1700) * ((upper - lower) / 200))
+  } else if (mass >= 1700 && mass < 1900) {
+    var tod = (-8.53766 * Math.cos(0.200225 * temp)) + (0.00309748 * (temp * temp * temp)) + (0.548792 * temp) + 588.325 // 1700
   }
 
   // Calculate wind variation(windVar) based on headwind or tailwind
   if (wind >= 0) {
-    var windVar = -1 * (wind / 12)
+    var windVar = -1 * (wind / 14)
   } else {
-    var windVar = -1 * (wind / 2)
+    var windVar = -1 * (wind / 3)
   }
 
-  // Add 30m for no wheel fairings and wind correction (+-10% for each windVar)
-  var todr = (Math.floor((tod + ((0.1 * tod) * windVar)) + 0.5)) + 30
+  // Add wind correction (+-10% for each windVar)
+  var todr = (Math.floor((tod + ((0.1 * tod) * windVar)) + 0.5))
 
   // Convert to feet if necessary
   if (unitTO == "imp") {
