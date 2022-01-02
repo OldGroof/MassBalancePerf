@@ -67,13 +67,13 @@
         </select>
       </div>
       <div class="table-box">
-        <input type="number" id="inpArm" class="table-input" inputmode="decimal" placeholder="-"/>
+        <input type="number" id="inpArm" class="table-input" disabled inputmode="decimal" placeholder="-"/>
       </div>  
       <div class="table-box">
-        <input type="number" id="inpBem" class="table-input" inputmode="decimal" placeholder="-"/>
+        <input type="number" id="inpBem" class="table-input" disabled inputmode="decimal" placeholder="-"/>
       </div> 
       <div class="table-box">
-        <input type="number" id="inpMom" class="table-input" inputmode="decimal" placeholder="-"/>
+        <input type="number" id="inpMom" class="table-input" disabled inputmode="decimal" placeholder="-">
       </div> 
       <div class="table-box">
         <p class="table-header">Front Seats</p>
@@ -165,7 +165,6 @@
       </div>
       <div class="table-box" style="background: #333333;">
         <p class="table-header">Zero Fuel Mass</p>
-        <p class="table-subheader">Max 1835kg</p>
       </div>
       <div class="table-box" style="background: #333333;">
         <p class="text-masses" id="txtZFMArm"></p>
@@ -192,25 +191,8 @@
       <div class="table-box">
         <p class="text-table" id="txtFuelMom"></p>
       </div>
-      <div class="table-box">
-        <p class="table-header">AUX Fuel</p>
-        <p class="table-subheader">Max 26.4usg</p>
-      </div>
-      <div class="table-box">
-        <p class="table-header">3.20</p>
-      </div>  
-      <div class="table-box">
-        <input type="number" id="inpAuxFuel" class="table-input" disabled inputmode="decimal" placeholder="-" max="80" oninput="
-          if (this.value > Number(this.max))
-            this.value = this.max;
-      "/>
-      </div>
-      <div class="table-box">
-        <p class="text-table" id="txtAuxFuelMom"></p>
-      </div>
       <div class="table-box" style="background: #333333;">
         <p class="table-header">Take Off Mass</p>
-        <p class="table-subheader">Max 2001kg</p>
       </div>
       <div class="table-box" style="background: #333333;">
         <p class="text-masses" id="txtTOMArm"></p>
@@ -229,7 +211,10 @@
         <p class="table-header">2.63</p>
       </div>  
       <div class="table-box">
-        <input type="number" id="inpBurn" class="table-input" disabled inputmode="decimal" placeholder="-"/>
+        <input type="number" id="inpBurn" class="table-input" disabled inputmode="decimal" placeholder="-" max="151.5" oninput="
+        if (this.value > Number(this.max))
+          this.value = this.max;
+    "/>
       </div>
       <div class="table-box">
         <p class="text-table" id="txtBurnMom"></p>
@@ -242,14 +227,16 @@
         <p class="table-header">1.0</p>
       </div>  
       <div class="table-box">
-        <input type="number" id="inpAntIceBurn" class="table-input" disabled inputmode="decimal" placeholder="-"/>
+        <input type="number" id="inpAntIceBurn" class="table-input" disabled inputmode="decimal" placeholder="-" max="33" oninput="
+        if (this.value > Number(this.max))
+          this.value = this.max;
+    "/>
       </div>
       <div class="table-box">
         <p class="text-table" id="txtAntIceBurnMom"></p>
       </div>
       <div class="table-box" style="background: #333333;">
         <p class="table-header">Landing Mass</p>
-        <p class="table-subheader">Max 2001kg</p>
       </div>
       <div class="table-box" style="background: #333333;">
         <p class="text-masses" id="txtLMArm"></p>
@@ -421,6 +408,6 @@
 <p style="margin-top: 100px; text-align: center; color: rgb(46, 46, 46); font-weight: 600;">This tool was created as a gross error checker. Data on here may not be accurate or up to date.</p>
 <p style="text-align: center; color: rgb(46, 46, 46); font-weight: 600;">Use this at your own risk.</p>
 <p style="margin-bottom: 30px; text-align: center; color: rgb(46, 46, 46); font-weight: 600;">- Jacob.</p>
-<script src="Resources/da40.js"></script>
+<script src="Resources/da42.js"></script>
 </body>
 </html>
