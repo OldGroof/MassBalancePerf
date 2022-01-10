@@ -78,6 +78,12 @@
     "moment": 2390
   },
   {
+    "reg": "G-CTST",
+    "mass": 950.0,
+    "arm": 2.50,
+    "moment": 2377
+  },
+  {
     "reg": "G-CTSX",
     "mass": 957.0,
     "arm": 2.50,

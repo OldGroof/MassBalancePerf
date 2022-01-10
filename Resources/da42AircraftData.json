@@ -1,0 +1,50 @@
+[
+  {
+    "reg": "G-CTCD",
+    "mass": 1296.9,
+    "arm": 2.409,
+    "moment": 3123.9
+  },
+  {
+    "reg": "G-CTCE",
+    "mass": 1270.2,
+    "arm": 2.398,
+    "moment": 3046.3
+  },
+  {
+    "reg": "G-CTCF",
+    "mass": 1283.5,
+    "arm": 2.395,
+    "moment": 3073.9
+  },
+  {
+    "reg": "G-CTCH",
+    "mass": 1302,
+    "arm": 2.402,
+    "moment": 3127.9
+  },
+  {
+    "reg": "G-CTSU",
+    "mass": 1304.2,
+    "arm": 2.434,
+    "moment": 3175
+  },
+  {
+    "reg": "G-CTSV",
+    "mass": 1301.5,
+    "arm": 2.421,
+    "moment": 3150.9
+  },
+  {
+    "reg": "G-CTSY",
+    "mass": 1430,
+    "arm": 2.433,
+    "moment": 3480
+  },
+  {
+    "reg": "G-CTSZ",
+    "mass": 1437,
+    "arm": 2.429,
+    "moment": 3491
+  }
+]
