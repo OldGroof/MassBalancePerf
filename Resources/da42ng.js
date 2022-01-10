@@ -689,7 +689,7 @@ function perfLDG() {
 
     var ld = lower + ((mass - 1700) * ((upper - lower) / 105))
   } else if (mass < 1700) {
-    var ld = (-9.55591 * cos(0.189536 * temp)) + (0.000997211 * (temp * temp * temp)) + (0.732006 * temp) + 559.276 // 1700
+    var ld = (-9.55591 * Math.cos(0.189536 * temp)) + (0.000997211 * (temp * temp * temp)) + (0.732006 * temp) + 559.276 // 1700
   }
 
   // Calculate wind variation(windVar) based on headwind or tailwind
@@ -732,7 +732,7 @@ function perfLDG() {
       document.getElementById("txtLDR143").style.color = "grey"
       document.getElementById("txtLDR143").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " m </strong>≤ LDA " + Intl.NumberFormat().format(lda) + " m"
     
-      document.getElementById("txtLDR143Zero").innerHTML =  Intl.NumberFormat().format(Math.floor((ld * 1.43) + 0.5)) + "m"
+      document.getElementById("txtLDR143Zero").innerHTML =  "<strong>" + Intl.NumberFormat().format(Math.floor((ld * 1.43) + 0.5)) + "m</strong>"
     }
   } else {
     document.getElementById("txtLDR").innerHTML = "<strong>" + Intl.NumberFormat().format(ldr) + " ft</strong>"
@@ -745,7 +745,7 @@ function perfLDG() {
       document.getElementById("txtLDR143").style.color = "grey"
       document.getElementById("txtLDR143").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " ft </strong>≤ LDA " + Intl.NumberFormat().format(Math.floor((lda * 3.285) + 0.5)) + " ft"
     
-      document.getElementById("txtLDR143Zero").innerHTML =  Intl.NumberFormat().format(Math.floor((ld * 1.43) + 0.5)) + "ft"
+      document.getElementById("txtLDR143Zero").innerHTML =  "<strong>" + Intl.NumberFormat().format(Math.floor((ld * 1.43) + 0.5)) + "ft</strong>"
     }
   }
 }
