@@ -709,6 +709,7 @@ function perfLDG() {
   // Convert to feet if necessary
   if (unitLDG == "imp") {
     ldr = Math.floor((ldr * 3.285) + 0.5)
+    ld = Math.floor((ld * 3.285) + 0.5)
   } 
 
   // Display results
