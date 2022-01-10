@@ -704,6 +704,7 @@ function perfLDG() {
     var ldr = Math.floor((ld + ((0.1 * ld) * windVar)) + 0.5)
   } else if (rwyCond == 1) {
     var ldr = Math.floor(((ld + ((0.1 * ld) * windVar)) * 1.15) + 0.5)
+    var ld = Math.floor((ld * 1.15) + 0.5)
   }
 
   // Convert to feet if necessary
