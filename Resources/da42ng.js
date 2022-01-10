@@ -726,18 +726,26 @@ function perfLDG() {
     if (Math.floor((ldr * 1.43) + 0.5) >= lda) {
       document.getElementById("txtLDR143").style.color = "#a80006"
       document.getElementById("txtLDR143").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " m ≤ LDA " + Intl.NumberFormat().format(lda) + " m</strong>"
+    
+      document.getElementById("txtLDR143Zero").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((ld * 1.43) + 0.5)) + "m</strong>"
     } else {
       document.getElementById("txtLDR143").style.color = "grey"
       document.getElementById("txtLDR143").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " m </strong>≤ LDA " + Intl.NumberFormat().format(lda) + " m"
+    
+      document.getElementById("txtLDR143Zero").innerHTML =  Intl.NumberFormat().format(Math.floor((ld * 1.43) + 0.5)) + "m"
     }
   } else {
     document.getElementById("txtLDR").innerHTML = "<strong>" + Intl.NumberFormat().format(ldr) + " ft</strong>"
     if (Math.floor((ldr * 1.43) + 0.5) >= Math.floor((lda * 3.285) + 0.5)) {
       document.getElementById("txtLDR143").style.color = "#a80006"
       document.getElementById("txtLDR143").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " ft ≤ LDA " + Intl.NumberFormat().format(Math.floor((lda * 3.285) + 0.5)) + " ft</strong>"
+    
+      document.getElementById("txtLDR143Zero").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((ld * 1.43) + 0.5)) + "ft</strong>"
     } else {
       document.getElementById("txtLDR143").style.color = "grey"
       document.getElementById("txtLDR143").innerHTML = "<strong>" + Intl.NumberFormat().format(Math.floor((ldr * 1.43) + 0.5)) + " ft </strong>≤ LDA " + Intl.NumberFormat().format(Math.floor((lda * 3.285) + 0.5)) + " ft"
+    
+      document.getElementById("txtLDR143Zero").innerHTML =  Intl.NumberFormat().format(Math.floor((ld * 1.43) + 0.5)) + "ft"
     }
   }
 }
