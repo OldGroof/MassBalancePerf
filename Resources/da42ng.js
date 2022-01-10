@@ -671,25 +671,25 @@ function perfLDG() {
   var pressAlt = ((1013 - press) * 30) + elev
 
   // Calculate raw Landing Distance(ld)
-  if (mass > 1310) {
-    var ld = (25.6735 * Math.cos(0.0806753 * temp)) + (3.64901 * temp) + 595.214 // 1310
-  } else if (mass > 1280 && mass <= 1310) {
-    let upper = (25.6735 * Math.cos(0.0806753 * temp)) + (3.64901 * temp) + 595.214 // 1310
-    let lower = (12.095 * Math.cos(0.110304 * temp)) + (2.88233 * temp) + 597.347 // 1280
+  if (mass > 1999) {
+    var ld = (12.7825 * Math.cos(0.00252233 * (temp * temp))) + (0.000811521 * (temp * temp * temp)) + (1.97201 * temp) + 607.181 // 1999
+  } else if (mass > 1900 && mass <= 1999) {
+    let upper = (12.7825 * Math.cos(0.00252233 * (temp * temp))) + (0.000811521 * (temp * temp * temp)) + (1.97201 * temp) + 607.181 // 1999
+    let lower = (-192.165 * Math.cos(0.000759786 * (temp * temp))) + (-0.0851827 * (temp * temp * temp)) + (2.77418 * temp) + 792.211 // 1900
 
-    var ld = lower + ((mass - 1280) * ((upper - lower) / 30))
-  } else if (mass >= 1200 && mass <= 1280) {
-    let upper = (12.095 * Math.cos(0.110304 * temp)) + (2.88233 * temp) + 597.347 // 1280
-    let lower = (12.1214 * Math.cos(0.0966832 * temp)) + (2.82447 * temp) + 586.832 // 1200
+    var ld = lower + ((mass - 1900) * ((upper - lower) / 99))
+  } else if (mass >= 1805 && mass <= 1900) {
+    let upper = (-192.165 * Math.cos(0.000759786 * (temp * temp))) + (-0.0851827 * (temp * temp * temp)) + (2.77418 * temp) + 792.211 // 1900
+    let lower = (11.1512 * Math.cos(0.00258778 * (temp * temp))) + (0.000776863 * (temp * temp * temp)) + (1.66184 * temp) + 561.842 // 1805
 
-    var ld = lower + ((mass - 1200) * ((upper - lower) / 80))
-  } else if (mass >= 1100 && mass < 1200) {
-    let upper = (12.1214 * Math.cos(0.0966832 * temp)) + (2.82447 * temp) + 586.832 // 1200
-    let lower = (16.373 * Math.cos(0.0969015 * temp)) + (2.90098 * temp) + 573.5 // 1100
+    var ld = lower + ((mass - 1805) * ((upper - lower) / 95))
+  } else if (mass >= 1700 && mass < 1805) {
+    let upper = (11.1512 * Math.cos(0.00258778 * (temp * temp))) + (0.000776863 * (temp * temp * temp)) + (1.66184 * temp) + 561.842 // 1805
+    let lower = (-9.55591 * cos(0.189536 * temp)) + (0.000997211 * (temp * temp * temp)) + (0.732006 * temp) + 559.276 // 1700
 
-    var ld = lower + ((mass - 1100) * ((upper - lower) / 100))
-  } else if (mass < 1100) {
-    var ld = (16.373 * Math.cos(0.0969015 * temp)) + (2.90098 * temp) + 573.5 // 1100
+    var ld = lower + ((mass - 1700) * ((upper - lower) / 105))
+  } else if (mass < 1700) {
+    var ld = (-9.55591 * cos(0.189536 * temp)) + (0.000997211 * (temp * temp * temp)) + (0.732006 * temp) + 559.276 // 1700
   }
 
   // Calculate wind variation(windVar) based on headwind or tailwind
