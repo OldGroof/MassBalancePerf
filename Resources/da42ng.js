@@ -685,7 +685,7 @@ function perfLDG() {
     var ld = lower + ((mass - 1805) * ((upper - lower) / 95))
   } else if (mass >= 1700 && mass < 1805) {
     let upper = (11.1512 * Math.cos(0.00258778 * (temp * temp))) + (0.000776863 * (temp * temp * temp)) + (1.66184 * temp) + 561.842 // 1805
-    let lower = (-9.55591 * cos(0.189536 * temp)) + (0.000997211 * (temp * temp * temp)) + (0.732006 * temp) + 559.276 // 1700
+    let lower = (-9.55591 * Math.cos(0.189536 * temp)) + (0.000997211 * (temp * temp * temp)) + (0.732006 * temp) + 559.276 // 1700
 
     var ld = lower + ((mass - 1700) * ((upper - lower) / 105))
   } else if (mass < 1700) {
