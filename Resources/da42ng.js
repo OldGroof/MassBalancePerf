@@ -265,9 +265,14 @@ function getArrTaf() {
   taf.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
           result = JSON.parse(this.responseText)
+          console.log(result)
 
           if (result.raw != null) {
-            document.getElementById('txtTafArr').innerHTML = "TAF " + result.raw
+            // document.getElementById('txtTafArr').innerHTML = "TAF " + result.raw
+
+            for (i = 0; i < result.forecast.length; i++) {
+              document.getElementById("txtTafArr").innerHTML = document.getElementById("txtTafArr").innerHTML + result.forecast[i].raw + "<br>"
+            }
           } else {
             document.getElementById('txtTafArr').innerHTML = "TAF Unavail"
           }
