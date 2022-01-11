@@ -267,7 +267,7 @@ function getArrTaf() {
           result = JSON.parse(this.responseText)
 
           if (result.raw != null) {
-            document.getElementById('txtTafArr').innerHTML = ""
+            document.getElementById('txtTafArr').innerHTML = "TAF " + result.station + " " + result.time.repr + " "
 
             for (i = 0; i < result.forecast.length; i++) {
               document.getElementById("txtTafArr").innerHTML = document.getElementById("txtTafArr").innerHTML + result.forecast[i].raw + "<br>"
