@@ -267,7 +267,11 @@ function getArrTaf() {
           result = JSON.parse(this.responseText)
 
           if (result.raw != null) {
-            document.getElementById('txtTafArr').innerHTML = "TAF " + result.raw
+            // document.getElementById('txtTafArr').innerHTML = "TAF " + result.raw
+
+            for (i = 0; i < result.forecast.length; i++) {
+              document.getElementById("txtTafArr").innerHTML = document.getElementById("txtTafArr").innerHTML + result.forecast[i].raw + "<br>"
+            }
           } else {
             document.getElementById('txtTafArr').innerHTML = "TAF Unavail"
           }
